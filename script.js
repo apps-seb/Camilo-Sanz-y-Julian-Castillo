@@ -38,90 +38,19 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
 
-    // --- 3. MUSIC PLAYER ---
-    const audio = document.getElementById('audio-element');
-    const playBtn = document.getElementById('play-btn');
-    const playIcon = playBtn ? playBtn.querySelector('i') : null;
-    const playerTitle = document.getElementById('player-title');
-    const playerArtist = document.getElementById('player-artist');
-    const trackItems = document.querySelectorAll('.track-item');
-    const albumArt = document.getElementById('album-art');
+    // --- 3. BIO TABS ---
+    window.openBio = function(name) {
+        const tabs = document.querySelectorAll('.tab-btn');
+        const contents = document.querySelectorAll('.bio-content');
 
-    let isPlaying = false;
+        tabs.forEach(t => t.classList.remove('active'));
+        contents.forEach(c => c.classList.remove('active'));
 
-    function updatePlayIcon() {
-        if (!playIcon) return;
-        if (isPlaying) {
-            playIcon.classList.remove('fa-play');
-            playIcon.classList.add('fa-pause');
-        } else {
-            playIcon.classList.remove('fa-pause');
-            playIcon.classList.add('fa-play');
-        }
-    }
+        const targetTab = document.querySelector(`.tab-btn[onclick="openBio('${name}')"]`);
+        const targetContent = document.getElementById(name);
 
-    function playTrack(trackElement) {
-        const src = trackElement.getAttribute('data-src');
-        const title = trackElement.getAttribute('data-title');
-
-        // Remove active class from all
-        trackItems.forEach(item => item.classList.remove('active'));
-        // Add to current
-        trackElement.classList.add('active');
-
-        // Update Info
-        playerTitle.textContent = title;
-
-        // Change Audio Source
-        if (audio.src !== src) {
-            audio.src = src;
-            audio.load();
-        }
-
-        audio.play().then(() => {
-            isPlaying = true;
-            updatePlayIcon();
-            // Simple album art animation
-            albumArt.style.transform = "scale(0.9)";
-            setTimeout(() => albumArt.style.transform = "scale(1)", 200);
-        }).catch(err => {
-            console.error("Playback error:", err);
-        });
-    }
-
-    if (playBtn) {
-        playBtn.addEventListener('click', () => {
-            if (!audio.src) {
-                // If no track selected, play first one
-                if (trackItems.length > 0) {
-                    playTrack(trackItems[0]);
-                }
-                return;
-            }
-
-            if (isPlaying) {
-                audio.pause();
-                isPlaying = false;
-            } else {
-                audio.play();
-                isPlaying = true;
-            }
-            updatePlayIcon();
-        });
-    }
-
-    trackItems.forEach(item => {
-        item.addEventListener('click', () => {
-            playTrack(item);
-        });
-    });
-
-    // Reset icon when song ends
-    if (audio) {
-        audio.addEventListener('ended', () => {
-            isPlaying = false;
-            updatePlayIcon();
-        });
+        if (targetTab) targetTab.classList.add('active');
+        if (targetContent) targetContent.classList.add('active');
     }
 
     // --- 4. NAVBAR SCROLL EFFECT ---

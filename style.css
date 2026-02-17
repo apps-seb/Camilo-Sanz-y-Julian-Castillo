@@ -554,3 +554,78 @@ footer {
         text-align: center;
     }
 }
+
+/* --- ADDED STYLES FOR REDESIGN --- */
+
+/* --- HEADER LOGO --- */
+.logo img {
+    height: 50px;
+    width: auto;
+}
+
+/* --- BIO TABS --- */
+.bio-tabs {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-bottom: 40px;
+}
+
+.tab-btn {
+    background: transparent;
+    border: 1px solid var(--border);
+    color: var(--text-secondary);
+    padding: 10px 25px;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: var(--transition);
+    font-size: 1rem;
+}
+
+.tab-btn:hover,
+.tab-btn.active {
+    background: var(--text-primary);
+    color: #000;
+    border-color: var(--text-primary);
+}
+
+.bio-content {
+    display: none;
+    animation: fadeIn 0.5s ease;
+}
+
+.bio-content.active {
+    display: block;
+}
+
+.bio-detail {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    align-items: center;
+    text-align: center;
+}
+
+@media(min-width: 768px) {
+    .bio-detail {
+        flex-direction: row;
+        text-align: left;
+    }
+}
+
+.bio-cover {
+    width: 100%;
+    max-width: 400px;
+    border-radius: var(--radius);
+    object-fit: cover;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+}
+
+.bio-text {
+    flex: 1;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}

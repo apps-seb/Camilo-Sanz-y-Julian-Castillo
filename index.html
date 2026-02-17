@@ -21,7 +21,7 @@
     <!-- Navigation -->
     <nav class="navbar glass">
         <div class="nav-container">
-            <a href="#" class="logo">CS & JC</a>
+            <a href="#" class="logo"><img src="https://mercacol.com.co/wp-content/uploads/2026/02/MONOGRAMA-AZUL-scaled.png" alt="CS & JC Logo"></a>
             <div class="nav-links">
                 <a href="#inicio">Inicio</a>
                 <a href="#biografia">Biografía</a>
@@ -51,35 +51,32 @@
         <!-- Hero Section -->
         <section id="inicio" class="hero">
             <div class="hero-bg" style="background-image: url('https://mercacol.com.co/wp-content/uploads/2026/02/IMG_5680.webp');"></div>
-            <div class="hero-overlay"></div>
-            <div class="hero-content fade-in-up">
-                <h1>Camilo Sanz &<br>Julián Castillo</h1>
-                <p class="subtitle">La evolución del vallenato.</p>
-                <div class="hero-buttons">
-                    <a href="#musica" class="btn btn-primary">Escuchar Ahora</a>
-                    <a href="#contacto" class="btn btn-secondary">Contratar</a>
-                </div>
-            </div>
         </section>
 
         <!-- Biography Section (Grid) -->
         <section id="biografia" class="section-padding">
             <div class="container">
                 <h2 class="section-title fade-in">Nuestra Historia</h2>
-                <div class="bio-grid">
-                    <!-- Camilo -->
-                    <div class="card bio-card fade-in">
-                        <div class="card-image" style="background-image: url('https://images.unsplash.com/photo-1570295999919-56ceb5ecca61?q=80&w=800');"></div>
-                        <div class="card-content">
+                <div class="bio-tabs fade-in">
+                    <button class="tab-btn active" onclick="openBio('camilo')">Camilo Sanz</button>
+                    <button class="tab-btn" onclick="openBio('julian')">Julián Castillo</button>
+                </div>
+
+                <div id="camilo" class="bio-content active fade-in">
+                    <div class="bio-detail">
+                        <img src="https://images.unsplash.com/photo-1570295999919-56ceb5ecca61?q=80&w=800" alt="Camilo Sanz" class="bio-cover">
+                        <div class="bio-text">
                             <h3>Camilo Sanz</h3>
                             <p class="role">Voz Principal & Composición</p>
                             <p class="description">Con una voz que fusiona la profundidad del vallenato clásico con matices del pop moderno, Camilo ha logrado cautivar audiencias en todo el país. Su capacidad para transmitir emociones crudas y su carisma en el escenario lo convierten en el alma vibrante del dúo.</p>
                         </div>
                     </div>
-                    <!-- Julián -->
-                    <div class="card bio-card fade-in delay-100">
-                        <div class="card-image" style="background-image: url('https://images.unsplash.com/photo-1568602471122-7832951cc4c5?q=80&w=800');"></div>
-                        <div class="card-content">
+                </div>
+
+                <div id="julian" class="bio-content fade-in">
+                     <div class="bio-detail">
+                        <img src="https://images.unsplash.com/photo-1568602471122-7832951cc4c5?q=80&w=800" alt="Julián Castillo" class="bio-cover">
+                        <div class="bio-text">
                             <h3>Julián Castillo</h3>
                             <p class="role">Acordeón & Dirección Musical</p>
                             <p class="description">Virtuoso del acordeón y arquitecto sonoro. Julián teje melodías que respetan las raíces del folclore mientras exploran nuevas armonías contemporáneas. Su dirección musical aporta la elegancia y sofisticación que define el sonido único de "CS & JC".</p>
@@ -128,47 +125,8 @@
         <section id="musica" class="section-padding">
             <div class="container">
                 <h2 class="section-title fade-in">Música</h2>
-                <div class="music-player-container glass fade-in">
-                    <div class="player-header">
-                        <div class="current-track-info">
-                            <img src="https://images.unsplash.com/photo-1619983081563-430f63602796?q=80&w=300" id="album-art" alt="Album Art">
-                            <div class="track-text">
-                                <h3 id="player-title">Selecciona una canción</h3>
-                                <p id="player-artist">Camilo Sanz & Julián Castillo</p>
-                            </div>
-                        </div>
-                        <div class="player-controls">
-                            <button id="play-btn" class="control-btn"><i class="fas fa-play"></i></button>
-                        </div>
-                        <audio id="audio-element"></audio>
-                    </div>
-
-                    <div class="track-list">
-                        <div class="track-item" data-src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" data-title="Mi Pensamiento Favorito">
-                            <span class="track-number">1</span>
-                            <div class="track-info">
-                                <span class="track-name">Mi Pensamiento Favorito</span>
-                                <span class="track-artist">Camilo Sanz & Julián Castillo</span>
-                            </div>
-                            <span class="track-duration">3:45</span>
-                        </div>
-                        <div class="track-item" data-src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3" data-title="Viviendo el Vallenato">
-                            <span class="track-number">2</span>
-                            <div class="track-info">
-                                <span class="track-name">Viviendo el Vallenato</span>
-                                <span class="track-artist">Camilo Sanz & Julián Castillo</span>
-                            </div>
-                            <span class="track-duration">4:12</span>
-                        </div>
-                        <div class="track-item" data-src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-3.mp3" data-title="Amor de Festival">
-                            <span class="track-number">3</span>
-                            <div class="track-info">
-                                <span class="track-name">Amor de Festival</span>
-                                <span class="track-artist">Camilo Sanz & Julián Castillo</span>
-                            </div>
-                            <span class="track-duration">3:30</span>
-                        </div>
-                    </div>
+                <div class="spotify-container fade-in" style="display: flex; justify-content: center;">
+                    <iframe style="border-radius:12px" src="https://open.spotify.com/embed/artist/4jSxOZYC5bgVCM32uTGmVv?utm_source=generator&theme=0" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
                 </div>
             </div>
         </section>
