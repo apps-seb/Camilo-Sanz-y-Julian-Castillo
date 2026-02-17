@@ -1,69 +1,138 @@
-// 1. INICIALIZAR ANIMACIONES SCROLL
-AOS.init({
-    duration: 1000,
-    once: true
-});
+document.addEventListener('DOMContentLoaded', () => {
 
-// 2. HERO SLIDER (Removed Video logic, kept simple image zoom or static)
-// Since we changed to a static hero image in HTML, we might not need Swiper for Hero anymore.
-// But if we want to keep it extensible or use it for other sections, we can keep the library.
-// For the new design, the hero is static HTML/CSS.
+    // --- 1. SCROLL ANIMATIONS (Intersection Observer) ---
+    const observerOptions = {
+        threshold: 0.1,
+        rootMargin: "0px 0px -50px 0px"
+    };
 
-// 3. PROPUESTA MUSICAL (3D CARDS)
-var swiperProposal = new Swiper(".proposalSwiper", {
-    effect: "coverflow",
-    grabCursor: true,
-    centeredSlides: true,
-    slidesPerView: "auto",
-    initialSlide: 2, // Start in the middle
-    coverflowEffect: {
-        rotate: 30, // Less rotation for a cleaner look
-        stretch: 0,
-        depth: 200, // More depth
-        modifier: 1,
-        slideShadows: true,
-    },
-    pagination: {
-        el: ".swiper-pagination",
-        clickable: true
-    },
-    breakpoints: {
-        320: {
-            slidesPerView: 2,
-            spaceBetween: 10
-        },
-        768: {
-            slidesPerView: "auto",
-            spaceBetween: 30
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+                observer.unobserve(entry.target); // Animate once
+            }
+        });
+    }, observerOptions);
+
+    const fadeElements = document.querySelectorAll('.fade-in');
+    fadeElements.forEach(el => observer.observe(el));
+
+
+    // --- 2. MOBILE MENU ---
+    const menuToggle = document.querySelector('.menu-toggle');
+    const closeMenu = document.querySelector('.close-menu');
+    const mobileOverlay = document.querySelector('.mobile-menu-overlay');
+    const mobileLinks = document.querySelectorAll('.mobile-links a');
+
+    function toggleMenu() {
+        mobileOverlay.classList.toggle('active');
+        document.body.style.overflow = mobileOverlay.classList.contains('active') ? 'hidden' : 'auto';
+    }
+
+    if (menuToggle) menuToggle.addEventListener('click', toggleMenu);
+    if (closeMenu) closeMenu.addEventListener('click', toggleMenu);
+
+    mobileLinks.forEach(link => {
+        link.addEventListener('click', toggleMenu);
+    });
+
+
+    // --- 3. MUSIC PLAYER ---
+    const audio = document.getElementById('audio-element');
+    const playBtn = document.getElementById('play-btn');
+    const playIcon = playBtn ? playBtn.querySelector('i') : null;
+    const playerTitle = document.getElementById('player-title');
+    const playerArtist = document.getElementById('player-artist');
+    const trackItems = document.querySelectorAll('.track-item');
+    const albumArt = document.getElementById('album-art');
+
+    let isPlaying = false;
+
+    function updatePlayIcon() {
+        if (!playIcon) return;
+        if (isPlaying) {
+            playIcon.classList.remove('fa-play');
+            playIcon.classList.add('fa-pause');
+        } else {
+            playIcon.classList.remove('fa-pause');
+            playIcon.classList.add('fa-play');
         }
     }
-});
 
-// 4. MENÚ HAMBURGUESA
-function toggleMenu() {
-    const btn = document.querySelector('.menu-btn');
-    const overlay = document.getElementById('navOverlay');
-    btn.classList.toggle('open');
-    overlay.classList.toggle('active');
-}
+    function playTrack(trackElement) {
+        const src = trackElement.getAttribute('data-src');
+        const title = trackElement.getAttribute('data-title');
 
-// 5. AUDIO PLAYER (Cleaned up - No Upload)
-var audio = document.getElementById('main-audio');
-var songTitle = document.getElementById('current-song-title');
-var songArtist = document.getElementById('current-artist');
-var albumArt = document.getElementById('current-album-art');
+        // Remove active class from all
+        trackItems.forEach(item => item.classList.remove('active'));
+        // Add to current
+        trackElement.classList.add('active');
 
-function playDemo(title, url) {
-    if (!audio) return;
+        // Update Info
+        playerTitle.textContent = title;
 
-    audio.src = url;
-    songTitle.innerText = title;
-    songArtist.innerText = "Camilo Sanz & Julián Castillo";
-    audio.play();
+        // Change Audio Source
+        if (audio.src !== src) {
+            audio.src = src;
+            audio.load();
+        }
 
-    // Highlight effect (simple)
-    if (albumArt) {
-        albumArt.style.transform = "scale(0.95)";
-        setTimeout(() => { albumArt.style.transform = "scale(1)"; }, 200);
+        audio.play().then(() => {
+            isPlaying = true;
+            updatePlayIcon();
+            // Simple album art animation
+            albumArt.style.transform = "scale(0.9)";
+            setTimeout(() => albumArt.style.transform = "scale(1)", 200);
+        }).catch(err => {
+            console.error("Playback error:", err);
+        });
     }
-}
+
+    if (playBtn) {
+        playBtn.addEventListener('click', () => {
+            if (!audio.src) {
+                // If no track selected, play first one
+                if (trackItems.length > 0) {
+                    playTrack(trackItems[0]);
+                }
+                return;
+            }
+
+            if (isPlaying) {
+                audio.pause();
+                isPlaying = false;
+            } else {
+                audio.play();
+                isPlaying = true;
+            }
+            updatePlayIcon();
+        });
+    }
+
+    trackItems.forEach(item => {
+        item.addEventListener('click', () => {
+            playTrack(item);
+        });
+    });
+
+    // Reset icon when song ends
+    if (audio) {
+        audio.addEventListener('ended', () => {
+            isPlaying = false;
+            updatePlayIcon();
+        });
+    }
+
+    // --- 4. NAVBAR SCROLL EFFECT ---
+    const navbar = document.querySelector('.navbar');
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 50) {
+            navbar.style.background = 'rgba(28, 28, 30, 0.9)';
+            navbar.style.borderBottom = '1px solid rgba(255,255,255,0.1)';
+        } else {
+            navbar.style.background = 'rgba(28, 28, 30, 0.6)'; // Return to initial glass
+        }
+    });
+
+});
