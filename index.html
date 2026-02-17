@@ -21,129 +21,52 @@
     <div class="nav-overlay" id="navOverlay">
         <div class="nav-links">
             <a href="#home" onclick="toggleMenu()">Inicio</a>
-            <a href="#new-music" onclick="toggleMenu()">Mi Pensamiento Favorito</a>
-            <a href="#discography" onclick="toggleMenu()">Discografía</a>
-            <a href="#tour" onclick="toggleMenu()">Tour & Fechas</a>
-            <a href="#logros" onclick="toggleMenu()">Trayectoria</a>
-            <a href="#rider" onclick="toggleMenu()">Zona Técnica</a>
+            <a href="#biography" onclick="toggleMenu()">Biografía</a>
+            <a href="#musical-proposal" onclick="toggleMenu()">Propuesta</a>
+            <a href="#albums" onclick="toggleMenu()">Música</a>
+            <a href="#tour" onclick="toggleMenu()">Tour</a>
+            <a href="#downloads" onclick="toggleMenu()">Zona Profesional</a>
         </div>
     </div>
 
-    <div class="swiper heroSwiper" id="home">
-        <div class="swiper-wrapper">
-            <!-- SLIDE 1: VIDEO -->
-            <div class="swiper-slide hero-slide">
-                <video class="slide-video" autoplay loop muted playsinline>
-                    <source src="https://videos.pexels.com/video-files/2795405/2795405-uhd_2560_1440_25fps.mp4" type="video/mp4">
-                </video>
-                <div class="hero-content" data-aos="zoom-in">
-                    <div class="new-single-badge">NUEVO LANZAMIENTO</div>
-                    <h1 class="hero-title chrome-text">CAMILO SANZ</h1>
-                    <h1 class="hero-title chrome-text">& JULIÁN CASTILLO</h1>
-                    <p class="hero-subtitle">MI PENSAMIENTO FAVORITO</p>
-                    <a href="#new-music" class="btn-hero">ESCUCHAR AHORA</a>
-                </div>
-            </div>
-
-            <!-- SLIDE 2: IMAGEN -->
-            <div class="swiper-slide hero-slide">
-                <img src="https://images.unsplash.com/photo-1501612780327-450456b953e6?q=80&w=1920" class="slide-img" alt="Concierto">
-                <div class="hero-content" data-aos="fade-up">
-                    <h1 class="hero-title chrome-text">GIRA NACIONAL 2026</h1>
-                    <p class="hero-subtitle">VIVIENDO EL VALLENATO</p>
-                    <a href="#tour" class="btn-hero">VER FECHAS</a>
-                </div>
-            </div>
-
-             <!-- SLIDE 3: IMAGEN -->
-             <div class="swiper-slide hero-slide">
-                <img src="https://images.unsplash.com/photo-1533174072545-e8d4aa97edf9?q=80&w=1920" class="slide-img" alt="Escenario">
-                <div class="hero-content" data-aos="fade-up">
-                    <h1 class="hero-title chrome-text">PRÓXIMO ÁLBUM</h1>
-                    <p class="hero-subtitle">MUY PRONTO</p>
-                </div>
-            </div>
-        </div>
-        <div class="swiper-button-next" style="color: #fff;"></div>
-        <div class="swiper-button-prev" style="color: #fff;"></div>
-        <div class="swiper-pagination"></div>
-    </div>
-
-    <section class="spotify-section" id="new-music">
-        <h2 class="section-title chrome-text">Nuevo Lanzamiento</h2>
+    <!-- NEW HEADER SECTION -->
+    <section class="hero-static" id="home">
+        <!-- Blurred Background for Desktop -->
+        <div class="hero-background-blur" style="background-image: url('https://mercacol.com.co/wp-content/uploads/2026/02/IMG_5680.webp');"></div>
         
-        <div class="player-container" data-aos="fade-up">
-            <div class="album-art" style="background-image: url('https://images.unsplash.com/photo-1619983081563-430f63602796?q=80&w=600');"></div>
-            
-            <div class="track-info">
-                <div class="track-title">Mi Pensamiento Favorito</div>
-                <div class="track-artist">Camilo Sanz & Julián Castillo</div>
-                
-                <div style="display: flex; justify-content: space-between; font-size: 0.8rem; color: #aaa; margin-bottom: 5px;">
-                    <span>1:45</span>
-                    <span>3:30</span>
-                </div>
-                <div class="progress-bar-bg">
-                    <div class="progress-bar-fill"></div>
-                </div>
-
-                <div class="controls">
-                    <i class="fas fa-random hover-icon"></i>
-                    <i class="fas fa-step-backward hover-icon"></i>
-                    <div class="play-btn-large">
-                        <i class="fas fa-play" style="margin-left: 4px;"></i>
-                    </div>
-                    <i class="fas fa-step-forward hover-icon"></i>
-                    <i class="fas fa-redo hover-icon"></i>
-                </div>
-                
-                <div style="margin-top: 20px;">
-                    <button style="background: #1db954; color: #000; padding: 10px 30px; border: none; border-radius: 30px; font-weight: bold; cursor: pointer;">
-                        <i class="fab fa-spotify"></i> Escuchar en Spotify
-                    </button>
-                    <button style="background: transparent; color: #fff; padding: 10px 30px; border: 1px solid #fff; border-radius: 30px; font-weight: bold; cursor: pointer; margin-left: 10px;">
-                        <i class="fab fa-youtube"></i> Ver Video
-                    </button>
-                </div>
-            </div>
+        <!-- Centered Main Image -->
+        <div class="hero-main-image-container" data-aos="zoom-out" data-aos-duration="1500">
+            <img src="https://mercacol.com.co/wp-content/uploads/2026/02/IMG_5680.webp" alt="Camilo Sanz & Julián Castillo - Mi Pensamiento Favorito" class="hero-poster">
         </div>
     </section>
 
-    <!-- BIOGRAFÍA TIMELINE -->
-    <section id="biography">
-        <h2 class="section-title chrome-text">Biografía</h2>
-        <div class="timeline">
-            <div class="timeline-line"></div>
-
-            <div class="timeline-item left" data-aos="fade-right">
-                <div class="timeline-date">2015</div>
-                <div class="timeline-content">
-                    <h3>El Encuentro</h3>
-                    <p>Camilo Sanz y Julián Castillo cruzan caminos en el prestigioso Festival de la Leyenda Vallenata. Una improvisación espontánea en una parranda reveló una química musical innegable que marcaría el inicio de todo.</p>
+    <!-- NEW BIOGRAPHY SECTION -->
+    <section id="biography" class="bio-modern">
+        <div class="bio-container">
+            <h2 class="section-title chrome-text" data-aos="fade-up">Nuestra Historia</h2>
+            <div class="bio-grid">
+                <!-- Camilo Sanz -->
+                <div class="bio-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="bio-image" style="background-image: url('https://images.unsplash.com/photo-1570295999919-56ceb5ecca61?q=80&w=800');"></div>
+                    <div class="bio-content">
+                        <h3 class="bio-name">Camilo Sanz</h3>
+                        <p class="bio-role">Voz Principal & Composición</p>
+                        <p class="bio-desc">
+                            Con una voz que fusiona la profundidad del vallenato clásico con matices del pop moderno, Camilo ha logrado cautivar audiencias en todo el país. Su capacidad para transmitir emociones crudas y su carisma en el escenario lo convierten en el alma vibrante del dúo.
+                        </p>
+                    </div>
                 </div>
-            </div>
 
-            <div class="timeline-item right" data-aos="fade-left">
-                <div class="timeline-date">2018</div>
-                <div class="timeline-content">
-                    <h3>Primer Álbum</h3>
-                    <p>Lanzamiento de "Raíces Modernas", un disco que fusionó el vallenato tradicional con sonidos contemporáneos, ganando reconocimiento en la costa caribe y abriendo puertas en emisoras locales.</p>
-                </div>
-            </div>
-
-            <div class="timeline-item left" data-aos="fade-right">
-                <div class="timeline-date">2021</div>
-                <div class="timeline-content">
-                    <h3>Consolidación Nacional</h3>
-                    <p>Con el éxito "Mi Pensamiento Favorito", el dúo alcanzó el #1 en las listas nacionales, llevando su música a Bogotá, Medellín y Cali, consolidándose como la nueva cara del vallenato joven.</p>
-                </div>
-            </div>
-
-            <div class="timeline-item right" data-aos="fade-left">
-                <div class="timeline-date">2025</div>
-                <div class="timeline-content">
-                    <h3>Proyección Internacional</h3>
-                    <p>Una gira exitosa por Estados Unidos y Europa confirma su estatus global. Nominados a mejor álbum vallenato, continúan escribiendo historia con su estilo único y elegante.</p>
+                <!-- Julián Castillo -->
+                <div class="bio-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="bio-image" style="background-image: url('https://images.unsplash.com/photo-1568602471122-7832951cc4c5?q=80&w=800');"></div>
+                    <div class="bio-content">
+                        <h3 class="bio-name">Julián Castillo</h3>
+                        <p class="bio-role">Acordeón & Dirección Musical</p>
+                        <p class="bio-desc">
+                            Virtuoso del acordeón y arquitecto sonoro. Julián teje melodías que respetan las raíces del folclore mientras exploran nuevas armonías contemporáneas. Su dirección musical aporta la elegancia y sofisticación que define el sonido único de "CS & JC".
+                        </p>
+                    </div>
                 </div>
             </div>
         </div>
@@ -194,7 +117,7 @@
         </div>
     </section>
 
-    <!-- ALBUMS & STREAMING SECTION -->
+    <!-- ALBUMS & STREAMING SECTION (UPDATED: No Upload) -->
     <section id="albums" class="streaming-ui">
         <h2 class="section-title chrome-text">Álbumes Oficiales</h2>
 
@@ -205,15 +128,14 @@
                 <h3 id="current-song-title">Selecciona una canción</h3>
                 <p id="current-artist">Camilo Sanz & Julián Castillo</p>
 
-                <div class="custom-upload">
-                    <label for="file-upload" class="upload-btn">
-                        <i class="fas fa-cloud-upload-alt"></i> Cargar Canción
-                    </label>
-                    <input id="file-upload" type="file" accept="audio/*" onchange="handleFileUpload(event)"/>
-                </div>
-
-                <!-- Audio Player Visual -->
+                <!-- Audio Player Visual Only (Demo) -->
                 <audio id="main-audio" controls style="width: 100%; margin-top: 20px; border-radius: 30px;"></audio>
+
+                <div style="margin-top: 20px; display: flex; gap: 10px; justify-content: center;">
+                    <button class="btn-icon-only"><i class="fab fa-spotify"></i></button>
+                    <button class="btn-icon-only"><i class="fab fa-apple"></i></button>
+                    <button class="btn-icon-only"><i class="fab fa-youtube"></i></button>
+                </div>
             </div>
 
             <!-- Tracklist -->
@@ -257,51 +179,16 @@
                     </div>
                     <span class="track-time">2:58</span>
                 </div>
-            </div>
-        </div>
-    </section>
 
-    <section id="logros" style="padding: 100px 0;">
-        <h2 class="section-title chrome-text">Trayectoria</h2>
-        <div class="achievements-grid">
-            <div class="stat-card" data-aos="flip-left">
-                <i class="fas fa-users" style="font-size: 2rem; color: var(--royal-blue); margin-bottom: 10px;"></i>
-                <span class="stat-number">2M+</span>
-                <span class="stat-label">Streams Totales</span>
-            </div>
-            <div class="stat-card" data-aos="flip-left" data-aos-delay="100">
-                <i class="fas fa-calendar-check" style="font-size: 2rem; color: var(--royal-blue); margin-bottom: 10px;"></i>
-                <span class="stat-number">150+</span>
-                <span class="stat-label">Conciertos 2024</span>
-            </div>
-            <div class="stat-card" data-aos="flip-left" data-aos-delay="200">
-                <i class="fas fa-trophy" style="font-size: 2rem; color: var(--royal-blue); margin-bottom: 10px;"></i>
-                <span class="stat-number">#1</span>
-                <span class="stat-label">Radio Nacional</span>
-            </div>
-        </div>
-    </section>
-
-    <section class="agenda-section" id="tour">
-        <h2 class="section-title chrome-text">Próximas Fechas</h2>
-        <div style="max-width: 1000px; margin: 0 auto;">
-            <div class="gig-row" data-aos="fade-left">
-                <div class="gig-date">15 ABR</div>
-                <div class="gig-venue">Festival Vallenato - Parque de la Leyenda</div>
-                <div class="gig-location">Valledupar, CO</div>
-                <a href="#" class="gig-btn">Tickets</a>
-            </div>
-            <div class="gig-row" data-aos="fade-left" data-aos-delay="100">
-                <div class="gig-date">02 MAY</div>
-                <div class="gig-venue">La Macarena - Apertura</div>
-                <div class="gig-location">Medellín, CO</div>
-                <a href="#" class="gig-btn">Sold Out</a>
-            </div>
-            <div class="gig-row" data-aos="fade-left" data-aos-delay="200">
-                <div class="gig-date">20 JUN</div>
-                <div class="gig-venue">Movistar Arena</div>
-                <div class="gig-location">Bogotá, CO</div>
-                <a href="#" class="gig-btn">Tickets</a>
+                <div class="track-row" onclick="playDemo('Noche de Estrellas', 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-5.mp3')">
+                    <span class="track-num">5</span>
+                    <i class="fas fa-play play-icon-small"></i>
+                    <div class="track-details">
+                        <span class="track-name">Noche de Estrellas</span>
+                        <span class="track-meta">Camilo Sanz & Julián Castillo</span>
+                    </div>
+                    <span class="track-time">3:10</span>
+                </div>
             </div>
         </div>
     </section>
