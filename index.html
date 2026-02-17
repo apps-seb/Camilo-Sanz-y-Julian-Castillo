@@ -10,263 +10,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
-    <style>
-        /* --- 1. VARIABLES Y RESET --- */
-        :root {
-            --deep-blue: #020b1c; /* Azul casi negro */
-            --royal-blue: #0044ff; /* Azul Neón */
-            --silver-gradient: linear-gradient(to bottom, #ffffff 0%, #d7d7d7 50%, #8e9eab 51%, #e0e0e0 100%);
-            --chrome-text: linear-gradient(180deg, #fff 0%, #ccc 40%, #888 50%, #ccc 100%);
-            --glass: rgba(255, 255, 255, 0.05);
-            --font-main: 'Montserrat', sans-serif;
-            --font-title: 'Playfair Display', serif;
-        }
-
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        
-        body {
-            background-color: var(--deep-blue);
-            color: #fff;
-            font-family: var(--font-main);
-            overflow-x: hidden; /* Evita scroll horizontal */
-        }
-
-        /* --- 2. TEXTOS METÁLICOS --- */
-        .chrome-text {
-            background: var(--chrome-text);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            text-shadow: 0px 0px 15px rgba(255, 255, 255, 0.3);
-            text-transform: uppercase;
-            font-weight: 800;
-            letter-spacing: 2px;
-        }
-
-        .section-title {
-            text-align: center;
-            font-size: 3rem;
-            margin-bottom: 3rem;
-            position: relative;
-            z-index: 2;
-        }
-
-        /* --- 3. MENÚ HAMBURGUESA PROFESIONAL --- */
-        .menu-btn {
-            position: fixed;
-            top: 30px;
-            right: 30px;
-            z-index: 1000;
-            cursor: pointer;
-            width: 50px;
-            height: 50px;
-            background: rgba(0,0,0,0.5);
-            border-radius: 50%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            border: 1px solid var(--royal-blue);
-            backdrop-filter: blur(5px);
-            transition: 0.3s;
-        }
-        .menu-btn:hover { box-shadow: 0 0 15px var(--royal-blue); }
-        .menu-burger { width: 25px; height: 2px; background: #fff; position: relative; transition: 0.3s; }
-        .menu-burger::before, .menu-burger::after {
-            content: ''; position: absolute; width: 25px; height: 2px; background: #fff; transition: 0.3s;
-        }
-        .menu-burger::before { top: -8px; }
-        .menu-burger::after { top: 8px; }
-
-        /* Estado Abierto del Botón */
-        .menu-btn.open .menu-burger { background: transparent; }
-        .menu-btn.open .menu-burger::before { transform: rotate(45deg); top: 0; }
-        .menu-btn.open .menu-burger::after { transform: rotate(-45deg); top: 0; }
-
-        /* Overlay del Menú */
-        .nav-overlay {
-            position: fixed;
-            top: 0; left: 0; width: 100%; height: 100vh;
-            background: rgba(2, 11, 28, 0.98);
-            z-index: 999;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            opacity: 0;
-            visibility: hidden;
-            transition: 0.5s;
-        }
-        .nav-overlay.active { opacity: 1; visibility: visible; }
-        
-        .nav-links a {
-            font-family: var(--font-title);
-            font-size: 2.5rem;
-            color: #fff;
-            text-decoration: none;
-            margin: 15px 0;
-            background: linear-gradient(to right, #fff, #888);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            transition: 0.3s;
-            display: block;
-            text-align: center;
-            font-style: italic;
-        }
-        .nav-links a:hover { transform: scale(1.1); text-shadow: 0 0 20px rgba(255,255,255,0.8); }
-
-        /* --- 4. HERO SECTION (SLIDER PRINCIPAL) --- */
-        .hero-slider {
-            width: 100%;
-            height: 100vh;
-            position: relative;
-        }
-        
-        .hero-slide {
-            background-size: cover;
-            background-position: center;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            position: relative;
-        }
-
-        /* Capa oscura sobre las fotos */
-        .hero-slide::before {
-            content: ''; position: absolute; top:0; left:0; width:100%; height:100%;
-            background: linear-gradient(to bottom, rgba(2,11,28,0.3), var(--deep-blue));
-        }
-
-        .hero-content {
-            z-index: 10;
-            text-align: center;
-            border: 1px solid rgba(255,255,255,0.2);
-            padding: 40px;
-            backdrop-filter: blur(10px);
-            background: rgba(0,0,0,0.3);
-            max-width: 800px;
-        }
-
-        .hero-title { font-size: 4rem; margin: 0; line-height: 1; }
-        .hero-subtitle { font-size: 1.5rem; letter-spacing: 5px; color: #ccc; margin-top: 10px; }
-        
-        .new-single-badge {
-            background: var(--royal-blue);
-            padding: 10px 20px;
-            display: inline-block;
-            margin-bottom: 20px;
-            font-weight: bold;
-            box-shadow: 0 0 15px var(--royal-blue);
-        }
-
-        /* --- 5. SPOTIFY PLAYER SECTION --- */
-        .spotify-section {
-            padding: 80px 20px;
-            background: linear-gradient(180deg, var(--deep-blue) 0%, #0a152b 100%);
-        }
-
-        .player-container {
-            max-width: 900px;
-            margin: 0 auto;
-            background: #121212; /* Fondo Spotify */
-            border-radius: 15px;
-            display: flex;
-            flex-wrap: wrap;
-            padding: 30px;
-            box-shadow: 0 10px 40px rgba(0,0,0,0.5);
-            align-items: center;
-            border: 1px solid #333;
-        }
-
-        .album-art {
-            width: 250px;
-            height: 250px;
-            background: url('https://images.unsplash.com/photo-1514525253440-b393452e8d26?q=80&w=1000') center/cover;
-            border-radius: 10px;
-            box-shadow: 0 0 20px rgba(0,0,0,0.5);
-            margin-right: 30px;
-        }
-
-        .track-info { flex: 1; min-width: 300px; }
-        .track-title { font-size: 2rem; font-weight: bold; margin-bottom: 5px; }
-        .track-artist { color: #b3b3b3; font-size: 1.2rem; margin-bottom: 20px; }
-
-        .progress-bar-bg { width: 100%; height: 5px; background: #535353; border-radius: 5px; margin-bottom: 20px; position: relative; }
-        .progress-bar-fill { width: 45%; height: 100%; background: #1db954; border-radius: 5px; position: relative; }
-        .progress-bar-fill::after { content:''; width:12px; height:12px; background:#fff; border-radius:50%; position:absolute; right:-6px; top:-3.5px; }
-
-        .controls { display: flex; align-items: center; gap: 20px; font-size: 1.5rem; color: #b3b3b3; }
-        .play-btn-large { 
-            width: 60px; height: 60px; background: #fff; color: #000; border-radius: 50%; 
-            display: flex; justify-content: center; align-items: center; font-size: 1.5rem; 
-            cursor: pointer; transition: 0.2s;
-        }
-        .play-btn-large:hover { transform: scale(1.1); }
-
-        /* --- 6. LOGROS (CARDS) --- */
-        .achievements-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 30px;
-            padding: 0 10%;
-        }
-
-        .stat-card {
-            background: linear-gradient(145deg, #0f2040, #050e1f);
-            padding: 40px 20px;
-            border-radius: 20px;
-            text-align: center;
-            border: 1px solid rgba(255,255,255,0.05);
-            transition: 0.4s;
-        }
-        .stat-card:hover { transform: translateY(-10px); border-color: var(--royal-blue); box-shadow: 0 0 20px rgba(0, 68, 255, 0.2); }
-        .stat-number { font-size: 3rem; font-weight: 800; color: #fff; display: block; margin-bottom: 10px; }
-        .stat-label { color: #aaa; text-transform: uppercase; letter-spacing: 1px; }
-
-        /* --- 7. AGENDA TABLE --- */
-        .agenda-section { padding: 100px 10%; background: #010612; }
-        
-        .gig-row {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 25px;
-            border-bottom: 1px solid rgba(255,255,255,0.1);
-            transition: 0.3s;
-        }
-        .gig-row:hover { background: rgba(255,255,255,0.03); padding-left: 35px; }
-        
-        .gig-date { font-weight: bold; color: var(--royal-blue); font-size: 1.2rem; flex: 1; }
-        .gig-venue { flex: 2; font-size: 1.1rem; }
-        .gig-location { flex: 1; color: #888; text-align: right; }
-        .gig-btn { 
-            padding: 10px 25px; 
-            border: 1px solid #fff; 
-            color: #fff; 
-            text-decoration: none; 
-            margin-left: 20px;
-            transition: 0.3s;
-            text-transform: uppercase;
-            font-size: 0.8rem;
-        }
-        .gig-btn:hover { background: #fff; color: #000; }
-
-        /* --- 8. FOOTER --- */
-        footer {
-            background: #000;
-            padding: 60px 20px;
-            text-align: center;
-            border-top: 2px solid var(--royal-blue);
-        }
-
-        /* RESPONSIVE */
-        @media (max-width: 768px) {
-            .hero-title { font-size: 2.5rem; }
-            .player-container { flex-direction: column; text-align: center; }
-            .album-art { margin: 0 auto 20px auto; }
-            .gig-row { flex-direction: column; text-align: center; gap: 15px; }
-            .gig-location { text-align: center; }
-        }
-    </style>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
@@ -287,23 +31,42 @@
 
     <div class="swiper heroSwiper" id="home">
         <div class="swiper-wrapper">
-            <div class="swiper-slide hero-slide" style="background-image: url('https://images.unsplash.com/photo-1501612780327-450456b953e6?q=80&w=1920');">
+            <!-- SLIDE 1: VIDEO -->
+            <div class="swiper-slide hero-slide">
+                <video class="slide-video" autoplay loop muted playsinline>
+                    <source src="https://videos.pexels.com/video-files/2795405/2795405-uhd_2560_1440_25fps.mp4" type="video/mp4">
+                </video>
                 <div class="hero-content" data-aos="zoom-in">
-                    <div class="new-single-badge">YA DISPONIBLE</div>
+                    <div class="new-single-badge">NUEVO LANZAMIENTO</div>
                     <h1 class="hero-title chrome-text">CAMILO SANZ</h1>
                     <h1 class="hero-title chrome-text">& JULIÁN CASTILLO</h1>
                     <p class="hero-subtitle">MI PENSAMIENTO FAVORITO</p>
+                    <a href="#new-music" class="btn-hero">ESCUCHAR AHORA</a>
                 </div>
             </div>
-            <div class="swiper-slide hero-slide" style="background-image: url('https://images.unsplash.com/photo-1533174072545-e8d4aa97edf9?q=80&w=1920');">
-                <div class="hero-content">
-                    <h1 class="hero-title chrome-text">GIRA NACIONAL</h1>
+
+            <!-- SLIDE 2: IMAGEN -->
+            <div class="swiper-slide hero-slide">
+                <img src="https://images.unsplash.com/photo-1501612780327-450456b953e6?q=80&w=1920" class="slide-img" alt="Concierto">
+                <div class="hero-content" data-aos="fade-up">
+                    <h1 class="hero-title chrome-text">GIRA NACIONAL 2026</h1>
                     <p class="hero-subtitle">VIVIENDO EL VALLENATO</p>
+                    <a href="#tour" class="btn-hero">VER FECHAS</a>
+                </div>
+            </div>
+
+             <!-- SLIDE 3: IMAGEN -->
+             <div class="swiper-slide hero-slide">
+                <img src="https://images.unsplash.com/photo-1533174072545-e8d4aa97edf9?q=80&w=1920" class="slide-img" alt="Escenario">
+                <div class="hero-content" data-aos="fade-up">
+                    <h1 class="hero-title chrome-text">PRÓXIMO ÁLBUM</h1>
+                    <p class="hero-subtitle">MUY PRONTO</p>
                 </div>
             </div>
         </div>
         <div class="swiper-button-next" style="color: #fff;"></div>
         <div class="swiper-button-prev" style="color: #fff;"></div>
+        <div class="swiper-pagination"></div>
     </div>
 
     <section class="spotify-section" id="new-music">
@@ -346,21 +109,155 @@
         </div>
     </section>
 
-    <section style="padding: 100px 0; background: #020b1c;" id="discography">
-        <h2 class="section-title chrome-text">Discografía</h2>
-        <div class="swiper albumSwiper" style="padding-bottom: 50px;">
+    <!-- BIOGRAFÍA TIMELINE -->
+    <section id="biography">
+        <h2 class="section-title chrome-text">Biografía</h2>
+        <div class="timeline">
+            <div class="timeline-line"></div>
+
+            <div class="timeline-item left" data-aos="fade-right">
+                <div class="timeline-date">2015</div>
+                <div class="timeline-content">
+                    <h3>El Encuentro</h3>
+                    <p>Camilo Sanz y Julián Castillo cruzan caminos en el prestigioso Festival de la Leyenda Vallenata. Una improvisación espontánea en una parranda reveló una química musical innegable que marcaría el inicio de todo.</p>
+                </div>
+            </div>
+
+            <div class="timeline-item right" data-aos="fade-left">
+                <div class="timeline-date">2018</div>
+                <div class="timeline-content">
+                    <h3>Primer Álbum</h3>
+                    <p>Lanzamiento de "Raíces Modernas", un disco que fusionó el vallenato tradicional con sonidos contemporáneos, ganando reconocimiento en la costa caribe y abriendo puertas en emisoras locales.</p>
+                </div>
+            </div>
+
+            <div class="timeline-item left" data-aos="fade-right">
+                <div class="timeline-date">2021</div>
+                <div class="timeline-content">
+                    <h3>Consolidación Nacional</h3>
+                    <p>Con el éxito "Mi Pensamiento Favorito", el dúo alcanzó el #1 en las listas nacionales, llevando su música a Bogotá, Medellín y Cali, consolidándose como la nueva cara del vallenato joven.</p>
+                </div>
+            </div>
+
+            <div class="timeline-item right" data-aos="fade-left">
+                <div class="timeline-date">2025</div>
+                <div class="timeline-content">
+                    <h3>Proyección Internacional</h3>
+                    <p>Una gira exitosa por Estados Unidos y Europa confirma su estatus global. Nominados a mejor álbum vallenato, continúan escribiendo historia con su estilo único y elegante.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PROPUESTA MUSICAL 3D CAROUSEL -->
+    <section style="padding: 100px 0; background: #020b1c;" id="musical-proposal">
+        <h2 class="section-title chrome-text">Propuesta Musical</h2>
+        <div class="swiper proposalSwiper" style="padding-bottom: 50px;">
             <div class="swiper-wrapper">
-                <div class="swiper-slide" style="width: 300px; height: 300px;">
-                    <img src="https://images.unsplash.com/photo-1493225255756-d9584f8606e9?q=80&w=600" style="width:100%; height:100%; object-fit:cover; border-radius:10px; border: 2px solid #ccc;">
+                <div class="swiper-slide proposal-card">
+                    <img src="https://images.unsplash.com/photo-1493225255756-d9584f8606e9?q=80&w=600" alt="Vallenato Moderno">
+                    <div class="proposal-info">
+                        <h3>Vallenato Moderno</h3>
+                        <p>La evolución del género</p>
+                    </div>
                 </div>
-                 <div class="swiper-slide" style="width: 300px; height: 300px;">
-                    <img src="https://images.unsplash.com/photo-1614613535308-eb5fbd3d2c17?q=80&w=600" style="width:100%; height:100%; object-fit:cover; border-radius:10px; border: 2px solid gold;">
+                <div class="swiper-slide proposal-card">
+                    <img src="https://images.unsplash.com/photo-1614613535308-eb5fbd3d2c17?q=80&w=600" alt="Fusión Pop">
+                    <div class="proposal-info">
+                        <h3>Fusión Pop</h3>
+                        <p>Ritmos internacionales</p>
+                    </div>
                 </div>
-                 <div class="swiper-slide" style="width: 300px; height: 300px;">
-                    <img src="https://images.unsplash.com/photo-1470225620780-dba8ba36b745?q=80&w=600" style="width:100%; height:100%; object-fit:cover; border-radius:10px; border: 2px solid #ccc;">
+                <div class="swiper-slide proposal-card">
+                    <img src="https://images.unsplash.com/photo-1470225620780-dba8ba36b745?q=80&w=600" alt="Sentimiento">
+                    <div class="proposal-info">
+                        <h3>Sentimiento</h3>
+                        <p>Letras que conectan</p>
+                    </div>
+                </div>
+                <div class="swiper-slide proposal-card">
+                    <img src="https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?q=80&w=600" alt="Parranda">
+                    <div class="proposal-info">
+                        <h3>Parranda</h3>
+                        <p>Alegría pura</p>
+                    </div>
+                </div>
+                <div class="swiper-slide proposal-card">
+                    <img src="https://images.unsplash.com/photo-1514320291840-2e0a9bf2a9ae?q=80&w=600" alt="En Vivo">
+                    <div class="proposal-info">
+                        <h3>En Vivo</h3>
+                        <p>Show Inolvidable</p>
+                    </div>
                 </div>
             </div>
             <div class="swiper-pagination"></div>
+        </div>
+    </section>
+
+    <!-- ALBUMS & STREAMING SECTION -->
+    <section id="albums" class="streaming-ui">
+        <h2 class="section-title chrome-text">Álbumes Oficiales</h2>
+
+        <div class="music-player-layout" data-aos="fade-up">
+            <!-- Sidebar / Cover -->
+            <div class="player-sidebar">
+                <img src="https://images.unsplash.com/photo-1619983081563-430f63602796?q=80&w=600" id="current-album-art" class="album-cover-large">
+                <h3 id="current-song-title">Selecciona una canción</h3>
+                <p id="current-artist">Camilo Sanz & Julián Castillo</p>
+
+                <div class="custom-upload">
+                    <label for="file-upload" class="upload-btn">
+                        <i class="fas fa-cloud-upload-alt"></i> Cargar Canción
+                    </label>
+                    <input id="file-upload" type="file" accept="audio/*" onchange="handleFileUpload(event)"/>
+                </div>
+
+                <!-- Audio Player Visual -->
+                <audio id="main-audio" controls style="width: 100%; margin-top: 20px; border-radius: 30px;"></audio>
+            </div>
+
+            <!-- Tracklist -->
+            <div class="tracklist-container">
+                <div class="track-row" onclick="playDemo('Mi Pensamiento Favorito', 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3')">
+                    <span class="track-num">1</span>
+                    <i class="fas fa-play play-icon-small"></i>
+                    <div class="track-details">
+                        <span class="track-name">Mi Pensamiento Favorito</span>
+                        <span class="track-meta">Camilo Sanz & Julián Castillo</span>
+                    </div>
+                    <span class="track-time">3:45</span>
+                </div>
+
+                <div class="track-row" onclick="playDemo('Viviendo el Vallenato', 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3')">
+                    <span class="track-num">2</span>
+                    <i class="fas fa-play play-icon-small"></i>
+                    <div class="track-details">
+                        <span class="track-name">Viviendo el Vallenato</span>
+                        <span class="track-meta">Camilo Sanz & Julián Castillo</span>
+                    </div>
+                    <span class="track-time">4:12</span>
+                </div>
+
+                <div class="track-row" onclick="playDemo('Amor de Festival', 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-3.mp3')">
+                    <span class="track-num">3</span>
+                    <i class="fas fa-play play-icon-small"></i>
+                    <div class="track-details">
+                        <span class="track-name">Amor de Festival</span>
+                        <span class="track-meta">Camilo Sanz & Julián Castillo</span>
+                    </div>
+                    <span class="track-time">3:30</span>
+                </div>
+
+                <div class="track-row" onclick="playDemo('Parranda Inolvidable', 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-4.mp3')">
+                    <span class="track-num">4</span>
+                    <i class="fas fa-play play-icon-small"></i>
+                    <div class="track-details">
+                        <span class="track-name">Parranda Inolvidable</span>
+                        <span class="track-meta">Camilo Sanz & Julián Castillo</span>
+                    </div>
+                    <span class="track-time">2:58</span>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -409,74 +306,57 @@
         </div>
     </section>
 
-    <section id="rider" style="padding: 80px 20px; background: #050505; text-align: center;">
-        <h3 style="color: #aaa; margin-bottom: 20px;">ÁREA DE PROMOTORES</h3>
-        <div style="display: flex; justify-content: center; gap: 20px; flex-wrap: wrap;">
-            <a href="#" style="padding: 15px 30px; border: 1px solid var(--royal-blue); color: var(--royal-blue); text-decoration: none; border-radius: 5px; transition: 0.3s;">
-                <i class="fas fa-file-pdf"></i> Descargar Rider
-            </a>
-            <a href="#" style="padding: 15px 30px; border: 1px solid #fff; color: #fff; text-decoration: none; border-radius: 5px;">
-                <i class="fas fa-image"></i> Descargar Press Kit
-            </a>
+    <!-- DOWNLOADS AREA -->
+    <section id="downloads">
+        <div class="downloads-container" data-aos="zoom-in">
+            <h2 class="chrome-text" style="font-size: 2.5rem; margin-bottom: 40px;">Área Profesional</h2>
+
+            <div class="download-grid">
+                <a href="#" class="btn-chrome">
+                    <i class="fas fa-book-open"></i> Brochure 2026
+                </a>
+                <a href="#" class="btn-chrome">
+                    <i class="fas fa-sliders-h"></i> Rider Técnico
+                </a>
+                <a href="#" class="btn-chrome">
+                    <i class="fas fa-map"></i> Stage Plot
+                </a>
+                <a href="#" class="btn-chrome">
+                    <i class="fas fa-camera"></i> Press Kit
+                </a>
+            </div>
         </div>
     </section>
 
     <footer id="contacto">
-        <h2 class="chrome-text">Contrataciones</h2>
-        <p style="font-size: 1.5rem; margin: 20px 0;">+57 300 123 4567</p>
-        <p style="color: #888;">manager@camiloyjulian.com</p>
-        <br>
-        <div style="font-size: 2rem;">
-            <i class="fab fa-instagram" style="margin: 0 10px;"></i>
-            <i class="fab fa-tiktok" style="margin: 0 10px;"></i>
-            <i class="fab fa-youtube" style="margin: 0 10px;"></i>
+        <div class="footer-container">
+            <div class="footer-logo">
+                <h2 class="chrome-text" style="font-size: 2rem;">CS & JC</h2>
+                <p>&copy; 2026 Camilo Sanz & Julián Castillo.</p>
+                <p style="font-size: 0.8rem; color: #555;">Todos los derechos reservados.</p>
+            </div>
+
+            <div class="footer-social">
+                <h3>Síguenos</h3>
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-tiktok"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                    <a href="#"><i class="fab fa-spotify"></i></a>
+                </div>
+            </div>
+
+            <div class="footer-contact">
+                <h3>Contrataciones</h3>
+                <p class="contact-highlight">+57 300 123 4567</p>
+                <a href="mailto:manager@camiloyjulian.com">manager@camiloyjulian.com</a>
+                <p>Bogotá, Colombia</p>
+            </div>
         </div>
-        <br>
-        <p style="font-size: 0.8rem; color: #555;">&copy; 2026 Camilo Sanz & Julián Castillo.</p>
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script>
-        // 1. INICIALIZAR ANIMACIONES SCROLL
-        AOS.init({
-            duration: 1000,
-            once: true
-        });
-
-        // 2. HERO SLIDER
-        var swiperHero = new Swiper(".heroSwiper", {
-            loop: true,
-            autoplay: { delay: 4000 },
-            navigation: {
-                nextEl: ".swiper-button-next",
-                prevEl: ".swiper-button-prev",
-            },
-        });
-
-        // 3. ALBUM 3D COVERFLOW
-        var swiperAlbum = new Swiper(".albumSwiper", {
-            effect: "coverflow",
-            grabCursor: true,
-            centeredSlides: true,
-            slidesPerView: "auto",
-            coverflowEffect: {
-                rotate: 50,
-                stretch: 0,
-                depth: 100,
-                modifier: 1,
-                slideShadows: true,
-            },
-            pagination: { el: ".swiper-pagination", clickable: true },
-        });
-
-        // 4. MENÚ HAMBURGUESA
-        function toggleMenu() {
-            const btn = document.querySelector('.menu-btn');
-            const overlay = document.getElementById('navOverlay');
-            btn.classList.toggle('open');
-            overlay.classList.toggle('active');
-        }
-    </script>
+    <script src="script.js"></script>
 </body>
 </html>
