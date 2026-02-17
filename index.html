@@ -5,245 +5,226 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Camilo Sanz & Julián Castillo | Official Website</title>
     
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;800&family=Playfair+Display:ital,wght@1,700&display=swap" rel="stylesheet">
+    <!-- Fonts: Using system fonts for Apple feel, plus a backup -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <!-- Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Main CSS -->
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <div class="menu-btn" onclick="toggleMenu()">
-        <div class="menu-burger"></div>
+    <!-- Navigation -->
+    <nav class="navbar glass">
+        <div class="nav-container">
+            <a href="#" class="logo">CS & JC</a>
+            <div class="nav-links">
+                <a href="#inicio">Inicio</a>
+                <a href="#biografia">Biografía</a>
+                <a href="#propuesta">Propuesta</a>
+                <a href="#musica">Música</a>
+                <a href="#zona-pro">Zona Pro</a>
+            </div>
+            <div class="menu-toggle">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu Overlay -->
+    <div class="mobile-menu-overlay glass">
+        <div class="close-menu"><i class="fas fa-times"></i></div>
+        <div class="mobile-links">
+            <a href="#inicio">Inicio</a>
+            <a href="#biografia">Biografía</a>
+            <a href="#propuesta">Propuesta</a>
+            <a href="#musica">Música</a>
+            <a href="#zona-pro">Zona Pro</a>
+        </div>
     </div>
 
-    <div class="nav-overlay" id="navOverlay">
-        <div class="nav-links">
-            <a href="#home" onclick="toggleMenu()">Inicio</a>
-            <a href="#biography" onclick="toggleMenu()">Biografía</a>
-            <a href="#musical-proposal" onclick="toggleMenu()">Propuesta</a>
-            <a href="#albums" onclick="toggleMenu()">Música</a>
-            <a href="#tour" onclick="toggleMenu()">Tour</a>
-            <a href="#downloads" onclick="toggleMenu()">Zona Profesional</a>
-        </div>
-    </div>
-
-    <!-- NEW HEADER SECTION -->
-    <section class="hero-static" id="home">
-        <!-- Blurred Background for Desktop -->
-        <div class="hero-background-blur" style="background-image: url('https://mercacol.com.co/wp-content/uploads/2026/02/IMG_5680.webp');"></div>
-        
-        <!-- Centered Main Image -->
-        <div class="hero-main-image-container" data-aos="zoom-out" data-aos-duration="1500">
-            <img src="https://mercacol.com.co/wp-content/uploads/2026/02/IMG_5680.webp" alt="Camilo Sanz & Julián Castillo - Mi Pensamiento Favorito" class="hero-poster">
-        </div>
-    </section>
-
-    <!-- NEW BIOGRAPHY SECTION -->
-    <section id="biography" class="bio-modern">
-        <div class="bio-container">
-            <h2 class="section-title chrome-text" data-aos="fade-up">Nuestra Historia</h2>
-            <div class="bio-grid">
-                <!-- Camilo Sanz -->
-                <div class="bio-card" data-aos="fade-up" data-aos-delay="100">
-                    <div class="bio-image" style="background-image: url('https://images.unsplash.com/photo-1570295999919-56ceb5ecca61?q=80&w=800');"></div>
-                    <div class="bio-content">
-                        <h3 class="bio-name">Camilo Sanz</h3>
-                        <p class="bio-role">Voz Principal & Composición</p>
-                        <p class="bio-desc">
-                            Con una voz que fusiona la profundidad del vallenato clásico con matices del pop moderno, Camilo ha logrado cautivar audiencias en todo el país. Su capacidad para transmitir emociones crudas y su carisma en el escenario lo convierten en el alma vibrante del dúo.
-                        </p>
-                    </div>
+    <main>
+        <!-- Hero Section -->
+        <section id="inicio" class="hero">
+            <div class="hero-bg" style="background-image: url('https://mercacol.com.co/wp-content/uploads/2026/02/IMG_5680.webp');"></div>
+            <div class="hero-overlay"></div>
+            <div class="hero-content fade-in-up">
+                <h1>Camilo Sanz &<br>Julián Castillo</h1>
+                <p class="subtitle">La evolución del vallenato.</p>
+                <div class="hero-buttons">
+                    <a href="#musica" class="btn btn-primary">Escuchar Ahora</a>
+                    <a href="#contacto" class="btn btn-secondary">Contratar</a>
                 </div>
+            </div>
+        </section>
 
-                <!-- Julián Castillo -->
-                <div class="bio-card" data-aos="fade-up" data-aos-delay="300">
-                    <div class="bio-image" style="background-image: url('https://images.unsplash.com/photo-1568602471122-7832951cc4c5?q=80&w=800');"></div>
-                    <div class="bio-content">
-                        <h3 class="bio-name">Julián Castillo</h3>
-                        <p class="bio-role">Acordeón & Dirección Musical</p>
-                        <p class="bio-desc">
-                            Virtuoso del acordeón y arquitecto sonoro. Julián teje melodías que respetan las raíces del folclore mientras exploran nuevas armonías contemporáneas. Su dirección musical aporta la elegancia y sofisticación que define el sonido único de "CS & JC".
-                        </p>
+        <!-- Biography Section (Grid) -->
+        <section id="biografia" class="section-padding">
+            <div class="container">
+                <h2 class="section-title fade-in">Nuestra Historia</h2>
+                <div class="bio-grid">
+                    <!-- Camilo -->
+                    <div class="card bio-card fade-in">
+                        <div class="card-image" style="background-image: url('https://images.unsplash.com/photo-1570295999919-56ceb5ecca61?q=80&w=800');"></div>
+                        <div class="card-content">
+                            <h3>Camilo Sanz</h3>
+                            <p class="role">Voz Principal & Composición</p>
+                            <p class="description">Con una voz que fusiona la profundidad del vallenato clásico con matices del pop moderno, Camilo ha logrado cautivar audiencias en todo el país. Su capacidad para transmitir emociones crudas y su carisma en el escenario lo convierten en el alma vibrante del dúo.</p>
+                        </div>
+                    </div>
+                    <!-- Julián -->
+                    <div class="card bio-card fade-in delay-100">
+                        <div class="card-image" style="background-image: url('https://images.unsplash.com/photo-1568602471122-7832951cc4c5?q=80&w=800');"></div>
+                        <div class="card-content">
+                            <h3>Julián Castillo</h3>
+                            <p class="role">Acordeón & Dirección Musical</p>
+                            <p class="description">Virtuoso del acordeón y arquitecto sonoro. Julián teje melodías que respetan las raíces del folclore mientras exploran nuevas armonías contemporáneas. Su dirección musical aporta la elegancia y sofisticación que define el sonido único de "CS & JC".</p>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- PROPUESTA MUSICAL 3D CAROUSEL -->
-    <section style="padding: 100px 0; background: #020b1c;" id="musical-proposal">
-        <h2 class="section-title chrome-text">Propuesta Musical</h2>
-        <div class="swiper proposalSwiper" style="padding-bottom: 50px;">
-            <div class="swiper-wrapper">
-                <div class="swiper-slide proposal-card">
-                    <img src="https://images.unsplash.com/photo-1493225255756-d9584f8606e9?q=80&w=600" alt="Vallenato Moderno">
-                    <div class="proposal-info">
-                        <h3>Vallenato Moderno</h3>
-                        <p>La evolución del género</p>
+        <!-- Musical Proposal (Bento Grid) -->
+        <section id="propuesta" class="section-padding dark-bg">
+            <div class="container">
+                <h2 class="section-title fade-in">Propuesta Musical</h2>
+                <div class="bento-grid">
+                    <div class="bento-item large fade-in" style="background-image: url('https://images.unsplash.com/photo-1493225255756-d9584f8606e9?q=80&w=800');">
+                        <div class="bento-content">
+                            <h3>Vallenato Moderno</h3>
+                            <p>Respetando la tradición, innovando el sonido.</p>
+                        </div>
                     </div>
-                </div>
-                <div class="swiper-slide proposal-card">
-                    <img src="https://images.unsplash.com/photo-1614613535308-eb5fbd3d2c17?q=80&w=600" alt="Fusión Pop">
-                    <div class="proposal-info">
-                        <h3>Fusión Pop</h3>
-                        <p>Ritmos internacionales</p>
+                    <div class="bento-item small fade-in delay-100" style="background-image: linear-gradient(135deg, #1c1c1e, #2c2c2e);">
+                        <div class="bento-content">
+                            <i class="fas fa-guitar icon-large"></i>
+                            <h3>Fusión Pop</h3>
+                            <p>Ritmos internacionales.</p>
+                        </div>
                     </div>
-                </div>
-                <div class="swiper-slide proposal-card">
-                    <img src="https://images.unsplash.com/photo-1470225620780-dba8ba36b745?q=80&w=600" alt="Sentimiento">
-                    <div class="proposal-info">
-                        <h3>Sentimiento</h3>
-                        <p>Letras que conectan</p>
+                    <div class="bento-item small fade-in delay-200" style="background-image: linear-gradient(135deg, #0044ff, #002a99);">
+                        <div class="bento-content">
+                            <i class="fas fa-heart icon-large"></i>
+                            <h3>Sentimiento</h3>
+                            <p>Letras que conectan.</p>
+                        </div>
                     </div>
-                </div>
-                <div class="swiper-slide proposal-card">
-                    <img src="https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?q=80&w=600" alt="Parranda">
-                    <div class="proposal-info">
-                        <h3>Parranda</h3>
-                        <p>Alegría pura</p>
-                    </div>
-                </div>
-                <div class="swiper-slide proposal-card">
-                    <img src="https://images.unsplash.com/photo-1514320291840-2e0a9bf2a9ae?q=80&w=600" alt="En Vivo">
-                    <div class="proposal-info">
-                        <h3>En Vivo</h3>
-                        <p>Show Inolvidable</p>
+                    <div class="bento-item medium fade-in delay-300" style="background-image: url('https://images.unsplash.com/photo-1514320291840-2e0a9bf2a9ae?q=80&w=800');">
+                        <div class="bento-content">
+                            <h3>Show En Vivo</h3>
+                            <p>Una experiencia visual y sonora inolvidable.</p>
+                        </div>
                     </div>
                 </div>
             </div>
-            <div class="swiper-pagination"></div>
-        </div>
-    </section>
+        </section>
 
-    <!-- ALBUMS & STREAMING SECTION (UPDATED: No Upload) -->
-    <section id="albums" class="streaming-ui">
-        <h2 class="section-title chrome-text">Álbumes Oficiales</h2>
+        <!-- Music Section (List Style) -->
+        <section id="musica" class="section-padding">
+            <div class="container">
+                <h2 class="section-title fade-in">Música</h2>
+                <div class="music-player-container glass fade-in">
+                    <div class="player-header">
+                        <div class="current-track-info">
+                            <img src="https://images.unsplash.com/photo-1619983081563-430f63602796?q=80&w=300" id="album-art" alt="Album Art">
+                            <div class="track-text">
+                                <h3 id="player-title">Selecciona una canción</h3>
+                                <p id="player-artist">Camilo Sanz & Julián Castillo</p>
+                            </div>
+                        </div>
+                        <div class="player-controls">
+                            <button id="play-btn" class="control-btn"><i class="fas fa-play"></i></button>
+                        </div>
+                        <audio id="audio-element"></audio>
+                    </div>
 
-        <div class="music-player-layout" data-aos="fade-up">
-            <!-- Sidebar / Cover -->
-            <div class="player-sidebar">
-                <img src="https://images.unsplash.com/photo-1619983081563-430f63602796?q=80&w=600" id="current-album-art" class="album-cover-large">
-                <h3 id="current-song-title">Selecciona una canción</h3>
-                <p id="current-artist">Camilo Sanz & Julián Castillo</p>
-
-                <!-- Audio Player Visual Only (Demo) -->
-                <audio id="main-audio" controls style="width: 100%; margin-top: 20px; border-radius: 30px;"></audio>
-
-                <div style="margin-top: 20px; display: flex; gap: 10px; justify-content: center;">
-                    <button class="btn-icon-only"><i class="fab fa-spotify"></i></button>
-                    <button class="btn-icon-only"><i class="fab fa-apple"></i></button>
-                    <button class="btn-icon-only"><i class="fab fa-youtube"></i></button>
+                    <div class="track-list">
+                        <div class="track-item" data-src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" data-title="Mi Pensamiento Favorito">
+                            <span class="track-number">1</span>
+                            <div class="track-info">
+                                <span class="track-name">Mi Pensamiento Favorito</span>
+                                <span class="track-artist">Camilo Sanz & Julián Castillo</span>
+                            </div>
+                            <span class="track-duration">3:45</span>
+                        </div>
+                        <div class="track-item" data-src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3" data-title="Viviendo el Vallenato">
+                            <span class="track-number">2</span>
+                            <div class="track-info">
+                                <span class="track-name">Viviendo el Vallenato</span>
+                                <span class="track-artist">Camilo Sanz & Julián Castillo</span>
+                            </div>
+                            <span class="track-duration">4:12</span>
+                        </div>
+                        <div class="track-item" data-src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-3.mp3" data-title="Amor de Festival">
+                            <span class="track-number">3</span>
+                            <div class="track-info">
+                                <span class="track-name">Amor de Festival</span>
+                                <span class="track-artist">Camilo Sanz & Julián Castillo</span>
+                            </div>
+                            <span class="track-duration">3:30</span>
+                        </div>
+                    </div>
                 </div>
             </div>
+        </section>
 
-            <!-- Tracklist -->
-            <div class="tracklist-container">
-                <div class="track-row" onclick="playDemo('Mi Pensamiento Favorito', 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3')">
-                    <span class="track-num">1</span>
-                    <i class="fas fa-play play-icon-small"></i>
-                    <div class="track-details">
-                        <span class="track-name">Mi Pensamiento Favorito</span>
-                        <span class="track-meta">Camilo Sanz & Julián Castillo</span>
-                    </div>
-                    <span class="track-time">3:45</span>
-                </div>
-
-                <div class="track-row" onclick="playDemo('Viviendo el Vallenato', 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3')">
-                    <span class="track-num">2</span>
-                    <i class="fas fa-play play-icon-small"></i>
-                    <div class="track-details">
-                        <span class="track-name">Viviendo el Vallenato</span>
-                        <span class="track-meta">Camilo Sanz & Julián Castillo</span>
-                    </div>
-                    <span class="track-time">4:12</span>
-                </div>
-
-                <div class="track-row" onclick="playDemo('Amor de Festival', 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-3.mp3')">
-                    <span class="track-num">3</span>
-                    <i class="fas fa-play play-icon-small"></i>
-                    <div class="track-details">
-                        <span class="track-name">Amor de Festival</span>
-                        <span class="track-meta">Camilo Sanz & Julián Castillo</span>
-                    </div>
-                    <span class="track-time">3:30</span>
-                </div>
-
-                <div class="track-row" onclick="playDemo('Parranda Inolvidable', 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-4.mp3')">
-                    <span class="track-num">4</span>
-                    <i class="fas fa-play play-icon-small"></i>
-                    <div class="track-details">
-                        <span class="track-name">Parranda Inolvidable</span>
-                        <span class="track-meta">Camilo Sanz & Julián Castillo</span>
-                    </div>
-                    <span class="track-time">2:58</span>
-                </div>
-
-                <div class="track-row" onclick="playDemo('Noche de Estrellas', 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-5.mp3')">
-                    <span class="track-num">5</span>
-                    <i class="fas fa-play play-icon-small"></i>
-                    <div class="track-details">
-                        <span class="track-name">Noche de Estrellas</span>
-                        <span class="track-meta">Camilo Sanz & Julián Castillo</span>
-                    </div>
-                    <span class="track-time">3:10</span>
+        <!-- Professional Area (Downloads) -->
+        <section id="zona-pro" class="section-padding">
+            <div class="container">
+                <h2 class="section-title fade-in">Zona Profesional</h2>
+                <div class="downloads-grid">
+                    <a href="#" class="download-card fade-in">
+                        <div class="icon-box"><i class="fas fa-file-pdf"></i></div>
+                        <h3>Brochure 2026</h3>
+                        <p>Descargar PDF</p>
+                    </a>
+                    <a href="#" class="download-card fade-in delay-100">
+                        <div class="icon-box"><i class="fas fa-sliders-h"></i></div>
+                        <h3>Rider Técnico</h3>
+                        <p>Especificaciones de sonido</p>
+                    </a>
+                    <a href="#" class="download-card fade-in delay-200">
+                        <div class="icon-box"><i class="fas fa-map"></i></div>
+                        <h3>Stage Plot</h3>
+                        <p>Distribución en tarima</p>
+                    </a>
+                    <a href="#" class="download-card fade-in delay-300">
+                        <div class="icon-box"><i class="fas fa-camera"></i></div>
+                        <h3>Press Kit</h3>
+                        <p>Fotos y logos</p>
+                    </a>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
+    </main>
 
-    <!-- DOWNLOADS AREA -->
-    <section id="downloads">
-        <div class="downloads-container" data-aos="zoom-in">
-            <h2 class="chrome-text" style="font-size: 2.5rem; margin-bottom: 40px;">Área Profesional</h2>
-
-            <div class="download-grid">
-                <a href="#" class="btn-chrome">
-                    <i class="fas fa-book-open"></i> Brochure 2026
-                </a>
-                <a href="#" class="btn-chrome">
-                    <i class="fas fa-sliders-h"></i> Rider Técnico
-                </a>
-                <a href="#" class="btn-chrome">
-                    <i class="fas fa-map"></i> Stage Plot
-                </a>
-                <a href="#" class="btn-chrome">
-                    <i class="fas fa-camera"></i> Press Kit
-                </a>
-            </div>
-        </div>
-    </section>
-
+    <!-- Footer -->
     <footer id="contacto">
-        <div class="footer-container">
-            <div class="footer-logo">
-                <h2 class="chrome-text" style="font-size: 2rem;">CS & JC</h2>
+        <div class="container footer-content">
+            <div class="footer-brand">
+                <h2>CS & JC</h2>
                 <p>&copy; 2026 Camilo Sanz & Julián Castillo.</p>
-                <p style="font-size: 0.8rem; color: #555;">Todos los derechos reservados.</p>
             </div>
-
-            <div class="footer-social">
-                <h3>Síguenos</h3>
-                <div class="social-icons">
-                    <a href="#"><i class="fab fa-instagram"></i></a>
-                    <a href="#"><i class="fab fa-tiktok"></i></a>
-                    <a href="#"><i class="fab fa-youtube"></i></a>
-                    <a href="#"><i class="fab fa-spotify"></i></a>
-                </div>
-            </div>
-
             <div class="footer-contact">
-                <h3>Contrataciones</h3>
-                <p class="contact-highlight">+57 300 123 4567</p>
+                <h3>Contacto</h3>
+                <p>+57 300 123 4567</p>
                 <a href="mailto:manager@camiloyjulian.com">manager@camiloyjulian.com</a>
                 <p>Bogotá, Colombia</p>
+            </div>
+            <div class="footer-social">
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-tiktok"></i></a>
+                <a href="#"><i class="fab fa-youtube"></i></a>
+                <a href="#"><i class="fab fa-spotify"></i></a>
             </div>
         </div>
     </footer>
 
-    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="script.js"></script>
 </body>
 </html>
