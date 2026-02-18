@@ -1811,84 +1811,62 @@ body.has-marquee .mobile-menu-overlay {
 }
 
 /* --- NEXT EVENT HIGHLIGHT (Agenda Page) --- */
-#next-event-highlight {
-    background: linear-gradient(135deg, #1c1c1e, var(--royal-blue));
-    border-radius: 20px;
-    padding: 30px;
+#agenda-next-event {
+    width: 100%;
     margin-bottom: 40px;
+    margin-top: 20px; /* Space from header */
+    padding: 60px 20px;
+    background: linear-gradient(135deg, rgba(28, 28, 30, 0.8), rgba(0, 0, 0, 0.9));
+    border-bottom: 1px solid var(--royal-blue);
+    box-shadow: 0 10px 50px rgba(0, 0, 230, 0.2);
     text-align: center;
-    border: 1px solid rgba(255,255,255,0.1);
-    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
     position: relative;
     overflow: hidden;
-    max-width: 900px;
-    margin-left: auto;
-    margin-right: auto;
 }
 
-#next-event-highlight::before {
+#agenda-next-event::before {
     content: '';
     position: absolute;
-    top: -50%;
-    left: -50%;
-    width: 200%;
-    height: 200%;
-    background: radial-gradient(circle, rgba(255,255,255,0.1), transparent 60%);
-    animation: rotate-bg 15s linear infinite;
-    z-index: 1;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: radial-gradient(circle at center, rgba(0, 0, 230, 0.15) 0%, transparent 70%);
     pointer-events: none;
 }
 
-/* --- HOME NEXT EVENT CARD --- */
-#home-next-event {
-    margin: 100px auto 20px auto; /* Clear fixed header */
-    max-width: 380px;
-    padding: 20px;
-    background: rgba(20, 20, 20, 0.6);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
-    border-radius: 20px;
-    border: 1px solid rgba(77, 77, 255, 0.4);
-    box-shadow: 0 0 20px rgba(0, 0, 230, 0.3), inset 0 0 20px rgba(0, 0, 230, 0.1);
-    text-align: center;
+#agenda-next-event .next-event-content {
     position: relative;
-    z-index: 5;
-    animation: fadeInDown 0.8s ease-out;
+    z-index: 2;
+    max-width: 800px;
+    margin: 0 auto;
 }
 
-@keyframes fadeInDown {
-    from { opacity: 0; transform: translateY(-20px); }
-    to { opacity: 1; transform: translateY(0); }
+#agenda-next-event .next-event-title {
+    font-size: 3rem;
+    margin-bottom: 10px;
+    background: linear-gradient(90deg, #fff, #aaa);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
-#home-next-event .next-event-title {
+#agenda-next-event .next-event-date {
     font-size: 1.5rem;
-    margin-bottom: 5px;
-    color: #fff;
+    color: var(--royal-blue);
+    font-weight: 700;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
 }
 
-#home-next-event .next-event-date {
-    font-size: 1rem;
-    color: var(--royal-blue);
-    font-weight: 600;
-    margin-bottom: 15px;
+#agenda-next-event .next-event-badge {
+    background: rgba(0, 0, 230, 0.2);
+    border: 1px solid var(--royal-blue);
+    color: #fff;
+    padding: 5px 15px;
+    border-radius: 20px;
+    font-size: 0.8rem;
     text-transform: uppercase;
     letter-spacing: 1px;
-}
-
-#home-next-event .next-event-badge {
-    font-size: 0.7rem;
-    padding: 3px 10px;
-    margin-bottom: 10px;
-    background: var(--luminous-blue);
-    color: #fff;
-    border-radius: 10px;
     display: inline-block;
-}
-
-#home-next-event .btn {
-    padding: 8px 20px;
-    font-size: 0.9rem;
+    margin-bottom: 15px;
 }
 
 .next-event-content {

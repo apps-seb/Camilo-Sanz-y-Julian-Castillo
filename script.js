@@ -233,11 +233,9 @@ document.addEventListener('DOMContentLoaded', () => {
         const now = new Date();
         now.setHours(0,0,0,0); // Start of today
 
-        // Check for containers (Agenda page and Home page)
-        const containers = [
-            document.getElementById('next-event-highlight'),
-            document.getElementById('home-next-event')
-        ];
+        // Only target the main card on Agenda page now
+        const container = document.getElementById('agenda-next-event');
+        if (!container) return;
 
         const upcoming = events
             .map(e => {
@@ -253,28 +251,20 @@ document.addEventListener('DOMContentLoaded', () => {
             let formattedDate = next.dateObj.toLocaleDateString('es-ES', dateOptions);
             formattedDate = formattedDate.charAt(0).toUpperCase() + formattedDate.slice(1);
 
-            containers.forEach(container => {
-                if (container) {
-                    // Slight variation for Home vs Agenda?
-                    // For now, same structure, styled via CSS IDs
-                    container.innerHTML = `
-                        <div class="next-event-content">
-                            <div class="next-event-badge">¡PRÓXIMO SHOW!</div>
-                            <h3 class="next-event-title">${next.title}</h3>
-                            <div class="next-event-date"><i class="fas fa-calendar-day"></i> ${formattedDate}</div>
-                            <p class="next-event-info" style="display: ${container.id === 'home-next-event' ? 'none' : 'block'}">${next.info}</p>
-                            <div class="next-event-actions">
-                                <a href="agenda.html" class="btn btn-primary">Boletas</a>
-                            </div>
-                        </div>
-                    `;
-                    container.style.display = 'block';
-                }
-            });
+            container.innerHTML = `
+                <div class="next-event-content">
+                    <div class="next-event-badge">¡PRÓXIMO SHOW!</div>
+                    <h3 class="next-event-title">${next.title}</h3>
+                    <div class="next-event-date"><i class="fas fa-calendar-day"></i> ${formattedDate}</div>
+                    <p class="next-event-info">${next.info}</p>
+                    <div class="next-event-actions">
+                        <a href="https://tu-boleta.com" target="_blank" class="btn btn-primary">Comprar Boletas</a>
+                    </div>
+                </div>
+            `;
+            container.style.display = 'block';
         } else {
-            containers.forEach(container => {
-                if(container) container.style.display = 'none';
-            });
+            container.style.display = 'none';
         }
     }
 
@@ -380,15 +370,24 @@ document.addEventListener('DOMContentLoaded', () => {
             const playerHTML = document.createElement('div');
             playerHTML.className = 'menu-player glass';
             playerHTML.innerHTML = `
-                <div style="width: 50px; height: 50px; background: #333; border-radius: 8px; overflow: hidden;">
-                   <img src="https://images.unsplash.com/photo-1619983081563-430f63602796?q=80&w=200" style="width:100%; height:100%; object-fit:cover;" alt="Album Art">
+                <div class="player-visual">
+                   <img src="https://images.unsplash.com/photo-1619983081563-430f63602796?q=80&w=200" alt="Album Art">
                 </div>
-                <div style="flex: 1;">
-                    <div style="font-size: 0.9rem; font-weight: 600; color: #fff;">Horizonte Azul</div>
-                    <div style="font-size: 0.8rem; color: #ccc;">Camilo Sanz & Julián Castillo</div>
+                <div class="player-meta">
+                    <div class="player-title">Horizonte Azul</div>
+                    <div class="player-artist">Camilo Sanz & Julián Castillo</div>
                 </div>
-                <div style="width: 35px; height: 35px; background: rgba(255,255,255,0.2); border-radius: 50%; display: flex; align-items: center; justify-content: center; cursor: pointer;">
-                    <i class="fas fa-play" style="font-size: 0.8rem; margin-left: 2px;"></i>
+                <div class="player-controls">
+                    <div class="player-progress">
+                        <div class="progress-bar" style="width: 35%;"></div>
+                    </div>
+                    <div class="control-row">
+                        <i class="fas fa-backward-step"></i>
+                        <div class="play-btn-circle">
+                            <i class="fas fa-play"></i>
+                        </div>
+                        <i class="fas fa-forward-step"></i>
+                    </div>
                 </div>
             `;
 
