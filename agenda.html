@@ -71,6 +71,8 @@
             <div class="container">
                 <h2 class="section-title fade-in">Calendario de Eventos</h2>
 
+                <div id="next-event-highlight" class="fade-in"></div>
+
                 <div class="calendar-wrapper fade-in">
                     <div class="calendar-header">
                         <button class="calendar-nav-btn" id="prevMonth"><i class="fas fa-chevron-left"></i></button>
@@ -193,6 +195,48 @@
                     info: 'Noche de Parranda. 10:00 PM.'
                 }
             ];
+
+            // Next Event Logic
+            function loadNextEvent() {
+                const now = new Date();
+                now.setHours(0,0,0,0); // Start of today
+
+                const container = document.getElementById('next-event-highlight');
+                if (!container) return;
+
+                const upcoming = events
+                    .map(e => {
+                        // Create date object from string YYYY-MM-DD
+                        // Appending T00:00:00 to treat as local time start of day
+                        const d = new Date(e.date + 'T00:00:00');
+                        return { ...e, dateObj: d };
+                    })
+                    .filter(e => e.dateObj >= now)
+                    .sort((a, b) => a.dateObj - b.dateObj);
+
+                if (upcoming.length > 0) {
+                    const next = upcoming[0];
+                    const dateOptions = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+                    // Capitalize first letter of date
+                    let formattedDate = next.dateObj.toLocaleDateString('es-ES', dateOptions);
+                    formattedDate = formattedDate.charAt(0).toUpperCase() + formattedDate.slice(1);
+
+                    container.innerHTML = `
+                        <div class="next-event-content">
+                            <div class="next-event-badge">¡PRÓXIMO SHOW!</div>
+                            <h3 class="next-event-title">${next.title}</h3>
+                            <div class="next-event-date"><i class="fas fa-calendar-day"></i> ${formattedDate}</div>
+                            <p class="next-event-info">${next.info}</p>
+                            <div class="next-event-actions">
+                                <a href="#" class="btn btn-primary">Comprar Boletas</a>
+                            </div>
+                        </div>
+                    `;
+                } else {
+                    container.style.display = 'none';
+                }
+            }
+            loadNextEvent();
 
             function loadCalendar() {
                 const dt = new Date();
