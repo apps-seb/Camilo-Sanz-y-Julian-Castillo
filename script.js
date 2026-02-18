@@ -64,4 +64,45 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
+    // --- 5. BOTTOM NAVIGATION ACTIVE STATE ---
+    const bottomNavLinks = document.querySelectorAll('.bottom-nav .nav-item');
+    // Select only sections that are linked in the bottom nav for better performance/accuracy
+    // Or select all sections but map them correctly.
+    // The nav links are: #inicio, #fechas, #albumes, #videos, #zona-pro
+    // We want to highlight the corresponding link when the section is in view.
+    const sections = document.querySelectorAll('section');
+
+    const navObserverOptions = {
+        threshold: 0.2,
+        rootMargin: "-50px 0px -50px 0px"
+    };
+
+    const navObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const id = entry.target.getAttribute('id');
+
+                // Find matching link
+                let matchingLink = document.querySelector(`.bottom-nav .nav-item[href="#${id}"]`);
+
+                if (matchingLink) {
+                    bottomNavLinks.forEach(link => link.classList.remove('nav-active'));
+                    matchingLink.classList.add('nav-active');
+                }
+            }
+        });
+    }, navObserverOptions);
+
+    sections.forEach(section => {
+        navObserver.observe(section);
+    });
+
+    // Click handler for immediate feedback
+    bottomNavLinks.forEach(link => {
+        link.addEventListener('click', function() {
+            bottomNavLinks.forEach(l => l.classList.remove('nav-active'));
+            this.classList.add('nav-active');
+        });
+    });
+
 });
