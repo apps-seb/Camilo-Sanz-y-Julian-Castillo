@@ -4,6 +4,7 @@
     --text-primary: #f5f5f7;
     --text-secondary: #86868b;
     --accent: #2997ff;
+    --royal-blue: #4169E1;
     --border: rgba(255, 255, 255, 0.1);
     --radius: 20px;
     --font-main: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
@@ -28,6 +29,7 @@ body {
     line-height: 1.5;
     -webkit-font-smoothing: antialiased;
     overflow-x: hidden;
+    padding-bottom: 80px; /* Space for bottom nav */
 }
 
 a { text-decoration: none; color: inherit; }
@@ -70,6 +72,7 @@ img { max-width: 100%; display: block; }
     height: 70px;
     display: flex;
     align-items: center;
+    transition: var(--transition);
 }
 
 .nav-container {
@@ -546,7 +549,7 @@ footer {
 @media (max-width: 768px) {
     .hero h1 { font-size: 3rem; }
     .nav-links { display: none; }
-    .menu-toggle { display: block; }
+    .menu-toggle { display: none; } /* Hide hamburger menu as we have bottom nav */
 
     .footer-content {
         flex-direction: column;
@@ -628,4 +631,296 @@ footer {
 @keyframes fadeIn {
     from { opacity: 0; transform: translateY(10px); }
     to { opacity: 1; transform: translateY(0); }
+}
+
+/* --- NEW SECTIONS STYLING --- */
+
+/* Albums */
+.albums-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+}
+
+.album-card {
+    background: var(--card-bg);
+    border-radius: var(--radius);
+    padding: 20px;
+    transition: var(--transition);
+    border: 1px solid var(--border);
+}
+
+.album-card:hover {
+    transform: translateY(-10px);
+    background: #252527;
+}
+
+.album-cover {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 1/1;
+    border-radius: 12px;
+    overflow: hidden;
+    margin-bottom: 20px;
+}
+
+.album-cover img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.album-card:hover .album-cover img {
+    transform: scale(1.1);
+}
+
+.vinyl-overlay {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0,0,0,0.4);
+    opacity: 0;
+    transition: var(--transition);
+}
+
+.vinyl-overlay i {
+    font-size: 3rem;
+    color: #fff;
+    animation: rotate-vinyl 5s linear infinite;
+}
+
+.album-card:hover .vinyl-overlay {
+    opacity: 1;
+}
+
+.album-info h3 {
+    font-size: 1.2rem;
+    margin-bottom: 5px;
+}
+
+.album-info p {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    margin-bottom: 15px;
+}
+
+/* Videos */
+.videos-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.video-item {
+    border-radius: var(--radius);
+    overflow: hidden;
+    position: relative;
+    cursor: pointer;
+}
+
+.video-placeholder {
+    width: 100%;
+    height: 250px;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: var(--transition);
+}
+
+.play-icon {
+    font-size: 4rem;
+    color: rgba(255,255,255,0.8);
+    transition: var(--transition);
+}
+
+.video-item:hover .video-placeholder {
+    transform: scale(1.05);
+}
+
+.video-item:hover .play-icon {
+    color: var(--royal-blue);
+    transform: scale(1.1);
+}
+
+.video-item h3 {
+    padding: 15px 0;
+    font-size: 1.1rem;
+    text-align: center;
+}
+
+/* Tour Dates */
+.tour-dates {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.tour-item {
+    display: flex;
+    align-items: center;
+    background: var(--card-bg);
+    padding: 20px;
+    border-radius: 15px;
+    border: 1px solid var(--border);
+    transition: var(--transition);
+}
+
+.tour-item:hover {
+    background: #252527;
+    border-color: var(--royal-blue);
+}
+
+.tour-date {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: #000;
+    padding: 10px;
+    border-radius: 10px;
+    width: 70px;
+    margin-right: 20px;
+}
+
+.tour-date .day {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--royal-blue);
+}
+
+.tour-date .month {
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.tour-info {
+    flex: 1;
+}
+
+.tour-info h3 {
+    font-size: 1.2rem;
+    margin-bottom: 5px;
+}
+
+.tour-info p {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+}
+
+/* --- BOTTOM NAVIGATION --- */
+.bottom-nav {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 80px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    z-index: 1001;
+    background: rgba(28, 28, 30, 0.85); /* Darker glass */
+    padding-bottom: env(safe-area-inset-bottom);
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.nav-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-secondary); /* Default icon color (white/gray) */
+    text-decoration: none;
+    font-size: 0.75rem;
+    font-weight: 500;
+    flex: 1;
+    transition: all 0.3s ease;
+}
+
+.nav-item i {
+    font-size: 1.5rem;
+    margin-bottom: 5px;
+    color: #fff; /* Icons white */
+    transition: color 0.3s ease;
+}
+
+.nav-item span {
+    opacity: 0.8;
+}
+
+/* Active State */
+.nav-item.nav-active i,
+.nav-item.nav-active span {
+    color: var(--royal-blue); /* Royal Blue */
+    opacity: 1;
+}
+
+.nav-item:active {
+    transform: scale(0.95);
+}
+
+/* Center Item (Vinyl) */
+.center-item {
+    position: relative;
+    top: -20px; /* Float above */
+}
+
+.vinyl-disc {
+    width: 60px;
+    height: 60px;
+    background: #111;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 3px solid rgba(255,255,255,0.2);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.5);
+    margin-bottom: 5px;
+    transition: all 0.3s ease;
+    animation: rotate-vinyl 8s linear infinite;
+}
+
+.vinyl-disc i {
+    font-size: 2rem;
+    margin: 0;
+    color: #fff;
+}
+
+/* Active Vinyl */
+.nav-item.nav-active .vinyl-disc {
+    border-color: var(--royal-blue);
+    box-shadow: 0 0 20px rgba(65, 105, 225, 0.5); /* Glow */
+}
+
+.nav-item.nav-active .vinyl-disc i {
+    color: var(--royal-blue);
+}
+
+@keyframes rotate-vinyl {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+@media (max-width: 768px) {
+    .bottom-nav {
+        height: 70px;
+    }
+
+    .center-item {
+        top: -15px;
+    }
+
+    .vinyl-disc {
+        width: 50px;
+        height: 50px;
+    }
+
+    .vinyl-disc i {
+        font-size: 1.8rem;
+    }
 }
