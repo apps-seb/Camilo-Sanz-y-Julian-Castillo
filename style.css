@@ -75,6 +75,42 @@ img { max-width: 100%; display: block; }
     display: flex;
     align-items: center;
     transition: var(--transition);
+    overflow: hidden; /* Added to contain animation lines */
+}
+
+/* Header Animation Lines */
+.navbar::before,
+.navbar::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, #0000E6, transparent);
+    z-index: 1002;
+}
+
+.navbar::before {
+    top: 0;
+    animation: slideRightSequence 6s linear infinite;
+}
+
+.navbar::after {
+    bottom: 0;
+    animation: slideLeftSequence 6s linear infinite;
+}
+
+@keyframes slideRightSequence {
+    0% { transform: translateX(-100%); }
+    45% { transform: translateX(100%); }
+    100% { transform: translateX(100%); }
+}
+
+@keyframes slideLeftSequence {
+    0% { transform: translateX(100%); }
+    50% { transform: translateX(100%); }
+    95% { transform: translateX(-100%); }
+    100% { transform: translateX(-100%); }
 }
 
 .nav-container {
@@ -1334,6 +1370,43 @@ footer {
     overflow: hidden;
     position: relative;
     cursor: pointer;
+    z-index: 1; /* Above bg */
+}
+
+/* Added background animation for Videos page */
+#videos {
+    background: radial-gradient(circle at center, #1c1c1e 0%, #000 100%);
+    position: relative;
+    overflow: hidden;
+}
+
+#videos::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(0, 0, 230, 0.1) 0%, transparent 60%);
+    animation: rotateBg 20s linear infinite;
+    z-index: 0;
+}
+
+@keyframes rotateBg {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+.video-item iframe {
+    width: 100%;
+    aspect-ratio: 16/9; /* Standard video ratio, responsive */
+}
+
+.video-item h3 {
+    padding: 10px;
+    font-size: 0.9rem;
+    text-align: center;
+    line-height: 1.3;
 }
 
 .video-placeholder {
@@ -1360,12 +1433,6 @@ footer {
 .video-item:hover .play-icon {
     color: var(--royal-blue);
     transform: scale(1.1);
-}
-
-.video-item h3 {
-    padding: 15px 0;
-    font-size: 1.1rem;
-    text-align: center;
 }
 
 /* Tour Dates */
@@ -1703,6 +1770,16 @@ body.has-marquee .mobile-menu-overlay {
     color: #fff;
     font-weight: 700;
     cursor: pointer;
+    /* Added Pulse Animation */
+    animation: pulse-border 2s infinite;
+    position: relative;
+    z-index: 1;
+}
+
+@keyframes pulse-border {
+    0% { box-shadow: 0 0 0 0 rgba(0, 0, 230, 0.7); }
+    70% { box-shadow: 0 0 0 10px rgba(0, 0, 230, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(0, 0, 230, 0); }
 }
 
 .day-cell.event-day::after {
@@ -1859,6 +1936,28 @@ body.has-marquee .mobile-menu-overlay {
     0% { transform: translate(0, 0) scale(1); }
     50% { transform: translate(100px, 50px) scale(1.1); }
     100% { transform: translate(-50px, -30px) scale(0.9); }
+}
+
+/* Agenda 3D Object */
+.orb-3d {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 400px;
+    height: 400px;
+    background: conic-gradient(from 0deg, #0000E6, #0044ff, #0000E6);
+    border-radius: 50%;
+    filter: blur(60px);
+    opacity: 0.6;
+    animation: spin3d 10s linear infinite;
+    z-index: 1; /* Behind card (card is z-index 2) */
+}
+
+@keyframes spin3d {
+    0% { transform: translate(-50%, -50%) rotate(0deg) scale(1); }
+    50% { transform: translate(-50%, -50%) rotate(180deg) scale(1.1); }
+    100% { transform: translate(-50%, -50%) rotate(360deg) scale(1); }
 }
 
 /* Horizontal Card Style */

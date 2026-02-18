@@ -251,6 +251,7 @@ document.addEventListener('DOMContentLoaded', () => {
             formattedDate = formattedDate.charAt(0).toUpperCase() + formattedDate.slice(1);
 
             container.innerHTML = `
+                <div class="orb-3d"></div>
                 <div class="next-event-card">
                     <div class="next-event-left">
                         <span class="next-event-badge">¡PRÓXIMO SHOW!</span>
