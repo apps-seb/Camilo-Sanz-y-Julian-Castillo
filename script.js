@@ -15,7 +15,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }, observerOptions);
 
-    const fadeElements = document.querySelectorAll('.fade-in');
+    const fadeElements = document.querySelectorAll('.fade-in, .fade-in-up');
     fadeElements.forEach(el => observer.observe(el));
 
 
@@ -104,5 +104,82 @@ document.addEventListener('DOMContentLoaded', () => {
             this.classList.add('nav-active');
         });
     });
+
+
+    // --- 6. 3D CAROUSEL LOGIC ---
+    const cards = document.querySelectorAll('.carousel-card');
+    const prevBtn = document.querySelector('.control-btn-arrow.prev');
+    const nextBtn = document.querySelector('.control-btn-arrow.next');
+    let cardIndices = [0, 1, 2]; // Indices of cards in DOM order: [Left, Center, Right]
+
+    // Helper to update classes based on positions
+    function updateCarousel() {
+        // cardIndices[0] is Left, [1] is Center, [2] is Right
+        cards[cardIndices[0]].className = 'carousel-card card-left';
+        cards[cardIndices[1]].className = 'carousel-card card-center';
+        cards[cardIndices[2]].className = 'carousel-card card-right';
+
+        // Update click handlers dynamically or rely on global function
+    }
+
+    window.rotateCarousel = function(direction) {
+        if (direction === 'next') {
+            // Shift indices: [0, 1, 2] -> [1, 2, 0] (Left becomes Right, Center becomes Left, Right becomes Center)
+            const first = cardIndices.shift();
+            cardIndices.push(first);
+
+        } else if (direction === 'prev') {
+            // Prev Click: Center(1) goes Right, Left(0) goes Center, Right(2) goes Left
+            const last = cardIndices.pop();
+            cardIndices.unshift(last);
+        }
+        updateCarousel();
+    };
+
+    if (prevBtn) prevBtn.addEventListener('click', () => rotateCarousel('prev'));
+    if (nextBtn) nextBtn.addEventListener('click', () => rotateCarousel('next'));
+
+    // Swipe Support
+    let touchStartX = 0;
+    let touchEndX = 0;
+    const carouselWrapper = document.querySelector('.carousel-3d-wrapper');
+
+    if (carouselWrapper) {
+        carouselWrapper.addEventListener('touchstart', e => {
+            touchStartX = e.changedTouches[0].screenX;
+        }, {passive: true});
+
+        carouselWrapper.addEventListener('touchend', e => {
+            touchEndX = e.changedTouches[0].screenX;
+            handleSwipe();
+        }, {passive: true});
+    }
+
+    function handleSwipe() {
+        if (touchEndX < touchStartX - 50) {
+            rotateCarousel('next'); // Swipe Left -> Next
+        }
+        if (touchEndX > touchStartX + 50) {
+            rotateCarousel('prev'); // Swipe Right -> Prev
+        }
+    }
+
+
+    // --- 7. EXPERIENCIA VALLENATA (ACCORDION) ANIMATION ---
+    const accordionSection = document.querySelector('.accordion-section');
+
+    if (accordionSection) {
+        const accordionObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('expanded');
+                } else {
+                    entry.target.classList.remove('expanded'); // Optional: Collapse when out of view
+                }
+            });
+        }, { threshold: 0.3 }); // Trigger when 30% visible
+
+        accordionObserver.observe(accordionSection);
+    }
 
 });
