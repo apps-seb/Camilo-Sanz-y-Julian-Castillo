@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Videos | Camilo Sanz & Julián Castillo</title>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Main CSS -->
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Specific styles for the page hero if needed,
+           or we can rely on style.css updates later.
+           For now, we reuse .hero but maybe we'll adjust height in style.css */
+        .page-hero {
+            height: 60vh; /* Shorter than home hero */
+            min-height: 400px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar glass">
+        <div class="nav-container">
+            <a href="index.html" class="logo"><img src="https://mercacol.com.co/wp-content/uploads/2026/02/IMG_5699-scaled.webp" alt="CS & JC Logo"></a>
+            <div class="nav-links">
+                <a href="index.html#inicio">Inicio</a>
+                <a href="biografia.html">Biografía</a>
+                <a href="index.html#propuesta">Propuesta</a>
+                <a href="index.html#musica">Música</a>
+                <a href="index.html#zona-pro">Zona Pro</a>
+            </div>
+            <div class="menu-toggle">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu Overlay -->
+    <div class="mobile-menu-overlay glass">
+        <div class="close-menu"><i class="fas fa-times"></i></div>
+        <div class="mobile-links">
+            <a href="index.html#inicio">Inicio</a>
+            <a href="biografia.html">Biografía</a>
+            <a href="index.html#propuesta">Propuesta</a>
+            <a href="index.html#musica">Música</a>
+            <a href="index.html#zona-pro">Zona Pro</a>
+        </div>
+    </div>
+
+    <main>
+        <!-- Page Hero Section -->
+        <section class="hero page-hero">
+            <div class="hero-bg" style="background-image: url('https://images.unsplash.com/photo-1516280440614-6697288d5d38?q=80&w=1600');"></div>
+            <div class="hero-overlay"></div>
+            <div class="hero-content">
+                <h1>Videos</h1>
+                <p class="subtitle">Nuestra videografía oficial y presentaciones en vivo</p>
+            </div>
+        </section>
+
+        <!-- Videos Section -->
+        <section id="videos" class="section-padding">
+            <div class="container">
+                <!-- Removed duplicate title since we have a hero now, or keep it as subsection title?
+                     User asked for a "header profesional" which implies the hero is the main header.
+                     I'll keep the section title for consistency but maybe rename it "Galería" or keep "Videos". -->
+                <!-- <h2 class="section-title fade-in">Videos</h2> -->
+
+                <div class="videos-grid">
+                    <div class="video-item fade-in">
+                        <div class="video-placeholder" style="background-image: url('https://images.unsplash.com/photo-1516280440614-6697288d5d38?q=80&w=800');">
+                            <i class="fas fa-play-circle play-icon"></i>
+                        </div>
+                        <h3>Video Oficial 1</h3>
+                    </div>
+                    <div class="video-item fade-in delay-100">
+                        <div class="video-placeholder" style="background-image: url('https://images.unsplash.com/photo-1514320291840-2e0a9bf2a9ae?q=80&w=800');">
+                            <i class="fas fa-play-circle play-icon"></i>
+                        </div>
+                        <h3>Live Session</h3>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer id="contacto">
+        <div class="container footer-content">
+            <div class="footer-brand">
+                <h2>CS & JC</h2>
+                <p>&copy; 2026 Camilo Sanz & Julián Castillo.</p>
+            </div>
+            <div class="footer-contact">
+                <h3>Contacto</h3>
+                <p>+57 300 123 4567</p>
+                <a href="mailto:manager@camiloyjulian.com">manager@camiloyjulian.com</a>
+                <p>Bogotá, Colombia</p>
+            </div>
+            <div class="footer-social">
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-tiktok"></i></a>
+                <a href="#"><i class="fab fa-youtube"></i></a>
+                <a href="#"><i class="fab fa-spotify"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bottom Navigation -->
+    <nav class="bottom-nav glass">
+        <a href="index.html#inicio" class="nav-item">
+            <i class="fas fa-home"></i>
+            <span>Inicio</span>
+        </a>
+        <a href="index.html#fechas" class="nav-item">
+            <i class="fas fa-calendar-alt"></i>
+            <span>Fechas</span>
+        </a>
+        <a href="index.html#albumes" class="nav-item center-item">
+            <div class="vinyl-disc">
+                <i class="fas fa-compact-disc"></i>
+            </div>
+            <span>Álbumes</span>
+        </a>
+        <a href="videos.html" class="nav-item">
+            <i class="fas fa-play-circle"></i>
+            <span>Videos</span>
+        </a>
+        <a href="index.html#zona-pro" class="nav-item">
+            <i class="fas fa-download"></i>
+            <span>Descargas</span>
+        </a>
+    </nav>
+
+    <script src="script.js"></script>
+</body>
+</html>
