@@ -87,9 +87,11 @@ function initScrollAnimations() {
         });
     }, { threshold: 0.1 });
 
-    document.querySelectorAll('section').forEach(section => {
-        section.classList.add('fade-in');
-        observer.observe(section);
+    // Target both <section> tags and any element with .fade-in class (like agenda card)
+    const elementsToAnimate = document.querySelectorAll('section, .fade-in');
+    elementsToAnimate.forEach(el => {
+        el.classList.add('fade-in');
+        observer.observe(el);
     });
 }
 
@@ -111,7 +113,7 @@ function initNextEventLogic() {
             <div class="animated-gradient-bg"></div>
             <span class="next-event-tag">Próximo Show</span>
             <h2>${eventData.city} - ${eventData.venue}</h2>
-
+            
             <div class="event-meta">
                 <p><i class="far fa-calendar-alt"></i> ${eventData.date}</p>
                 <p><i class="far fa-clock"></i> ${eventData.time}</p>
@@ -133,7 +135,7 @@ function injectMenuPlayer() {
                 <span>REPRODUCIENDO DESDE ARTISTA</span>
                 <i class="fas fa-ellipsis-h"></i>
             </div>
-
+            
             <div class="album-art">
                 <!-- Using a fallback if image fails, or just css gradient -->
                 <img src="assets/images/cover.jpg" alt="Album Cover" onerror="this.style.display='none'">
