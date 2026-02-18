@@ -184,176 +184,6 @@ img { max-width: 100%; display: block; }
     color: var(--royal-blue);
 }
 
-/* Menu Player - Spotify Style Card */
-.menu-player {
-    width: 90%;
-    max-width: 340px;
-    background: rgba(20, 20, 20, 0.6);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 24px;
-    padding: 2rem;
-    margin-bottom: 2rem;
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
-    display: flex;
-    flex-direction: column;
-    gap: 1.2rem;
-    flex-shrink: 0;
-}
-
-.player-header {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 0.75rem;
-    color: var(--text-secondary);
-    letter-spacing: 2px;
-    font-weight: 600;
-    text-transform: uppercase;
-    background: transparent;
-    border-bottom: none;
-    padding: 0;
-    margin-bottom: 0.5rem;
-}
-
-.album-art {
-    width: 100%;
-    aspect-ratio: 1;
-    background: linear-gradient(135deg, #1a1a1a, #000);
-    border-radius: 12px;
-    overflow: hidden;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-    position: relative;
-    margin-bottom: 0.5rem;
-}
-
-.album-art::before {
-    content: '\f001';
-    font-family: 'Font Awesome 5 Free';
-    font-weight: 900;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    font-size: 4rem;
-    color: rgba(255,255,255,0.1);
-}
-
-.album-art img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
-}
-
-.track-info-large {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-}
-
-.track-details h3 {
-    font-size: 1.3rem;
-    font-weight: 700;
-    margin-bottom: 0.3rem;
-    color: white;
-}
-
-.track-details p {
-    font-size: 1rem;
-    color: var(--text-secondary);
-}
-
-.like-btn {
-    color: var(--text-secondary);
-    font-size: 1.3rem;
-    cursor: pointer;
-    margin-top: 5px;
-}
-
-.like-btn:hover {
-    color: var(--accent);
-}
-
-.progress-area {
-    width: 100%;
-}
-
-.progress-bar {
-    width: 100%;
-    height: 4px;
-    background: rgba(255,255,255,0.15);
-    border-radius: 2px;
-    position: relative;
-    cursor: pointer;
-}
-
-.progress-fill {
-    width: 30%;
-    height: 100%;
-    background: #fff;
-    border-radius: 2px;
-    position: relative;
-}
-
-.progress-fill::after {
-    content: '';
-    position: absolute;
-    right: -5px;
-    top: -3px;
-    width: 10px;
-    height: 10px;
-    background: #fff;
-    border-radius: 50%;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.3);
-}
-
-.time-stamps {
-    display: flex;
-    justify-content: space-between;
-    font-size: 0.75rem;
-    color: var(--text-secondary);
-    margin-top: 0.6rem;
-    font-weight: 500;
-}
-
-.player-controls-large {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0 0.5rem;
-    margin-top: 0.5rem;
-}
-
-.control-btn {
-    color: #fff;
-    background: transparent;
-    font-size: 1.2rem;
-}
-
-.control-btn.play-btn {
-    width: 64px;
-    height: 64px;
-    border-radius: 50%;
-    background: rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(15px);
-    -webkit-backdrop-filter: blur(15px);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 1.5rem;
-    border: 1px solid rgba(255,255,255,0.2);
-    color: white;
-    box-shadow: 0 8px 20px rgba(0,0,0,0.3);
-    transition: transform 0.2s;
-}
-
-.control-btn.play-btn:hover {
-    transform: scale(1.05);
-    background: rgba(255, 255, 255, 0.2);
-    border-color: #fff;
-}
 
 .close-menu {
     position: absolute;
@@ -1992,8 +1822,16 @@ body.has-marquee .mobile-menu-overlay {
     justify-content: center;
     align-items: center;
     min-height: 50vh;
-    background: radial-gradient(circle at center, rgba(0, 0, 230, 0.15) 0%, transparent 70%);
+    background: linear-gradient(-45deg, #000046, #1cb5e0, #000046, #0000E6);
+    background-size: 400% 400%;
+    animation: gradientBG 15s ease infinite;
     position: relative;
+}
+
+@keyframes gradientBG {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
 }
 
 .next-event-card {
