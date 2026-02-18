@@ -159,6 +159,7 @@ img { max-width: 100%; display: block; }
     align-items: center;
     text-align: center;
     overflow: hidden;
+    padding-top: 80px; /* Offset for fixed header */
 }
 
 .hero-bg {
@@ -549,7 +550,7 @@ footer {
 @media (max-width: 768px) {
     .hero h1 { font-size: 3rem; }
     .nav-links { display: none; }
-    .menu-toggle { display: none; } /* Hide hamburger menu as we have bottom nav */
+    .menu-toggle { display: block; } /* Restored per request */
 
     .footer-content {
         flex-direction: column;
@@ -634,6 +635,77 @@ footer {
 }
 
 /* --- NEW SECTIONS STYLING --- */
+
+/* Spotify & Latest Releases */
+.spotify-embed-container {
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+    border-radius: var(--radius);
+    overflow: hidden;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+    background: #000;
+}
+
+.release-card {
+    display: flex;
+    flex-direction: column;
+    background: var(--card-bg);
+    border-radius: var(--radius);
+    overflow: hidden;
+    border: 1px solid var(--border);
+    transition: var(--transition);
+}
+
+.release-card:hover {
+    border-color: var(--royal-blue);
+    transform: translateY(-5px);
+}
+
+.release-image {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+}
+
+.release-info {
+    padding: 30px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.release-info h3 {
+    font-size: 2rem;
+    margin-bottom: 10px;
+}
+
+.release-info .meta {
+    color: var(--royal-blue);
+    font-weight: 600;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+}
+
+.release-info p {
+    color: var(--text-secondary);
+    margin-bottom: 20px;
+    line-height: 1.6;
+}
+
+@media (min-width: 768px) {
+    .release-card {
+        flex-direction: row;
+        height: 450px;
+    }
+    .release-image {
+        width: 50%;
+        height: 100%;
+    }
+}
 
 /* Albums */
 .albums-grid {
