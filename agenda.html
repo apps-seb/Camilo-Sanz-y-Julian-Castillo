@@ -56,6 +56,9 @@
     </div>
 
     <main>
+        <!-- Next Event Card (Agenda) - Prominent -->
+        <div id="agenda-next-event" class="fade-in"></div>
+
         <!-- Page Hero Section -->
         <section class="hero page-hero">
             <div class="hero-bg" style="background-image: url('https://images.unsplash.com/photo-1501281668745-f7f57925c3b4?q=80&w=1600');"></div>
@@ -70,8 +73,6 @@
         <section id="agenda" class="section-padding">
             <div class="container">
                 <h2 class="section-title fade-in">Calendario de Eventos</h2>
-
-                <div id="next-event-highlight" class="fade-in"></div>
 
                 <div class="calendar-wrapper fade-in">
                     <div class="calendar-header">
@@ -153,198 +154,5 @@
     </nav>
 
     <script src="script.js"></script>
-
-    <!-- Calendar Logic Script -->
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const calendarGrid = document.getElementById('calendarGrid');
-            const monthDisplay = document.getElementById('monthDisplay');
-            const prevBtn = document.getElementById('prevMonth');
-            const nextBtn = document.getElementById('nextMonth');
-            const eventModal = document.getElementById('eventModal');
-            const closeModal = document.getElementById('closeModal');
-
-            // Modal Elements
-            const mDate = document.getElementById('modalDate');
-            const mTitle = document.getElementById('modalTitle');
-            const mInfo = document.getElementById('modalInfo');
-
-            let nav = 0; // Months from current
-            const date = new Date(); // Current date (2026 based on context, but uses system)
-
-            // Mock Events Data
-            const events = [
-                {
-                    date: '2026-03-15',
-                    title: 'Bogotá - Movistar Arena',
-                    info: 'Lanzamiento oficial. 8:00 PM. Puertas 6:00 PM.'
-                },
-                {
-                    date: '2026-03-22',
-                    title: 'Medellín - La Macarena',
-                    info: 'Festival de las Flores. 9:00 PM.'
-                },
-                {
-                    date: '2026-04-05',
-                    title: 'Cali - Arena Cañaveralejo',
-                    info: 'Feria de Cali Remake. 7:00 PM.'
-                },
-                {
-                    date: '2026-03-28',
-                    title: 'Barranquilla - Puerta de Oro',
-                    info: 'Noche de Parranda. 10:00 PM.'
-                }
-            ];
-
-            // Next Event Logic
-            function loadNextEvent() {
-                const now = new Date();
-                now.setHours(0,0,0,0); // Start of today
-
-                const container = document.getElementById('next-event-highlight');
-                if (!container) return;
-
-                const upcoming = events
-                    .map(e => {
-                        // Create date object from string YYYY-MM-DD
-                        // Appending T00:00:00 to treat as local time start of day
-                        const d = new Date(e.date + 'T00:00:00');
-                        return { ...e, dateObj: d };
-                    })
-                    .filter(e => e.dateObj >= now)
-                    .sort((a, b) => a.dateObj - b.dateObj);
-
-                if (upcoming.length > 0) {
-                    const next = upcoming[0];
-                    const dateOptions = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
-                    // Capitalize first letter of date
-                    let formattedDate = next.dateObj.toLocaleDateString('es-ES', dateOptions);
-                    formattedDate = formattedDate.charAt(0).toUpperCase() + formattedDate.slice(1);
-
-                    container.innerHTML = `
-                        <div class="next-event-content">
-                            <div class="next-event-badge">¡PRÓXIMO SHOW!</div>
-                            <h3 class="next-event-title">${next.title}</h3>
-                            <div class="next-event-date"><i class="fas fa-calendar-day"></i> ${formattedDate}</div>
-                            <p class="next-event-info">${next.info}</p>
-                            <div class="next-event-actions">
-                                <a href="#" class="btn btn-primary">Comprar Boletas</a>
-                            </div>
-                        </div>
-                    `;
-                } else {
-                    container.style.display = 'none';
-                }
-            }
-            loadNextEvent();
-
-            function loadCalendar() {
-                const dt = new Date();
-
-                // Adjust for nav
-                if (nav !== 0) {
-                    dt.setMonth(new Date().getMonth() + nav);
-                }
-
-                const day = dt.getDate();
-                const month = dt.getMonth();
-                const year = dt.getFullYear(); // Should be 2026 based on memory, but let's trust system or force 2026
-
-                // Force year 2026 for demo consistency if we are "in" 2026
-                // But JS Date() uses current system time.
-                // Since I cannot change system time, I will just use the calculated year.
-
-                const firstDayOfMonth = new Date(year, month, 1);
-                const daysInMonth = new Date(year, month + 1, 0).getDate();
-
-                const dateString = firstDayOfMonth.toLocaleDateString('es-es', {
-                    weekday: 'long',
-                    year: 'numeric',
-                    month: 'long',
-                    day: 'numeric',
-                });
-
-                const paddingDays = firstDayOfMonth.getDay(); // 0 is Sunday
-
-                monthDisplay.innerText = `${dt.toLocaleDateString('es-es', { month: 'long' })} ${year}`;
-                monthDisplay.style.textTransform = 'capitalize';
-
-                calendarGrid.innerHTML = '';
-
-                // Weekday headers
-                const weekdays = ['Dom', 'Lun', 'Mar', 'Mié', 'Jue', 'Vie', 'Sáb'];
-                weekdays.forEach(wd => {
-                    const div = document.createElement('div');
-                    div.classList.add('weekday');
-                    div.innerText = wd;
-                    calendarGrid.appendChild(div);
-                });
-
-                // Padding days
-                for(let i = 0; i < paddingDays; i++) {
-                    const daySquare = document.createElement('div');
-                    daySquare.classList.add('day-cell');
-                    daySquare.style.opacity = '0';
-                    daySquare.style.cursor = 'default';
-                    calendarGrid.appendChild(daySquare);
-                }
-
-                // Days
-                for(let i = 1; i <= daysInMonth; i++) {
-                    const daySquare = document.createElement('div');
-                    daySquare.classList.add('day-cell');
-                    daySquare.innerText = i;
-
-                    // Check for events
-                    const dayString = `${year}-${String(month + 1).padStart(2, '0')}-${String(i).padStart(2, '0')}`;
-                    const eventForDay = events.find(e => e.date === dayString);
-
-                    // Highlight today
-                    const today = new Date();
-                    if (i === today.getDate() && nav === 0 && month === today.getMonth()) {
-                        daySquare.classList.add('today');
-                    }
-
-                    if (eventForDay) {
-                        daySquare.classList.add('event-day');
-                        daySquare.addEventListener('click', () => openModal(eventForDay));
-                    }
-
-                    calendarGrid.appendChild(daySquare);
-                }
-            }
-
-            function openModal(event) {
-                mDate.innerText = event.date;
-                mTitle.innerText = event.title;
-                mInfo.innerText = event.info;
-                eventModal.classList.add('active');
-            }
-
-            function closeModalFunc() {
-                eventModal.classList.remove('active');
-            }
-
-            // Buttons
-            prevBtn.addEventListener('click', () => {
-                nav--;
-                loadCalendar();
-            });
-
-            nextBtn.addEventListener('click', () => {
-                nav++;
-                loadCalendar();
-            });
-
-            closeModal.addEventListener('click', closeModalFunc);
-
-            // Close on background click
-            eventModal.addEventListener('click', (e) => {
-                if(e.target === eventModal) closeModalFunc();
-            });
-
-            loadCalendar();
-        });
-    </script>
 </body>
 </html>
