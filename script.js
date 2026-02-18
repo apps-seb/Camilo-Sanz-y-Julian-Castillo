@@ -252,14 +252,15 @@ document.addEventListener('DOMContentLoaded', () => {
 
             container.innerHTML = `
                 <div class="next-event-card">
-                    <div class="next-event-tag">¡PRÓXIMO SHOW!</div>
-                    <h2>${next.title}</h2>
-                    <div class="event-meta">
-                        <div><i class="fas fa-calendar-day"></i> ${formattedDate}</div>
-                        <div style="margin-top:0.5rem"><i class="fas fa-info-circle"></i> ${next.info}</div>
+                    <div class="next-event-left">
+                        <span class="next-event-badge">¡PRÓXIMO SHOW!</span>
+                        <div class="next-event-info">
+                            <h2>${next.title}</h2>
+                            <p><i class="fas fa-calendar-day"></i> ${formattedDate} <span style="margin: 0 10px; opacity: 0.5">|</span> <i class="fas fa-info-circle"></i> ${next.info}</p>
+                        </div>
                     </div>
-                    <div class="next-event-actions">
-                        <a href="https://tu-boleta.com" target="_blank" class="ticket-btn">Comprar Boletas</a>
+                    <div class="next-event-right">
+                        <a href="https://tu-boleta.com" target="_blank" class="btn-ticket">Comprar Tickets</a>
                     </div>
                 </div>
             `;
