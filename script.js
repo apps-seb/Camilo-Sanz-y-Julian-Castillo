@@ -53,6 +53,21 @@ document.addEventListener('DOMContentLoaded', () => {
         if (targetContent) targetContent.classList.add('active');
     }
 
+    // --- 3.1 RIDER TABS ---
+    window.openRiderTab = function(name) {
+        const tabs = document.querySelectorAll('.rider-tab-btn');
+        const contents = document.querySelectorAll('.rider-panel');
+
+        tabs.forEach(t => t.classList.remove('active'));
+        contents.forEach(c => c.classList.remove('active'));
+
+        const targetTab = document.querySelector(`.rider-tab-btn[onclick="openRiderTab('${name}')"]`);
+        const targetContent = document.getElementById(name);
+
+        if (targetTab) targetTab.classList.add('active');
+        if (targetContent) targetContent.classList.add('active');
+    }
+
     // --- 4. NAVBAR SCROLL EFFECT ---
     const navbar = document.querySelector('.navbar');
     window.addEventListener('scroll', () => {

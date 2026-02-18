@@ -102,6 +102,28 @@ img { max-width: 100%; display: block; }
     color: var(--text-primary);
 }
 
+@media (min-width: 900px) {
+    .nav-links {
+        display: flex;
+        gap: 30px;
+    }
+
+    .nav-links a {
+        font-weight: 500;
+        transition: var(--transition);
+        position: relative;
+    }
+
+    .nav-links a:hover,
+    .nav-links a.active {
+        color: var(--royal-blue);
+    }
+
+    .menu-toggle {
+        display: none;
+    }
+}
+
 /* --- MOBILE MENU --- */
 .mobile-menu-overlay {
     position: fixed;
@@ -551,8 +573,119 @@ footer {
 
 /* --- HEADER LOGO --- */
 .logo img {
-    height: 50px;
+    height: 35px; /* Reduced for elegance */
     width: auto;
+}
+
+/* --- RIDER PAGE STYLES --- */
+.rider-tabs {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-bottom: 40px;
+}
+
+.rider-tab-btn {
+    background: transparent;
+    border: 1px solid var(--border);
+    color: var(--text-secondary);
+    padding: 10px 20px;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: var(--transition);
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+.rider-tab-btn:hover,
+.rider-tab-btn.active {
+    background: var(--text-primary);
+    color: #000;
+    border-color: var(--text-primary);
+}
+
+.rider-panel {
+    display: none;
+    animation: fadeIn 0.5s ease;
+}
+
+.rider-panel.active {
+    display: block;
+}
+
+.rider-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.spec-card {
+    background: var(--card-bg);
+    border-radius: var(--radius);
+    padding: 30px;
+    border: 1px solid var(--border);
+    transition: var(--transition);
+}
+
+.spec-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--royal-blue);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+}
+
+.spec-header {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.spec-icon {
+    font-size: 2rem;
+    color: var(--royal-blue);
+}
+
+.spec-card h3 {
+    font-size: 1.3rem;
+    margin: 0;
+}
+
+.spec-list {
+    list-style: none;
+    padding: 0;
+}
+
+.spec-list li {
+    margin-bottom: 10px;
+    color: var(--text-secondary);
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    line-height: 1.4;
+}
+
+.spec-list li::before {
+    content: '•';
+    color: var(--royal-blue);
+    font-weight: bold;
+}
+
+.download-spec-btn {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 10px 20px;
+    background: rgba(65, 105, 225, 0.2);
+    color: var(--royal-blue);
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: var(--transition);
+}
+
+.download-spec-btn:hover {
+    background: var(--royal-blue);
+    color: #fff;
 }
 
 /* --- BIO TABS --- */

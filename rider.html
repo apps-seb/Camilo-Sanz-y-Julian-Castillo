@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rider Técnico | Camilo Sanz & Julián Castillo</title>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Main CSS -->
+    <link rel="stylesheet" href="style.css">
+    <style>
+        main { padding-top: 80px; }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar glass">
+        <div class="nav-container">
+            <a href="index.html" class="logo"><img src="https://mercacol.com.co/wp-content/uploads/2026/02/IMG_5699-scaled.webp" alt="CS & JC Logo"></a>
+            <div class="nav-links">
+                <a href="index.html#inicio">Inicio</a>
+                <a href="biografia.html">Biografía</a>
+                <a href="rider.html" class="active" style="color: var(--royal-blue);">Rider Técnico</a>
+                <a href="index.html#propuesta">Propuesta</a>
+                <a href="index.html#musica">Música</a>
+                <a href="index.html#zona-pro">Zona Pro</a>
+            </div>
+            <div class="menu-toggle">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu Overlay -->
+    <div class="mobile-menu-overlay glass">
+        <div class="close-menu"><i class="fas fa-times"></i></div>
+        <div class="mobile-links">
+            <a href="index.html#inicio">Inicio</a>
+            <a href="biografia.html">Biografía</a>
+            <a href="rider.html" style="color: var(--royal-blue);">Rider Técnico</a>
+            <a href="index.html#propuesta">Propuesta</a>
+            <a href="index.html#musica">Música</a>
+            <a href="index.html#zona-pro">Zona Pro</a>
+        </div>
+    </div>
+
+    <main>
+        <section id="rider" class="section-padding">
+            <div class="container">
+                <h2 class="section-title fade-in">Rider Técnico & Stage Plot</h2>
+
+                <!-- Tabs Navigation -->
+                <div class="rider-tabs fade-in">
+                    <button class="rider-tab-btn active" onclick="openRiderTab('audio')">Audio / PA</button>
+                    <button class="rider-tab-btn" onclick="openRiderTab('iluminacion')">Iluminación</button>
+                    <button class="rider-tab-btn" onclick="openRiderTab('backline')">Backline</button>
+                    <button class="rider-tab-btn" onclick="openRiderTab('stage')">Stage Plot</button>
+                    <button class="rider-tab-btn" onclick="openRiderTab('input')">Input List</button>
+                    <button class="rider-tab-btn" onclick="openRiderTab('hospitality')">Hospitality</button>
+                </div>
+
+                <!-- AUDIO CONTENT -->
+                <div id="audio" class="rider-panel active">
+                    <div class="rider-grid">
+                        <div class="spec-card fade-in">
+                            <div class="spec-header">
+                                <i class="fas fa-volume-up spec-icon"></i>
+                                <h3>Sistema P.A.</h3>
+                            </div>
+                            <ul class="spec-list">
+                                <li>Sistema estéreo de 3 vías (Line Array preferible).</li>
+                                <li>Cobertura uniforme en todo el recinto.</li>
+                                <li>110dB SPL en posición de mezcla sin distorsión.</li>
+                                <li>Subs alineados y con suficiente headroom.</li>
+                            </ul>
+                        </div>
+                        <div class="spec-card fade-in delay-100">
+                            <div class="spec-header">
+                                <i class="fas fa-sliders-h spec-icon"></i>
+                                <h3>FOH Console</h3>
+                            </div>
+                            <ul class="spec-list">
+                                <li>Mínimo 32 canales de entrada.</li>
+                                <li>Marcas preferidas: Midas M32, Behringer X32, Yamaha CL/QL.</li>
+                                <li>Control por iPad para pruebas de sonido.</li>
+                                <li>Talkback a monitores.</li>
+                            </ul>
+                            <img src="https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?q=80&w=600" style="margin-top:20px; border-radius:10px; width:100%; object-fit:cover; height:200px;" alt="Console">
+                        </div>
+                        <div class="spec-card fade-in delay-200">
+                            <div class="spec-header">
+                                <i class="fas fa-headphones spec-icon"></i>
+                                <h3>Monitores</h3>
+                            </div>
+                            <ul class="spec-list">
+                                <li>4 Mezclas independientes (Aux Sends).</li>
+                                <li>In-Ears inalámbricos para voz principal (Sennheiser G4 o Shure PSM).</li>
+                                <li>2 Wedges (Pisos) de 15" para Acordeón.</li>
+                                <li>Sidefill estéreo si el escenario supera los 12m.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- LIGHTING CONTENT -->
+                <div id="iluminacion" class="rider-panel">
+                    <div class="rider-grid">
+                        <div class="spec-card fade-in">
+                            <div class="spec-header">
+                                <i class="fas fa-lightbulb spec-icon"></i>
+                                <h3>Requerimientos Básicos</h3>
+                            </div>
+                            <ul class="spec-list">
+                                <li>Luz frontal blanca (3200K - 4500K) para los artistas principales.</li>
+                                <li>Ambiente de color (Wash) cubriendo todo el escenario.</li>
+                                <li>Hazer (Máquina de humo) para visibilidad de haces.</li>
+                            </ul>
+                        </div>
+                        <div class="spec-card fade-in delay-100">
+                            <div class="spec-header">
+                                <i class="fas fa-bolt spec-icon"></i>
+                                <h3>Fixture List Ideal</h3>
+                            </div>
+                            <ul class="spec-list">
+                                <li>8x Beam Moving Heads (7R o superior).</li>
+                                <li>12x LED Par RGBW.</li>
+                                <li>4x Blinders (Cegadoras) para el público.</li>
+                            </ul>
+                            <img src="https://images.unsplash.com/photo-1514525253440-b393452e3383?q=80&w=600" style="margin-top:20px; border-radius:10px; width:100%; object-fit:cover; height:200px;" alt="Lights">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- BACKLINE CONTENT -->
+                <div id="backline" class="rider-panel">
+                    <div class="rider-grid">
+                        <div class="spec-card fade-in">
+                            <div class="spec-header">
+                                <i class="fas fa-drum spec-icon"></i>
+                                <h3>Percusión / Batería</h3>
+                            </div>
+                            <ul class="spec-list">
+                                <li>Kit estándar: Kick 22", Snare 14", Toms 10"/12"/16".</li>
+                                <li>Hardware completo (Soportes de platos, hi-hat, snare).</li>
+                                <li>Silla de batería ajustable.</li>
+                                <li>Alfombra antideslizante 2x2m.</li>
+                            </ul>
+                        </div>
+                        <div class="spec-card fade-in delay-100">
+                            <div class="spec-header">
+                                <i class="fas fa-guitar spec-icon"></i>
+                                <h3>Amplificación</h3>
+                            </div>
+                            <ul class="spec-list">
+                                <li>Bass Amp: Ampeg SVT o Aguilar (Cabina 4x10").</li>
+                                <li>Guitar Amp: Fender Twin Reverb o Vox AC30.</li>
+                                <li>Stand para amplificadores.</li>
+                            </ul>
+                        </div>
+                         <div class="spec-card fade-in delay-200">
+                            <div class="spec-header">
+                                <i class="fas fa-music spec-icon"></i>
+                                <h3>Varios</h3>
+                            </div>
+                            <ul class="spec-list">
+                                <li>3x Soportes de guitarra/bajo.</li>
+                                <li>2x Soportes de teclado (Doble altura).</li>
+                                <li>Puntos de corriente (110V) en cada posición.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- STAGE PLOT CONTENT -->
+                <div id="stage" class="rider-panel">
+                    <div class="rider-grid" style="grid-template-columns: 1fr;">
+                        <div class="spec-card fade-in">
+                            <div class="spec-header">
+                                <i class="fas fa-map spec-icon"></i>
+                                <h3>Distribución en Tarima</h3>
+                            </div>
+                            <p style="color:var(--text-secondary); margin-bottom:20px;">
+                                La siguiente imagen muestra la ubicación de los músicos, monitores y puntos de corriente.
+                                Por favor respetar las posiciones relativas.
+                            </p>
+                            <!-- Placeholder for Stage Plot Image -->
+                            <div style="width:100%; height:400px; background: #222; border-radius:10px; display:flex; align-items:center; justify-content:center; position:relative; overflow:hidden;">
+                                <img src="https://images.unsplash.com/photo-1470229722913-7ea038565da3?q=80&w=1200" alt="Stage Plot Placeholder" style="width:100%; height:100%; object-fit:cover; opacity:0.5;">
+                                <span style="position:absolute; font-size:2rem; font-weight:bold; text-shadow:0 2px 10px #000;">STAGE PLOT VISUAL</span>
+                            </div>
+                            <a href="#" class="download-spec-btn"><i class="fas fa-download"></i> Descargar PDF (Alta Resolución)</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- INPUT LIST CONTENT -->
+                <div id="input" class="rider-panel">
+                    <div class="rider-grid" style="grid-template-columns: 1fr;">
+                         <div class="spec-card fade-in">
+                            <div class="spec-header">
+                                <i class="fas fa-list-ol spec-icon"></i>
+                                <h3>Input List 2026</h3>
+                            </div>
+                            <div style="overflow-x:auto;">
+                                <table style="width:100%; border-collapse:collapse; color:var(--text-secondary); min-width:600px;">
+                                    <thead style="background:rgba(255,255,255,0.05); color:var(--royal-blue);">
+                                        <tr>
+                                            <th style="padding:15px; text-align:left;">CH</th>
+                                            <th style="padding:15px; text-align:left;">Instrumento</th>
+                                            <th style="padding:15px; text-align:left;">Micrófono / DI</th>
+                                            <th style="padding:15px; text-align:left;">Stand</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr style="border-bottom:1px solid var(--border);">
+                                            <td style="padding:15px;">1</td>
+                                            <td style="padding:15px;">Kick</td>
+                                            <td style="padding:15px;">Shure Beta 52A</td>
+                                            <td style="padding:15px;">Short Boom</td>
+                                        </tr>
+                                        <tr style="border-bottom:1px solid var(--border);">
+                                            <td style="padding:15px;">2</td>
+                                            <td style="padding:15px;">Snare Top</td>
+                                            <td style="padding:15px;">Shure SM57</td>
+                                            <td style="padding:15px;">Short Boom</td>
+                                        </tr>
+                                         <tr style="border-bottom:1px solid var(--border);">
+                                            <td style="padding:15px;">3</td>
+                                            <td style="padding:15px;">Hi-Hat</td>
+                                            <td style="padding:15px;">Shure SM81</td>
+                                            <td style="padding:15px;">Boom</td>
+                                        </tr>
+                                         <tr style="border-bottom:1px solid var(--border);">
+                                            <td style="padding:15px;">4</td>
+                                            <td style="padding:15px;">Caja Vallenata</td>
+                                            <td style="padding:15px;">Shure SM57 / Beta 57</td>
+                                            <td style="padding:15px;">Clip / Boom</td>
+                                        </tr>
+                                         <tr style="border-bottom:1px solid var(--border);">
+                                            <td style="padding:15px;">5</td>
+                                            <td style="padding:15px;">Guacharaca</td>
+                                            <td style="padding:15px;">Shure SM81</td>
+                                            <td style="padding:15px;">Boom</td>
+                                        </tr>
+                                         <tr style="border-bottom:1px solid var(--border);">
+                                            <td style="padding:15px;">6</td>
+                                            <td style="padding:15px;">Acordeón L</td>
+                                            <td style="padding:15px;">Wireless (Propio)</td>
+                                            <td style="padding:15px;">-</td>
+                                        </tr>
+                                         <tr style="border-bottom:1px solid var(--border);">
+                                            <td style="padding:15px;">7</td>
+                                            <td style="padding:15px;">Acordeón R</td>
+                                            <td style="padding:15px;">Wireless (Propio)</td>
+                                            <td style="padding:15px;">-</td>
+                                        </tr>
+                                         <tr style="border-bottom:1px solid var(--border);">
+                                            <td style="padding:15px;">8</td>
+                                            <td style="padding:15px;">Voz Principal (Camilo)</td>
+                                            <td style="padding:15px;">Shure Beta 58A (Wireless)</td>
+                                            <td style="padding:15px;">Straight Round Base</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- HOSPITALITY CONTENT -->
+                <div id="hospitality" class="rider-panel">
+                    <div class="rider-grid">
+                        <div class="spec-card fade-in">
+                            <div class="spec-header">
+                                <i class="fas fa-utensils spec-icon"></i>
+                                <h3>Catering & Camerino</h3>
+                            </div>
+                            <ul class="spec-list">
+                                <li>12 Botellas de agua sin gas (Temperatura ambiente).</li>
+                                <li>Bebidas energizantes y café caliente.</li>
+                                <li>Frutas frescas y snacks ligeros.</li>
+                                <li>1 Botella de Whisky (Old Parr o similar) para después del show.</li>
+                                <li>Espejo de cuerpo entero y buena iluminación.</li>
+                                <li>Acceso a baño privado limpio.</li>
+                            </ul>
+                             <img src="https://images.unsplash.com/photo-1559339352-11d035aa65de?q=80&w=600" style="margin-top:20px; border-radius:10px; width:100%; object-fit:cover; height:200px;" alt="Catering">
+                        </div>
+                        <div class="spec-card fade-in delay-100">
+                            <div class="spec-header">
+                                <i class="fas fa-bus spec-icon"></i>
+                                <h3>Transporte & Hotel</h3>
+                            </div>
+                            <ul class="spec-list">
+                                <li>Transporte interno en Van para 8 pax + Instrumentos.</li>
+                                <li>Hotel 4/5 Estrellas (3 Habitaciones Dobles, 2 Sencillas).</li>
+                                <li>Parqueadero seguro para vehículos de la banda.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer id="contacto">
+        <div class="container footer-content">
+            <div class="footer-brand">
+                <h2>CS & JC</h2>
+                <p>&copy; 2026 Camilo Sanz & Julián Castillo.</p>
+            </div>
+            <div class="footer-contact">
+                <h3>Contacto</h3>
+                <p>+57 300 123 4567</p>
+                <a href="mailto:manager@camiloyjulian.com">manager@camiloyjulian.com</a>
+                <p>Bogotá, Colombia</p>
+            </div>
+            <div class="footer-social">
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-tiktok"></i></a>
+                <a href="#"><i class="fab fa-youtube"></i></a>
+                <a href="#"><i class="fab fa-spotify"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bottom Navigation -->
+    <nav class="bottom-nav glass">
+        <a href="index.html#inicio" class="nav-item">
+            <i class="fas fa-home"></i>
+            <span>Inicio</span>
+        </a>
+        <a href="index.html#fechas" class="nav-item">
+            <i class="fas fa-calendar-alt"></i>
+            <span>Fechas</span>
+        </a>
+        <a href="index.html#albumes" class="nav-item center-item">
+            <div class="vinyl-disc">
+                <i class="fas fa-compact-disc"></i>
+            </div>
+            <span>Álbumes</span>
+        </a>
+        <a href="videos.html" class="nav-item">
+            <i class="fas fa-play-circle"></i>
+            <span>Videos</span>
+        </a>
+        <a href="index.html#zona-pro" class="nav-item">
+            <i class="fas fa-download"></i>
+            <span>Descargas</span>
+        </a>
+    </nav>
+
+    <script src="script.js"></script>
+</body>
+</html>
