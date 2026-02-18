@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Biografía | Camilo Sanz & Julián Castillo</title>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Main CSS -->
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Extra padding for fixed header on this page since there is no Hero */
+        main {
+            padding-top: 80px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar glass">
+        <div class="nav-container">
+            <a href="index.html" class="logo"><img src="https://mercacol.com.co/wp-content/uploads/2026/02/IMG_5699-scaled.webp" alt="CS & JC Logo"></a>
+            <div class="nav-links">
+                <a href="index.html#inicio">Inicio</a>
+                <a href="biografia.html">Biografía</a>
+                <a href="index.html#propuesta">Propuesta</a>
+                <a href="index.html#musica">Música</a>
+                <a href="index.html#zona-pro">Zona Pro</a>
+            </div>
+            <div class="menu-toggle">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu Overlay -->
+    <div class="mobile-menu-overlay glass">
+        <div class="close-menu"><i class="fas fa-times"></i></div>
+        <div class="mobile-links">
+            <a href="index.html#inicio">Inicio</a>
+            <a href="biografia.html">Biografía</a>
+            <a href="index.html#propuesta">Propuesta</a>
+            <a href="index.html#musica">Música</a>
+            <a href="index.html#zona-pro">Zona Pro</a>
+        </div>
+    </div>
+
+    <main>
+        <!-- Biography Section (Grid) -->
+        <section id="biografia" class="section-padding">
+            <div class="container">
+                <h2 class="section-title fade-in">Nuestra Historia</h2>
+                <div class="bio-tabs fade-in">
+                    <button class="tab-btn active" onclick="openBio('camilo')">Camilo Sanz</button>
+                    <button class="tab-btn" onclick="openBio('julian')">Julián Castillo</button>
+                </div>
+
+                <div id="camilo" class="bio-content active fade-in">
+                    <div class="bio-detail">
+                        <img src="https://images.unsplash.com/photo-1570295999919-56ceb5ecca61?q=80&w=800" alt="Camilo Sanz" class="bio-cover">
+                        <div class="bio-text">
+                            <h3>Camilo Sanz</h3>
+                            <p class="role">Voz Principal & Composición</p>
+                            <p class="description">Con una voz que fusiona la profundidad del vallenato clásico con matices del pop moderno, Camilo ha logrado cautivar audiencias en todo el país. Su capacidad para transmitir emociones crudas y su carisma en el escenario lo convierten en el alma vibrante del dúo.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="julian" class="bio-content fade-in">
+                     <div class="bio-detail">
+                        <img src="https://images.unsplash.com/photo-1568602471122-7832951cc4c5?q=80&w=800" alt="Julián Castillo" class="bio-cover">
+                        <div class="bio-text">
+                            <h3>Julián Castillo</h3>
+                            <p class="role">Acordeón & Dirección Musical</p>
+                            <p class="description">Virtuoso del acordeón y arquitecto sonoro. Julián teje melodías que respetan las raíces del folclore mientras exploran nuevas armonías contemporáneas. Su dirección musical aporta la elegancia y sofisticación que define el sonido único de "CS & JC".</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer id="contacto">
+        <div class="container footer-content">
+            <div class="footer-brand">
+                <h2>CS & JC</h2>
+                <p>&copy; 2026 Camilo Sanz & Julián Castillo.</p>
+            </div>
+            <div class="footer-contact">
+                <h3>Contacto</h3>
+                <p>+57 300 123 4567</p>
+                <a href="mailto:manager@camiloyjulian.com">manager@camiloyjulian.com</a>
+                <p>Bogotá, Colombia</p>
+            </div>
+            <div class="footer-social">
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-tiktok"></i></a>
+                <a href="#"><i class="fab fa-youtube"></i></a>
+                <a href="#"><i class="fab fa-spotify"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bottom Navigation -->
+    <nav class="bottom-nav glass">
+        <a href="index.html#inicio" class="nav-item">
+            <i class="fas fa-home"></i>
+            <span>Inicio</span>
+        </a>
+        <a href="index.html#fechas" class="nav-item">
+            <i class="fas fa-calendar-alt"></i>
+            <span>Fechas</span>
+        </a>
+        <a href="index.html#albumes" class="nav-item center-item">
+            <div class="vinyl-disc">
+                <i class="fas fa-compact-disc"></i>
+            </div>
+            <span>Álbumes</span>
+        </a>
+        <a href="videos.html" class="nav-item">
+            <i class="fas fa-play-circle"></i>
+            <span>Videos</span>
+        </a>
+        <a href="index.html#zona-pro" class="nav-item">
+            <i class="fas fa-download"></i>
+            <span>Descargas</span>
+        </a>
+    </nav>
+
+    <script src="script.js"></script>
+</body>
+</html>

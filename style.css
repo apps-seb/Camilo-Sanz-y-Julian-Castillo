@@ -92,24 +92,14 @@ img { max-width: 100%; display: block; }
 }
 
 .nav-links {
-    display: flex;
-    gap: 30px;
-}
-
-.nav-links a {
-    font-size: 0.9rem;
-    color: var(--text-secondary);
-    transition: var(--transition);
-}
-
-.nav-links a:hover {
-    color: var(--text-primary);
+    display: none;
 }
 
 .menu-toggle {
-    display: none;
+    display: block;
     font-size: 1.5rem;
     cursor: pointer;
+    color: var(--text-primary);
 }
 
 /* --- MOBILE MENU --- */
@@ -549,8 +539,6 @@ footer {
 
 @media (max-width: 768px) {
     .hero h1 { font-size: 3rem; }
-    .nav-links { display: none; }
-    .menu-toggle { display: block; } /* Restored per request */
 
     .footer-content {
         flex-direction: column;
@@ -994,5 +982,86 @@ footer {
 
     .vinyl-disc i {
         font-size: 1.8rem;
+    }
+}
+
+/* --- SPOTIFY REDESIGN --- */
+.custom-spotify-card {
+    background: var(--card-bg);
+    border-radius: var(--radius);
+    padding: 20px;
+    border: 1px solid var(--border);
+    overflow: hidden;
+    max-width: 800px;
+    margin: 0 auto;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+}
+
+.spotify-layout {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 20px;
+}
+
+.spotify-image-container {
+    flex: 0 0 120px;
+    height: 120px;
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.spotify-image-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.spotify-info-container {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-width: 0; /* Prevent flex overflow */
+}
+
+.spotify-info-container h3 {
+    font-size: 1.2rem;
+    margin-bottom: 5px;
+    color: var(--text-primary);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.spotify-info-container .artist {
+    color: var(--royal-blue);
+    font-size: 0.9rem;
+    margin-bottom: 10px;
+    font-weight: 600;
+}
+
+.spotify-info-container .description {
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+    margin-bottom: 15px;
+    line-height: 1.4;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+@media (min-width: 768px) {
+    .spotify-image-container {
+        flex: 0 0 200px;
+        height: 200px;
+    }
+    .spotify-info-container h3 {
+        font-size: 2rem;
+    }
+    .spotify-info-container .description {
+        font-size: 1rem;
+        -webkit-line-clamp: 3;
     }
 }
