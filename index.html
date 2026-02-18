@@ -53,39 +53,126 @@
             <div class="hero-bg" style="background-image: url('https://mercacol.com.co/wp-content/uploads/2026/02/IMG_5680.webp');"></div>
         </section>
 
-        <!-- New: Spotify Single -->
-        <section id="spotify-single" class="section-padding dark-bg">
+        <!-- Spotify Clone Section -->
+        <section id="spotify-clone" class="spotify-section">
             <div class="container">
-                <div class="custom-spotify-card fade-in">
-                    <div class="spotify-layout">
-                        <div class="spotify-image-container">
-                            <img src="https://images.unsplash.com/photo-1619983081563-430f63602796?q=80&w=800" alt="Horizonte Azul Cover">
+                <h2 class="spotify-title fade-in">Popular</h2>
+                <div class="spotify-track-list">
+                    <!-- Track 1 -->
+                    <div class="spotify-track-row fade-in">
+                        <span class="track-index">1</span>
+                        <div class="track-cover-container">
+                            <img src="https://images.unsplash.com/photo-1619983081563-430f63602796?q=80&w=100" alt="Cover" class="track-cover">
+                            <i class="fas fa-play play-overlay"></i>
                         </div>
-                        <div class="spotify-info-container">
-                            <h3>Horizonte Azul</h3>
-                            <p class="artist">Camilo Sanz & Julián Castillo</p>
-                            <p class="description">Nuestro más reciente sencillo. Una fusión de sentimientos y sonidos modernos.</p>
-                            <iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/3IUn2UU2KTom6hc8nOX1lO?utm_source=generator&theme=0" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+                        <div class="track-details">
+                            <span class="track-title">Horizonte Azul</span>
+                            <span class="track-plays">1,245,678</span>
                         </div>
+                        <span class="track-duration">3:45</span>
+                    </div>
+                    <!-- Track 2 -->
+                    <div class="spotify-track-row fade-in delay-100">
+                        <span class="track-index">2</span>
+                        <div class="track-cover-container">
+                            <img src="https://images.unsplash.com/photo-1493225255756-d9584f8606e9?q=80&w=100" alt="Cover" class="track-cover">
+                            <i class="fas fa-play play-overlay"></i>
+                        </div>
+                        <div class="track-details">
+                            <span class="track-title">Raíces Futuras</span>
+                            <span class="track-plays">987,654</span>
+                        </div>
+                        <span class="track-duration">4:12</span>
+                    </div>
+                     <!-- Track 3 -->
+                    <div class="spotify-track-row fade-in delay-200">
+                        <span class="track-index">3</span>
+                        <div class="track-cover-container">
+                            <img src="https://images.unsplash.com/photo-1514320291840-2e0a9bf2a9ae?q=80&w=100" alt="Cover" class="track-cover">
+                            <i class="fas fa-play play-overlay"></i>
+                        </div>
+                        <div class="track-details">
+                            <span class="track-title">Vallenato y Pop</span>
+                            <span class="track-plays">876,543</span>
+                        </div>
+                        <span class="track-duration">3:28</span>
+                    </div>
+                     <!-- Track 4 -->
+                    <div class="spotify-track-row fade-in delay-300">
+                        <span class="track-index">4</span>
+                        <div class="track-cover-container">
+                            <img src="https://images.unsplash.com/photo-1470225620780-dba8ba36b745?q=80&w=100" alt="Cover" class="track-cover">
+                            <i class="fas fa-play play-overlay"></i>
+                        </div>
+                        <div class="track-details">
+                            <span class="track-title">Sentimiento Puro</span>
+                            <span class="track-plays">765,432</span>
+                        </div>
+                        <span class="track-duration">3:55</span>
+                    </div>
+                     <!-- Track 5 -->
+                    <div class="spotify-track-row fade-in delay-300">
+                        <span class="track-index">5</span>
+                        <div class="track-cover-container">
+                            <img src="https://images.unsplash.com/photo-1614613535308-eb5fbd3d2c17?q=80&w=100" alt="Cover" class="track-cover">
+                            <i class="fas fa-play play-overlay"></i>
+                        </div>
+                        <div class="track-details">
+                            <span class="track-title">La Parranda</span>
+                            <span class="track-plays">654,321</span>
+                        </div>
+                        <span class="track-duration">4:05</span>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- New: Latest Releases -->
-        <section id="lanzamientos" class="section-padding">
+        <!-- New: Latest Releases (3D Carousel) -->
+        <section id="lanzamientos" class="section-padding" style="overflow: hidden;">
             <div class="container">
                 <h2 class="section-title fade-in">Lanzamientos Recientes</h2>
-                <div class="release-card fade-in">
-                    <img src="https://images.unsplash.com/photo-1619983081563-430f63602796?q=80&w=800" alt="Latest Release" class="release-image">
-                    <div class="release-info">
-                        <h3>Horizonte Azul</h3>
-                        <p class="meta">Single • 2026</p>
-                        <p>Una exploración sonora que define nuestra nueva etapa. Melodías envolventes y una producción impecable.</p>
-                        <div style="display: flex; gap: 15px;">
-                            <a href="#" class="btn btn-primary">Escuchar Ahora</a>
-                            <a href="#" class="btn btn-secondary">Ver Video</a>
+
+                <div class="carousel-3d-wrapper fade-in">
+                    <div class="carousel-3d">
+                        <!-- Left Card -->
+                        <div class="carousel-card card-left" onclick="rotateCarousel('prev')">
+                            <div class="card-visual">
+                                <img src="https://images.unsplash.com/photo-1514320291840-2e0a9bf2a9ae?q=80&w=600" alt="Previous">
+                                <div class="card-overlay"></div>
+                            </div>
+                            <div class="card-content-mini">
+                                <h3>Vallenato y Pop</h3>
+                            </div>
                         </div>
+
+                        <!-- Center Card (Active) -->
+                        <div class="carousel-card card-center">
+                            <div class="card-visual">
+                                <img src="https://images.unsplash.com/photo-1619983081563-430f63602796?q=80&w=800" alt="Main Release">
+                                <div class="card-overlay"></div>
+                            </div>
+                            <div class="card-content-main">
+                                <h3>Horizonte Azul</h3>
+                                <p class="meta">Nuevo Sencillo • 2026</p>
+                                <a href="#" class="btn btn-primary">Escuchar Ahora</a>
+                            </div>
+                        </div>
+
+                        <!-- Right Card -->
+                        <div class="carousel-card card-right" onclick="rotateCarousel('next')">
+                            <div class="card-visual">
+                                <img src="https://images.unsplash.com/photo-1493225255756-d9584f8606e9?q=80&w=600" alt="Next">
+                                <div class="card-overlay"></div>
+                            </div>
+                            <div class="card-content-mini">
+                                <h3>Raíces Futuras</h3>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="carousel-controls">
+                        <button class="control-btn-arrow prev"><i class="fas fa-chevron-left"></i></button>
+                        <button class="control-btn-arrow next"><i class="fas fa-chevron-right"></i></button>
                     </div>
                 </div>
             </div>
@@ -217,6 +304,53 @@
                             <p>Arena Cañaveralejo</p>
                         </div>
                         <a href="#" class="btn btn-secondary">Tickets</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- New: Experiencia Vallenata (Creative Section) -->
+        <section id="experiencia-vallenata" class="accordion-section">
+            <div class="accordion-bellows-bg"></div>
+            <div class="container relative-z">
+                <h2 class="section-title fade-in">Experiencia Parrandera</h2>
+
+                <div class="parranda-grid">
+                    <div class="parranda-card fade-in">
+                        <div class="card-icon"><i class="fas fa-microphone-alt"></i></div>
+                        <h3>Concierto</h3>
+                        <p>Show completo con banda en vivo para grandes eventos.</p>
+                        <a href="#contacto" class="btn-text">Cotizar <i class="fas fa-arrow-right"></i></a>
+                    </div>
+
+                    <div class="parranda-card main-card fade-in delay-100">
+                        <div class="card-icon pulse"><i class="fas fa-music"></i></div>
+                        <h3>Parranda Típica</h3>
+                        <p>La esencia del vallenato: Caja, guacharaca y acordeón.</p>
+                        <a href="#contacto" class="btn btn-primary">Agendar Parranda</a>
+                    </div>
+
+                    <div class="parranda-card fade-in delay-200">
+                        <div class="card-icon"><i class="fas fa-heart"></i></div>
+                        <h3>Serenata</h3>
+                        <p>Canciones que llegan al alma para momentos especiales.</p>
+                        <a href="#contacto" class="btn-text">Reservar <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+
+                <!-- Interactive Feature: Song Request -->
+                <div class="request-feature fade-in-up delay-300">
+                    <div class="vinyl-visual">
+                        <div class="vinyl-grooves"></div>
+                        <div class="vinyl-label-center">CS & JC</div>
+                    </div>
+                    <div class="request-content">
+                        <h3>El Muro del Sentimiento</h3>
+                        <p>¿Qué canción no puede faltar en nuestra próxima parranda? Déjala aquí.</p>
+                        <div class="request-input-group">
+                            <input type="text" placeholder="Nombre de la canción..." class="glass-input">
+                            <button class="btn btn-primary">Enviar</button>
+                        </div>
                     </div>
                 </div>
             </div>
