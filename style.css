@@ -2762,12 +2762,12 @@ body.has-marquee .mobile-menu-overlay {
     }
 }
 
-/* --- SOCIAL WALLET STACK (New - Accordion Style) --- */
+/* --- SOCIAL WALLET STACK (New) --- */
 .social-wallet-container {
     position: relative;
     width: 100%;
     max-width: 400px;
-    height: 650px; /* Accommodate expanded card plus shifted stack */
+    height: 400px;
     margin: 0 auto;
     perspective: 1000px;
 }
@@ -2775,86 +2775,31 @@ body.has-marquee .mobile-menu-overlay {
 .social-wallet-card {
     position: absolute;
     width: 100%;
-    height: 80px; /* Collapsed height (header only) */
+    height: 220px;
     border-radius: 20px;
-    background: rgba(20, 20, 25, 0.85); /* Dark Glass */
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    box-shadow: 0 5px 20px rgba(0,0,0,0.5); /* Base shadow */
+    background: var(--card-bg); /* Fallback */
+    box-shadow: 0 -5px 20px rgba(0,0,0,0.3); /* Top shadow for stack effect */
     transition: all 0.5s cubic-bezier(0.25, 1, 0.5, 1);
     cursor: pointer;
     overflow: hidden;
-    left: 0;
     transform-origin: center top;
-}
-
-/* Photon Glow & Particles Effect */
-.social-wallet-card::before {
-    content: '';
-    position: absolute;
-    top: -50%; left: -50%; width: 200%; height: 200%;
-    background: radial-gradient(circle, rgba(0, 0, 230, 0.15) 10%, transparent 60%);
-    opacity: 0;
-    transition: opacity 0.5s ease;
-    pointer-events: none;
-    z-index: 0;
-    animation: pulseGlow 4s infinite;
-}
-
-.social-wallet-card:hover::before,
-.social-wallet-card.active::before {
-    opacity: 1;
-}
-
-@keyframes pulseGlow {
-    0% { transform: scale(0.9); }
-    50% { transform: scale(1.1); }
-    100% { transform: scale(0.9); }
-}
-
-/* 3D Particles Effect */
-.social-wallet-card::after {
-    content: '';
-    position: absolute;
-    top: 0; left: 0; width: 100%; height: 100%;
-    background-image:
-        radial-gradient(rgba(255, 255, 255, 0.8), rgba(255,255,255,0.2) 2px, transparent 3px),
-        radial-gradient(rgba(255, 255, 255, 0.8), rgba(255,255,255,0.15) 1px, transparent 2px),
-        radial-gradient(rgba(255, 255, 255, 0.8), rgba(255,255,255,0.1) 2px, transparent 3px);
-    background-size: 550px 550px, 350px 350px, 250px 250px;
-    background-position: 0 0, 40px 60px, 130px 270px;
-    opacity: 0;
-    z-index: 1; /* Behind text (z-index 2) */
-    pointer-events: none;
-    transition: opacity 0.5s ease;
-}
-
-.social-wallet-card.active::after {
-    opacity: 0.3; /* Subtle sparkle */
-    animation: particleMove 30s linear infinite;
-}
-
-@keyframes particleMove {
-    0% { background-position: 0 0, 40px 60px, 130px 270px; }
-    100% { background-position: 550px 550px, 390px 410px, 380px 520px; }
+    border: 1px solid rgba(255,255,255,0.1);
+    left: 0;
 }
 
 /* Header Strip (Always Visible) */
 .social-wallet-header {
-    height: 80px; /* Match collapsed height */
+    height: 60px;
     display: flex;
     align-items: center;
-    padding: 0 25px;
-    position: relative;
-    z-index: 2;
+    padding: 0 20px;
 }
 
 .social-wallet-icon {
     font-size: 1.8rem;
+    color: #fff;
     margin-right: 15px;
-    filter: drop-shadow(0 0 10px rgba(255,255,255,0.2));
-    transition: all 0.3s ease;
+    filter: drop-shadow(0 2px 4px rgba(0,0,0,0.3));
 }
 
 .social-wallet-title {
@@ -2862,16 +2807,10 @@ body.has-marquee .mobile-menu-overlay {
     font-weight: 600;
     font-size: 1.1rem;
     letter-spacing: 0.5px;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.3);
 }
 
-/* Specific Colors for Icons (instead of full bg) */
-.wallet-fb .social-wallet-icon { color: #1877F2; text-shadow: 0 0 15px #1877F2; }
-.wallet-ig-joint .social-wallet-icon { color: #E1306C; text-shadow: 0 0 15px #E1306C; }
-.wallet-ig-julian .social-wallet-icon { color: #C13584; text-shadow: 0 0 15px #C13584; }
-.wallet-yt .social-wallet-icon { color: #FF0000; text-shadow: 0 0 15px #FF0000; }
-.wallet-sp .social-wallet-icon { color: #1DB954; text-shadow: 0 0 15px #1DB954; }
-
-/* Content Body (Revealed on Active) */
+/* Content Body (Hidden initially or covered) */
 .social-wallet-body {
     padding: 20px;
     opacity: 0;
@@ -2881,9 +2820,7 @@ body.has-marquee .mobile-menu-overlay {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    height: 270px; /* Remainder height */
-    position: relative;
-    z-index: 2;
+    height: calc(100% - 60px);
 }
 
 .social-wallet-card.active .social-wallet-body {
@@ -2893,8 +2830,8 @@ body.has-marquee .mobile-menu-overlay {
 
 /* Action Button */
 .btn-wallet-action {
-    background: rgba(255, 255, 255, 0.1);
-    border: 1px solid rgba(255, 255, 255, 0.2);
+    background: rgba(255, 255, 255, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.4);
     color: #fff;
     padding: 10px 30px;
     border-radius: 30px;
@@ -2902,40 +2839,51 @@ body.has-marquee .mobile-menu-overlay {
     text-transform: uppercase;
     letter-spacing: 1px;
     font-size: 0.9rem;
-    backdrop-filter: blur(10px);
+    backdrop-filter: blur(5px);
     transition: all 0.3s ease;
     text-decoration: none;
     margin-top: 10px;
-    box-shadow: 0 0 15px rgba(255, 255, 255, 0.05);
 }
 
 .btn-wallet-action:hover {
     background: #fff;
     color: #000;
     transform: scale(1.05);
-    box-shadow: 0 0 20px rgba(255, 255, 255, 0.4);
 }
 
-/* Stacking Order & Initial Positions */
-.social-wallet-card:nth-child(1) { top: 0px; z-index: 5; }
-.social-wallet-card:nth-child(2) { top: 70px; z-index: 4; }
-.social-wallet-card:nth-child(3) { top: 140px; z-index: 3; }
-.social-wallet-card:nth-child(4) { top: 210px; z-index: 2; }
-.social-wallet-card:nth-child(5) { top: 280px; z-index: 1; }
+/* Stacking Logic */
+.social-wallet-card:nth-child(1) { top: 0px; z-index: 1; }
+.social-wallet-card:nth-child(2) { top: 50px; z-index: 2; }
+.social-wallet-card:nth-child(3) { top: 100px; z-index: 3; }
+.social-wallet-card:nth-child(4) { top: 150px; z-index: 4; }
+.social-wallet-card:nth-child(5) { top: 200px; z-index: 5; }
 
-/* Active State (Expanded) */
+/* Active State */
 .social-wallet-card.active {
-    height: 350px;
-    z-index: 100 !important; /* Bring to front */
-    border-color: rgba(0, 0, 230, 0.6);
-    box-shadow: 0 0 30px rgba(0, 0, 230, 0.4), inset 0 0 30px rgba(0, 0, 230, 0.1); /* Blue Photon Glow */
-    background: rgba(10, 10, 15, 0.95); /* Opaque background for readability */
+    top: 20px !important;
+    z-index: 100 !important;
+    transform: scale(1.05);
+    box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+    height: 300px;
 }
 
-/* Shift Siblings Down */
-.social-wallet-card.shift-down {
-    transform: translateY(280px); /* Move down to clear the expanded card */
+/* Interaction States for Siblings */
+.social-wallet-card.move-out-up {
+    transform: translateY(-200%);
+    opacity: 0;
 }
+
+.social-wallet-card.move-out-down {
+    transform: translateY(200%);
+    opacity: 0;
+}
+
+/* Specific Card Styles (Gradients) */
+.wallet-fb { background: linear-gradient(135deg, #1877F2, #0044ff); }
+.wallet-ig-joint { background: linear-gradient(135deg, #833AB4, #FD1D1D); }
+.wallet-ig-julian { background: linear-gradient(135deg, #C13584, #E1306C); }
+.wallet-yt { background: linear-gradient(135deg, #FF0000, #cc0000); }
+.wallet-sp { background: linear-gradient(135deg, #1DB954, #191414); }
 
 /* --- NEW BIO BUTTON (Blue Line Loop) --- */
 .btn-glass-loop {
@@ -2947,18 +2895,56 @@ body.has-marquee .mobile-menu-overlay {
     background: rgba(255, 255, 255, 0.05); /* Glass Base */
     backdrop-filter: blur(5px);
     -webkit-backdrop-filter: blur(5px);
-    border-radius: 30px;
+    border-radius: 30px; /* Visual radius (SVG handles actual border) */
     text-decoration: none;
     display: inline-flex;
     align-items: center;
     justify-content: center;
+    overflow: visible; /* Allow SVG to show */
     transition: all 0.3s ease;
-    border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .btn-glass-loop:hover {
     background: rgba(0, 0, 230, 0.1); /* Slight blue tint on hover */
     text-shadow: 0 0 10px rgba(0, 0, 230, 0.8);
     transform: translateY(-2px);
-    border-color: rgba(0, 0, 230, 0.5);
+}
+
+.btn-glass-loop .btn-border-svg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    overflow: visible;
+}
+
+.btn-glass-loop .btn-border-svg rect {
+    fill: none;
+    stroke: var(--royal-blue);
+    stroke-width: 3px;
+    stroke-linecap: round;
+    stroke-dasharray: 50 600; /* Fallback: Short dash, long gap */
+    stroke-dashoffset: 600;
+    animation: loopLine 1.5s linear infinite;
+    rx: 28; /* Radius matching border-radius somewhat */
+    ry: 28;
+    vector-effect: non-scaling-stroke; /* Keep stroke width constant */
+}
+
+/* Use pathLength for consistent animation speed regardless of size */
+.btn-glass-loop .btn-border-svg rect[pathLength] {
+    stroke-dasharray: 25 200; /* Comet effect: 25% dash, 200% gap to prevent multiple dashes */
+    stroke-dashoffset: 100;
+    animation: loopLinePath 1.5s linear infinite; /* Faster velocity */
+}
+
+@keyframes loopLine {
+    to { stroke-dashoffset: 0; }
+}
+
+@keyframes loopLinePath {
+    from { stroke-dashoffset: 100; }
+    to { stroke-dashoffset: 0; }
 }
