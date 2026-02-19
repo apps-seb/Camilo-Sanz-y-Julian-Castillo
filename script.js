@@ -366,3 +366,20 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
 });
+
+// --- 8. MEDIA PLAYER (YouTube/Spotify Embeds) ---
+window.playMedia = function(containerId, type, contentId) {
+    const container = document.getElementById(containerId);
+    if (!container) return;
+
+    let iframeHtml = '';
+    if (type === 'youtube') {
+        iframeHtml = `<iframe width="100%" height="100%" src="https://www.youtube.com/embed/${contentId}?autoplay=1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border-radius: 12px;"></iframe>`;
+    } else if (type === 'spotify_album') {
+         iframeHtml = `<iframe style="border-radius:12px" src="https://open.spotify.com/embed/album/${contentId}?utm_source=generator" width="100%" height="100%" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>`;
+    } else if (type === 'spotify_track') {
+         iframeHtml = `<iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/${contentId}?utm_source=generator" width="100%" height="100%" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>`;
+    }
+
+    container.innerHTML = iframeHtml;
+};
