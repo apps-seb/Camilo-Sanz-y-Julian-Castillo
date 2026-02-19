@@ -1033,7 +1033,7 @@ footer {
 }
 
 .card-content-main .meta {
-    color: var(--royal-blue);
+    color: #fff);
     font-weight: 600;
     margin-bottom: 20px;
     text-shadow: 0 2px 5px rgba(0,0,0,0.5);
