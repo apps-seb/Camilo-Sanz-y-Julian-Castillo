@@ -168,6 +168,19 @@ img { max-width: 100%; display: block; }
     }
 }
 
+.interactive-blue-wrapper {
+    position: relative;
+    background: radial-gradient(circle at 50% 50%, #0000aa 0%, #000044 40%, #000000 100%);
+    background-size: 200% 200%;
+    animation: deepBluePulse 15s ease infinite alternate;
+    overflow: hidden;
+}
+
+@keyframes deepBluePulse {
+    0% { background-position: 0% 0%; }
+    100% { background-position: 100% 100%; }
+}
+
 /* --- MOBILE MENU (Full Screen) --- */
 .mobile-menu-overlay {
     position: fixed;
@@ -674,6 +687,10 @@ footer {
         flex-direction: column;
         align-items: center;
         text-align: center;
+    }
+
+    .footer-logo {
+        margin: 0 auto 15px auto;
     }
 }
 
@@ -2783,10 +2800,10 @@ body.has-marquee .mobile-menu-overlay {
     width: 100%;
     height: 220px;
     border-radius: 20px;
-    /* Glassmorphism & Moving Gradient */
-    background: linear-gradient(-45deg, rgba(0, 0, 230, 0.4), rgba(0, 68, 255, 0.2), rgba(0, 0, 230, 0.4));
-    background-size: 400% 400%;
-    animation: gradientMove 15s ease infinite;
+    /* Glassmorphism & Moving Gradient - Deep Blue */
+    background: linear-gradient(135deg, #000044, #0000cc, #000044);
+    background-size: 200% 200%;
+    animation: gradientMove 8s ease infinite;
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
     border: 1px solid rgba(255, 255, 255, 0.2);
@@ -2949,16 +2966,16 @@ body.has-marquee .mobile-menu-overlay {
     stroke-dasharray: 50 600; /* Fallback: Short dash, long gap */
     stroke-dashoffset: 600;
     animation: loopLine 1.5s linear infinite;
-    rx: 28; /* Radius matching border-radius somewhat */
-    ry: 28;
+    rx: 30; /* Radius matching border-radius */
+    ry: 30;
     vector-effect: non-scaling-stroke; /* Keep stroke width constant */
 }
 
 /* Use pathLength for consistent animation speed regardless of size */
 .btn-glass-loop .btn-border-svg rect[pathLength] {
-    stroke-dasharray: 25 200; /* Comet effect: 25% dash, 200% gap to prevent multiple dashes */
+    stroke-dasharray: 40 100; /* Longer comet effect: 40% dash, 60% gap */
     stroke-dashoffset: 100;
-    animation: loopLinePath 1.5s linear infinite; /* Faster velocity */
+    animation: loopLinePath 2s linear infinite;
 }
 
 @keyframes loopLine {
