@@ -371,21 +371,19 @@ document.addEventListener('DOMContentLoaded', () => {
     if (walletCards.length > 0) {
         function setActiveWalletCard(activeIndex) {
             walletCards.forEach((c, i) => {
-                c.classList.remove('active', 'move-out-up', 'move-out-down');
+                c.classList.remove('active', 'shift-down');
 
                 if (i === activeIndex) {
                     c.classList.add('active');
-                } else if (i < activeIndex) {
-                    c.classList.add('move-out-up');
-                } else {
-                    c.classList.add('move-out-down');
+                } else if (i > activeIndex) {
+                    c.classList.add('shift-down');
                 }
             });
         }
 
         function resetWallet() {
             walletCards.forEach(c => {
-                c.classList.remove('active', 'move-out-up', 'move-out-down');
+                c.classList.remove('active', 'shift-down');
             });
         }
 
