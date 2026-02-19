@@ -110,7 +110,7 @@ img { max-width: 100%; display: block; }
     0% { transform: translateX(100%); }
     50% { transform: translateX(100%); }
     95% { transform: translateX(-100%); }
-    100% { transform: translateX(-100%); }
+    100% { transform: translateX(100%); }
 }
 
 .nav-container {
@@ -1294,19 +1294,47 @@ footer {
 }
 
 .glass-input {
-    flex: 1;
-    background: rgba(255,255,255,0.1);
-    border: 1px solid rgba(255,255,255,0.2);
-    padding: 12px 20px;
-    border-radius: 50px;
+    width: 100%; /* Changed from flex: 1 to ensure full width in vertical forms */
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    padding: 16px 20px;
     color: #fff;
     font-family: inherit;
+    font-size: 1rem;
+    transition: all 0.3s ease;
 }
 
 .glass-input:focus {
     outline: none;
     border-color: var(--royal-blue);
-    background: rgba(255,255,255,0.15);
+    background: rgba(255, 255, 255, 0.08);
+    box-shadow: 0 0 0 4px rgba(0, 68, 255, 0.15);
+}
+
+.glass-input option {
+    background: #1c1c1e;
+    color: #fff;
+}
+
+.contact-form label {
+    display: block;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    font-weight: 600;
+    color: var(--text-secondary);
+    margin-bottom: 8px;
+    margin-left: 5px;
+}
+
+.contact-form button[type="submit"] {
+    width: 100%;
+    padding: 18px;
+    font-size: 1rem;
+    letter-spacing: 0.5px;
+    margin-top: 10px;
+    border-radius: 12px;
 }
 
 /* Albums */
@@ -2376,4 +2404,94 @@ body.has-marquee .mobile-menu-overlay {
         left: 50%;
         transform: translateX(-50%);
     }
+}
+
+/* --- BIO LAYOUT (NEW) --- */
+.bio-layout {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    align-items: center;
+}
+
+@media (min-width: 900px) {
+    .bio-layout {
+        flex-direction: row;
+        align-items: flex-start;
+    }
+}
+
+.bio-card {
+    background: rgba(255, 255, 255, 0.05); /* Lighter than default card-bg */
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    padding: 30px;
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.bio-card:hover {
+    transform: translateY(-5px);
+    background: rgba(255, 255, 255, 0.08);
+    border-color: var(--royal-blue);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
+}
+
+.profile-card {
+    flex: 0 0 300px; /* Fixed width for profile */
+    text-align: center;
+}
+
+.profile-img-wrapper {
+    width: 200px;
+    height: 200px;
+    margin: 0 auto 20px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 3px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+}
+
+.profile-img-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.profile-card h3 {
+    font-size: 1.8rem;
+    margin-bottom: 5px;
+}
+
+.bio-info-grid {
+    flex: 1;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.bio-info-grid .bio-card h4 {
+    color: var(--royal-blue);
+    margin-bottom: 15px;
+    font-size: 1.1rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.bio-info-grid .bio-card p {
+    color: var(--text-secondary);
+    line-height: 1.6;
+    font-size: 0.95rem;
+}
+
+/* --- CONTACT FORM REDESIGN OVERRIDES (Extra Specificity) --- */
+.form-wrapper {
+    background: rgba(28, 28, 30, 0.6); /* Ensure good contrast */
+    box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+    padding: 50px;
+}
+
+.form-group {
+    margin-bottom: 25px; /* More spacing */
 }
