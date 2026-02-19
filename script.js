@@ -365,6 +365,60 @@ document.addEventListener('DOMContentLoaded', () => {
         loadCalendar();
     }
 
+    // --- 9. SOCIAL WALLET INTERACTION ---
+    const walletCards = document.querySelectorAll('.social-wallet-card');
+
+    if (walletCards.length > 0) {
+        function setActiveWalletCard(activeIndex) {
+            walletCards.forEach((c, i) => {
+                c.classList.remove('active', 'move-out-up', 'move-out-down');
+
+                if (i === activeIndex) {
+                    c.classList.add('active');
+                } else if (i < activeIndex) {
+                    c.classList.add('move-out-up');
+                } else {
+                    c.classList.add('move-out-down');
+                }
+            });
+        }
+
+        function resetWallet() {
+            walletCards.forEach(c => {
+                c.classList.remove('active', 'move-out-up', 'move-out-down');
+            });
+        }
+
+        walletCards.forEach((card, index) => {
+            card.addEventListener('click', (e) => {
+                // Prevent click from propagating to document (which closes the wallet)
+                // But allow links inside the card body to work?
+                // If I click a link inside .btn-wallet-action, it propagates to card click?
+                // Yes. But if card is already active, clicking it calls resetWallet().
+                // I need to check if the target is the button.
+
+                if (e.target.closest('.btn-wallet-action') || e.target.closest('a') || e.target.tagName === 'IFRAME') {
+                    return; // Let the link work
+                }
+
+                e.stopPropagation();
+
+                if (card.classList.contains('active')) {
+                    resetWallet();
+                } else {
+                    setActiveWalletCard(index);
+                }
+            });
+        });
+
+        document.addEventListener('click', (e) => {
+            // Close if clicking outside the container
+            if (!e.target.closest('.social-wallet-container')) {
+                resetWallet();
+            }
+        });
+    }
+
 });
 
 // --- 8. MEDIA PLAYER (YouTube/Spotify Embeds) ---
