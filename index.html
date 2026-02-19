@@ -68,7 +68,12 @@
         <section id="inicio" class="hero">
             <div class="hero-carousel">
                 <div class="hero-slide active">
-                    <img src="https://alta57.com/wp-content/uploads/2026/02/PORTADA-WEB-NUEVA.webp" alt="Camilo Sanz & Julián Castillo Main">
+                    <picture style="width: 100%; height: 100%; display: block;">
+                        <!-- CONFIGURACION PORTADA: MOVIL -->
+                        <source media="(max-width: 768px)" srcset="https://alta57.com/wp-content/uploads/2026/02/PORTADA-WEB-NUEVA.webp">
+                        <!-- CONFIGURACION PORTADA: ESCRITORIO -->
+                        <img src="https://alta57.com/wp-content/uploads/2026/02/CANAL-YOUTUBE-ZONA-SEGURA-2560X1440-px-1.webp" alt="Camilo Sanz & Julián Castillo Main" style="width: 100%; height: 100%; object-fit: cover;">
+                    </picture>
                 </div>
                 <div class="hero-slide">
                     <img src="https://alta57.com/wp-content/uploads/2026/02/PORTADA-WEB-NUEVA-2.webp" alt="Camilo Sanz & Julián Castillo Portrait">
@@ -168,6 +173,7 @@
                         <button class="control-btn-arrow next"><i class="fas fa-chevron-right"></i></button>
                     </div>
                 </div>
+
             </div>
         </section>
 
@@ -326,6 +332,13 @@
                         <a href="#" class="btn btn-secondary">Tickets</a>
                     </div>
                 </div>
+
+                <div style="text-align: center; margin-top: 30px;" class="fade-in">
+                    <a href="agenda.html" class="btn btn-glass-loop">
+                        Ver todas las fechas
+                        <svg class="btn-border-svg"><rect x="1" y="1" width="98%" height="96%" rx="24" ry="24" pathLength="100" /></svg>
+                    </a>
+                </div>
             </div>
         </section>
 
@@ -408,7 +421,7 @@
     <footer id="contacto">
         <div class="container footer-content">
             <div class="footer-brand">
-                <h2>CS & JC</h2>
+                <a href="#inicio"><img src="https://alta57.com/wp-content/uploads/2026/02/LOGO-SILVER-2-scaled.png" alt="CS & JC Logo" class="footer-logo"></a>
                 <p>&copy; 2026 Camilo Sanz & Julián Castillo.</p>
             </div>
             <div class="footer-contact">

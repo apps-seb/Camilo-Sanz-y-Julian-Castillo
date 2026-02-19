@@ -608,7 +608,13 @@ footer {
     gap: 40px;
 }
 
-.footer-brand h2 { font-size: 1.5rem; margin-bottom: 10px; }
+/* .footer-brand h2 removed - replaced by logo */
+.footer-logo {
+    max-width: 180px;
+    height: auto;
+    margin-bottom: 15px;
+    display: block;
+}
 .footer-brand p { color: var(--text-secondary); font-size: 0.9rem; }
 
 .footer-contact h3 { font-size: 1.1rem; margin-bottom: 15px; color: var(--text-primary); }
@@ -2777,14 +2783,25 @@ body.has-marquee .mobile-menu-overlay {
     width: 100%;
     height: 220px;
     border-radius: 20px;
-    background: var(--card-bg); /* Fallback */
+    /* Glassmorphism & Moving Gradient */
+    background: linear-gradient(-45deg, rgba(0, 0, 230, 0.4), rgba(0, 68, 255, 0.2), rgba(0, 0, 230, 0.4));
+    background-size: 400% 400%;
+    animation: gradientMove 15s ease infinite;
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+
     box-shadow: 0 -5px 20px rgba(0,0,0,0.3); /* Top shadow for stack effect */
     transition: all 0.5s cubic-bezier(0.25, 1, 0.5, 1);
     cursor: pointer;
     overflow: hidden;
     transform-origin: center top;
-    border: 1px solid rgba(255,255,255,0.1);
     left: 0;
+}
+
+.social-wallet-card h3,
+.social-wallet-card p {
+    color: #fff !important;
 }
 
 /* Header Strip (Always Visible) */
@@ -2878,12 +2895,16 @@ body.has-marquee .mobile-menu-overlay {
     opacity: 0;
 }
 
-/* Specific Card Styles (Gradients) */
-.wallet-fb { background: linear-gradient(135deg, #1877F2, #0044ff); }
-.wallet-ig-joint { background: linear-gradient(135deg, #833AB4, #FD1D1D); }
-.wallet-ig-julian { background: linear-gradient(135deg, #C13584, #E1306C); }
-.wallet-yt { background: linear-gradient(135deg, #FF0000, #cc0000); }
-.wallet-sp { background: linear-gradient(135deg, #1DB954, #191414); }
+/* Specific Card Styles (Gradients) - Overridden for Glassmorphism */
+.wallet-fb, .wallet-ig-joint, .wallet-ig-julian, .wallet-yt, .wallet-sp {
+    background: transparent; /* Use main card background */
+}
+
+@keyframes gradientMove {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
 
 /* --- NEW BIO BUTTON (Blue Line Loop) --- */
 .btn-glass-loop {
