@@ -1,5 +1,19 @@
 document.addEventListener('DOMContentLoaded', () => {
 
+    // --- 0. HERO CAROUSEL ---
+    function initHeroCarousel() {
+        const slides = document.querySelectorAll('.hero-slide');
+        if (slides.length === 0) return;
+
+        let currentSlide = 0;
+        setInterval(() => {
+            slides[currentSlide].classList.remove('active');
+            currentSlide = (currentSlide + 1) % slides.length;
+            slides[currentSlide].classList.add('active');
+        }, 5000); // 5 seconds
+    }
+    initHeroCarousel();
+
     // --- 0. DATA & INITIALIZATION ---
     // Mock Events Data
     const events = [
@@ -209,21 +223,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
     // --- 7. EXPERIENCIA VALLENATA (ACCORDION) ANIMATION ---
-    const accordionSection = document.querySelector('.accordion-section');
-
-    if (accordionSection) {
-        const accordionObserver = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('expanded');
-                } else {
-                    entry.target.classList.remove('expanded'); // Optional: Collapse when out of view
-                }
-            });
-        }, { threshold: 0.3 }); // Trigger when 30% visible
-
-        accordionObserver.observe(accordionSection);
-    }
+    // Section removed
 
 
     // --- FUNCTIONS FOR FEATURES ---
