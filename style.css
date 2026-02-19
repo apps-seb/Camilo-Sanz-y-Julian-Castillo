@@ -22,6 +22,9 @@
 
 html {
     scroll-behavior: smooth;
+    overflow-x: hidden;
+    width: 100%;
+    max-width: 100%;
 }
 
 body {
@@ -31,6 +34,9 @@ body {
     line-height: 1.5;
     -webkit-font-smoothing: antialiased;
     overflow-x: hidden;
+    width: 100%;
+    max-width: 100%;
+    position: relative;
     padding-bottom: 80px; /* Space for bottom nav */
 }
 
@@ -2578,4 +2584,180 @@ body.has-marquee .mobile-menu-overlay {
     box-shadow: 0 0 15px rgba(255, 255, 255, 0.1);
     transform: scale(1.05);
     color: #fff;
+}
+
+/* --- ANIMATED DRAW BUTTON --- */
+.btn-draw-border {
+    position: relative;
+    padding: 12px 30px;
+    color: var(--text-primary);
+    font-weight: 500;
+    background: transparent;
+    display: inline-block;
+    text-decoration: none;
+    overflow: visible;
+}
+
+.btn-border-svg {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+}
+
+.btn-border-svg rect {
+    fill: none;
+    stroke: var(--royal-blue);
+    stroke-width: 2;
+    stroke-dasharray: 400; /* Fallback */
+    stroke-dashoffset: 400; /* Fallback */
+    animation: drawLine 2s linear infinite;
+}
+
+/* Use pathLength support to make it generic */
+@keyframes drawLine {
+    from { stroke-dashoffset: 100; }
+    to { stroke-dashoffset: 0; }
+}
+
+.btn-draw-border:hover {
+    background: rgba(65, 105, 225, 0.1);
+    color: #fff;
+    text-shadow: 0 0 10px var(--royal-blue);
+}
+
+/* --- SOCIAL MEDIA 3D SECTION --- */
+.social-3d-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 30px;
+    perspective: 1000px;
+    margin-top: 40px;
+}
+
+.social-card-3d {
+    background-color: transparent;
+    width: 100%;
+    height: 300px;
+    perspective: 1000px;
+}
+
+.social-card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transition: transform 0.8s;
+    transform-style: preserve-3d;
+    cursor: pointer;
+    border-radius: 20px;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.5);
+}
+
+.social-card-3d:hover .social-card-inner {
+    transform: rotateY(180deg);
+}
+
+/* On mobile, ensure hover states work or consider adding a class via JS for tap */
+.social-card-3d:active .social-card-inner {
+     /* transform: rotateY(180deg);  Optional: instant flip on touch? No, transition handles it */
+}
+
+.social-card-front, .social-card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    color: white;
+}
+
+.social-card-front {
+    /* Backgrounds handled by utility classes */
+    background: #1c1c1e; /* Fallback */
+}
+
+.social-card-back {
+    background: #1c1c1e; /* Fallback */
+    transform: rotateY(180deg);
+}
+
+/* Platform Gradients */
+.facebook-bg {
+    background: linear-gradient(135deg, #1877F2, #0044ff);
+}
+
+.instagram-bg {
+    background: linear-gradient(135deg, #833AB4, #FD1D1D, #F77737);
+}
+
+.youtube-bg {
+    background: linear-gradient(135deg, #FF0000, #cc0000);
+}
+
+.social-icon-3d {
+    font-size: 4rem;
+    margin-bottom: 20px;
+    text-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+
+.social-card-front h3 {
+    font-size: 1.2rem;
+    margin-bottom: 5px;
+    font-weight: 700;
+}
+
+.social-card-front p {
+    font-size: 0.9rem;
+    opacity: 0.9;
+}
+
+.btn-white {
+    background: rgba(255, 255, 255, 0.2);
+    color: white;
+    backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    padding: 10px 25px;
+    border-radius: 50px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+}
+
+.btn-white:hover {
+    background: white;
+    color: #000;
+    transform: scale(1.1);
+}
+
+/* Spotify Special Card */
+.social-card-spotify {
+    grid-column: 1 / -1;
+    max-width: 600px;
+    margin: 20px auto 0;
+    width: 100%;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    background: #000;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+    .social-3d-grid {
+        grid-template-columns: 1fr; /* Stack vertically */
+        padding: 0 20px;
+    }
+
+    .social-card-3d {
+        height: 250px; /* Slightly shorter on mobile */
+    }
 }
