@@ -278,7 +278,6 @@ img { max-width: 100%; display: block; }
     animation: gradientMove 6s ease infinite; /* Fast & Seamless */
     z-index: 2; /* On top of images */
     pointer-events: none;
-    backdrop-filter: blur(3px); /* "Difuminado" effect */
 }
 
 .hero-carousel {
@@ -2837,8 +2836,8 @@ body.has-marquee .mobile-menu-overlay {
     content: '';
     position: absolute;
     top: -5px; left: -5px; right: -5px; bottom: -5px; /* Increased size */
-    background: linear-gradient(135deg, #0044ff, #00ffff, #0044ff);
-    background-size: 400% 400%;
+    background: linear-gradient(90deg, #0044ff 0%, #0000E6 100%);
+    background-size: 200% 200%;
     border-radius: 25px;
     z-index: -1;
     opacity: 0;
