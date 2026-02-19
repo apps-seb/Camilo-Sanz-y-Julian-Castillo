@@ -2762,139 +2762,138 @@ body.has-marquee .mobile-menu-overlay {
     }
 }
 
-/* --- SOCIAL WALLET STACK (New - Accordion Style) --- */
-.social-wallet-container {
-    position: relative;
-    width: 100%;
-    max-width: 400px;
-    height: 650px; /* Accommodate expanded card plus shifted stack */
+/* --- NEW SOCIAL STACK STYLES (ADDED) --- */
+.social-stack-container {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    max-width: 500px;
     margin: 0 auto;
     perspective: 1000px;
 }
 
-.social-wallet-card {
+.social-glass-card {
+    position: relative;
+    width: 100%;
+    height: 80px; /* Collapsed height */
+    cursor: pointer;
+    border-radius: 20px;
+    /* Glass Effect Base */
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    transform-style: preserve-3d;
+}
+
+.social-glass-card:hover {
+    background: rgba(255, 255, 255, 0.08);
+    transform: translateY(-2px);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+}
+
+.card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transition: transform 0.8s;
+    transform-style: preserve-3d;
+}
+
+.social-glass-card.active .card-inner {
+    transform: rotateX(180deg);
+}
+
+.card-face {
     position: absolute;
     width: 100%;
-    height: 80px; /* Collapsed height (header only) */
+    height: 100%;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
     border-radius: 20px;
-    background: rgba(20, 20, 25, 0.85); /* Dark Glass */
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    box-shadow: 0 5px 20px rgba(0,0,0,0.5); /* Base shadow */
-    transition: all 0.5s cubic-bezier(0.25, 1, 0.5, 1);
-    cursor: pointer;
-    overflow: hidden;
-    left: 0;
-    transform-origin: center top;
-}
-
-/* Photon Glow & Particles Effect */
-.social-wallet-card::before {
-    content: '';
-    position: absolute;
-    top: -50%; left: -50%; width: 200%; height: 200%;
-    background: radial-gradient(circle, rgba(0, 0, 230, 0.15) 10%, transparent 60%);
-    opacity: 0;
-    transition: opacity 0.5s ease;
-    pointer-events: none;
-    z-index: 0;
-    animation: pulseGlow 4s infinite;
-}
-
-.social-wallet-card:hover::before,
-.social-wallet-card.active::before {
-    opacity: 1;
-}
-
-@keyframes pulseGlow {
-    0% { transform: scale(0.9); }
-    50% { transform: scale(1.1); }
-    100% { transform: scale(0.9); }
-}
-
-/* 3D Particles Effect */
-.social-wallet-card::after {
-    content: '';
-    position: absolute;
-    top: 0; left: 0; width: 100%; height: 100%;
-    background-image:
-        radial-gradient(rgba(255, 255, 255, 0.8), rgba(255,255,255,0.2) 2px, transparent 3px),
-        radial-gradient(rgba(255, 255, 255, 0.8), rgba(255,255,255,0.15) 1px, transparent 2px),
-        radial-gradient(rgba(255, 255, 255, 0.8), rgba(255,255,255,0.1) 2px, transparent 3px);
-    background-size: 550px 550px, 350px 350px, 250px 250px;
-    background-position: 0 0, 40px 60px, 130px 270px;
-    opacity: 0;
-    z-index: 1; /* Behind text (z-index 2) */
-    pointer-events: none;
-    transition: opacity 0.5s ease;
-}
-
-.social-wallet-card.active::after {
-    opacity: 0.3; /* Subtle sparkle */
-    animation: particleMove 30s linear infinite;
-}
-
-@keyframes particleMove {
-    0% { background-position: 0 0, 40px 60px, 130px 270px; }
-    100% { background-position: 550px 550px, 390px 410px, 380px 520px; }
-}
-
-/* Header Strip (Always Visible) */
-.social-wallet-header {
-    height: 80px; /* Match collapsed height */
     display: flex;
     align-items: center;
     padding: 0 25px;
-    position: relative;
-    z-index: 2;
+    overflow: hidden;
 }
 
-.social-wallet-icon {
-    font-size: 1.8rem;
-    margin-right: 15px;
-    filter: drop-shadow(0 0 10px rgba(255,255,255,0.2));
-    transition: all 0.3s ease;
+.card-face.front {
+    justify-content: space-between;
 }
 
-.social-wallet-title {
-    color: #fff;
-    font-weight: 600;
-    font-size: 1.1rem;
-    letter-spacing: 0.5px;
-}
-
-/* Specific Colors for Icons (instead of full bg) */
-.wallet-fb .social-wallet-icon { color: #1877F2; text-shadow: 0 0 15px #1877F2; }
-.wallet-ig-joint .social-wallet-icon { color: #E1306C; text-shadow: 0 0 15px #E1306C; }
-.wallet-ig-julian .social-wallet-icon { color: #C13584; text-shadow: 0 0 15px #C13584; }
-.wallet-yt .social-wallet-icon { color: #FF0000; text-shadow: 0 0 15px #FF0000; }
-.wallet-sp .social-wallet-icon { color: #1DB954; text-shadow: 0 0 15px #1DB954; }
-
-/* Content Body (Revealed on Active) */
-.social-wallet-body {
-    padding: 20px;
-    opacity: 0;
-    transform: translateY(20px);
-    transition: all 0.4s ease;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+.card-face.back {
+    transform: rotateX(180deg);
     justify-content: center;
-    height: 270px; /* Remainder height */
-    position: relative;
-    z-index: 2;
+    background: rgba(0, 0, 0, 0.4); /* Darker back for contrast */
 }
 
-.social-wallet-card.active .social-wallet-body {
-    opacity: 1;
-    transform: translateY(0);
+/* Specific Platform Back Backgrounds (Replaced with Blue 3D Anim) */
+.facebook-glass-bg,
+.instagram-glass-bg,
+.youtube-glass-bg,
+.spotify-glass-bg {
+    background: linear-gradient(135deg, rgba(0, 0, 100, 0.8), rgba(0, 0, 230, 0.6), rgba(0, 0, 50, 0.9));
+    background-size: 400% 400%;
+    animation: blue3d 8s ease infinite;
+    backdrop-filter: blur(20px);
 }
 
-/* Action Button */
-.btn-wallet-action {
-    background: rgba(255, 255, 255, 0.1);
-    border: 1px solid rgba(255, 255, 255, 0.2);
+@keyframes blue3d {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* Icons & Text */
+.social-icon-glass {
+    font-size: 2rem;
+    width: 50px;
+    text-align: center;
+    margin-right: 15px;
+    color: #fff; /* Unified white color */
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+}
+
+/* Remove specific brand colors for icons */
+.fa-facebook-f.social-icon-glass,
+.fa-instagram.social-icon-glass,
+.fa-youtube.social-icon-glass,
+.fa-spotify.social-icon-glass {
+    color: #fff;
+}
+
+.social-text {
+    flex: 1;
+    text-align: left;
+}
+
+.social-text h3 {
+    font-size: 1.1rem;
+    margin: 0;
+    line-height: 1.2;
+}
+
+.social-text p {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    margin: 0;
+}
+
+.toggle-icon {
+    color: var(--text-secondary);
+    transition: transform 0.4s;
+}
+
+.social-glass-card.active .toggle-icon {
+    transform: rotate(180deg);
+}
+
+/* Action Button on Back */
+.btn-glass-action {
+    background: rgba(255, 255, 255, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.4);
     color: #fff;
     padding: 10px 30px;
     border-radius: 30px;
@@ -2902,39 +2901,14 @@ body.has-marquee .mobile-menu-overlay {
     text-transform: uppercase;
     letter-spacing: 1px;
     font-size: 0.9rem;
-    backdrop-filter: blur(10px);
+    backdrop-filter: blur(5px);
     transition: all 0.3s ease;
-    text-decoration: none;
-    margin-top: 10px;
-    box-shadow: 0 0 15px rgba(255, 255, 255, 0.05);
 }
 
-.btn-wallet-action:hover {
+.btn-glass-action:hover {
     background: #fff;
     color: #000;
     transform: scale(1.05);
-    box-shadow: 0 0 20px rgba(255, 255, 255, 0.4);
-}
-
-/* Stacking Order & Initial Positions */
-.social-wallet-card:nth-child(1) { top: 0px; z-index: 5; }
-.social-wallet-card:nth-child(2) { top: 70px; z-index: 4; }
-.social-wallet-card:nth-child(3) { top: 140px; z-index: 3; }
-.social-wallet-card:nth-child(4) { top: 210px; z-index: 2; }
-.social-wallet-card:nth-child(5) { top: 280px; z-index: 1; }
-
-/* Active State (Expanded) */
-.social-wallet-card.active {
-    height: 350px;
-    z-index: 100 !important; /* Bring to front */
-    border-color: rgba(0, 0, 230, 0.6);
-    box-shadow: 0 0 30px rgba(0, 0, 230, 0.4), inset 0 0 30px rgba(0, 0, 230, 0.1); /* Blue Photon Glow */
-    background: rgba(10, 10, 15, 0.95); /* Opaque background for readability */
-}
-
-/* Shift Siblings Down */
-.social-wallet-card.shift-down {
-    transform: translateY(280px); /* Move down to clear the expanded card */
 }
 
 /* --- NEW BIO BUTTON (Blue Line Loop) --- */
