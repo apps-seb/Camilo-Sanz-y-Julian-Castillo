@@ -2817,8 +2817,98 @@ body.has-marquee .mobile-menu-overlay {
   align-items: center;
   justify-content: center;
   align-content: center;
-  flex-wrap: wrap;
+  flex-wrap: nowrap; /* Changed from wrap to nowrap */
   flex-direction: row;
+  overflow-x: auto; /* Ensure scrolling on small screens if needed */
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none; /* Hide scrollbar Firefox */
+  max-width: 100%;
+}
+
+.card-social ul::-webkit-scrollbar {
+  display: none; /* Hide scrollbar Chrome/Safari */
+}
+
+/* --- DYNAMIC SOCIAL PREVIEW CARD --- */
+#social-preview-container {
+    width: 100%;
+    max-width: 400px;
+    margin-top: 30px;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+    height: 0;
+    overflow: hidden;
+}
+
+#social-preview-container.active {
+    opacity: 1;
+    transform: translateY(0);
+    height: auto;
+    overflow: visible;
+}
+
+.social-preview-card {
+    background: rgba(28, 28, 30, 0.6); /* Glass dark */
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    padding: 30px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    position: relative;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+    animation: glowPulse 3s infinite alternate;
+}
+
+@keyframes glowPulse {
+    from { box-shadow: 0 10px 30px rgba(0,0,0,0.5); }
+    to { box-shadow: 0 10px 40px rgba(0, 0, 230, 0.2); }
+}
+
+.social-preview-icon {
+    font-size: 3rem;
+    color: var(--royal-blue);
+    margin-bottom: 15px;
+    filter: drop-shadow(0 0 10px rgba(0,0,230,0.6));
+}
+
+.social-preview-info h3 {
+    font-size: 1.4rem;
+    margin-bottom: 5px;
+    color: #fff;
+}
+
+.social-preview-info p {
+    color: var(--text-secondary);
+    margin-bottom: 25px;
+    font-size: 1rem;
+}
+
+.social-preview-close {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: rgba(255, 255, 255, 0.1);
+    border: none;
+    color: #fff;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: var(--transition);
+    z-index: 10;
+}
+
+.social-preview-close:hover {
+    background: var(--royal-blue);
+    transform: rotate(90deg);
 }
 
 .card-social ul li {

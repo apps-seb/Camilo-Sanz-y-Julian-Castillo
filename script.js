@@ -419,6 +419,67 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+    // --- 10. SOCIAL CARD PREVIEW (NEW FEATURE) ---
+    const socialItems = document.querySelectorAll('.card-social li.iso-pro');
+    const socialPreviewContainer = document.getElementById('social-preview-container');
+
+    if (socialItems.length > 0 && socialPreviewContainer) {
+        socialItems.forEach(item => {
+            const link = item.querySelector('a');
+
+            // Prevent default link behavior on both LI and A
+            item.addEventListener('click', handleSocialClick);
+            if (link) {
+                link.addEventListener('click', (e) => e.preventDefault());
+            }
+
+            function handleSocialClick(e) {
+                e.preventDefault();
+
+                // Get data
+                const network = item.dataset.network;
+                const info = item.dataset.info;
+                const action = item.dataset.action;
+                const url = item.dataset.url;
+                const iconClass = item.dataset.icon;
+
+                // Build HTML
+                const html = `
+                    <div class="social-preview-card">
+                        <button class="social-preview-close" aria-label="Cerrar"><i class="fas fa-times"></i></button>
+                        <div class="social-preview-icon"><i class="${iconClass}"></i></div>
+                        <div class="social-preview-info">
+                            <h3>${network}</h3>
+                            <p>${info}</p>
+                            <a href="${url}" target="_blank" class="btn btn-glass-loop" style="width: auto; padding: 10px 30px;">
+                                ${action}
+                                <svg class="btn-border-svg"><rect x="0" y="0" width="100%" height="100%" rx="30" ry="30" pathLength="100" /></svg>
+                            </a>
+                        </div>
+                    </div>
+                `;
+
+                // Inject and Show
+                socialPreviewContainer.innerHTML = html;
+                // Force reflow for animation
+                void socialPreviewContainer.offsetWidth;
+                socialPreviewContainer.classList.add('active');
+
+                // Add close listener to the new button
+                const closeBtn = socialPreviewContainer.querySelector('.social-preview-close');
+                if (closeBtn) {
+                    closeBtn.addEventListener('click', (ev) => {
+                        ev.stopPropagation(); // Prevent bubbling to item click
+                        socialPreviewContainer.classList.remove('active');
+                        setTimeout(() => {
+                            socialPreviewContainer.innerHTML = '';
+                        }, 500); // Wait for transition
+                    });
+                }
+            }
+        });
+    }
+
 });
 
 // --- 8. MEDIA PLAYER (YouTube/Spotify Embeds) ---
