@@ -66,19 +66,39 @@
     <main>
         <!-- Hero Section -->
         <section id="inicio" class="hero">
+            <!-- Background Gradient Animation (New) -->
+            <div class="hero-bg-anim"></div>
+
             <div class="hero-carousel">
+                <!-- SLIDE 1 -->
                 <div class="hero-slide active">
                     <picture style="width: 100%; height: 100%; display: block;">
-                        <!-- CONFIGURACION PORTADA: MOVIL -->
+                        <!-- SLIDE 1: IMAGEN PARA CELULAR (Móvil) - Cambiar srcset aquí -->
                         <source media="(max-width: 768px)" srcset="https://alta57.com/wp-content/uploads/2026/02/PORTADA-WEB-NUEVA.webp">
-                        <!-- CONFIGURACION PORTADA: ESCRITORIO -->
-                        <img src="https://alta57.com/wp-content/uploads/2026/02/CANAL-YOUTUBE-ZONA-SEGURA-2560X1440-px-1.webp" alt="Camilo Sanz & Julián Castillo Main" style="width: 100%; height: 100%; object-fit: cover;">
+
+                        <!-- SLIDE 1: IMAGEN PARA ESCRITORIO (PC) - Cambiar src aquí -->
+                        <img src="https://alta57.com/wp-content/uploads/2026/02/CANAL-YOUTUBE-ZONA-SEGURA-2560X1440-px-1.webp"
+                             alt="Camilo Sanz & Julián Castillo - Slide 1"
+                             style="width: 100%; height: 100%; object-fit: cover;">
                     </picture>
                 </div>
+
+                <!-- SLIDE 2 -->
                 <div class="hero-slide">
-                    <img src="https://alta57.com/wp-content/uploads/2026/02/PORTADA-WEB-NUEVA-2.webp" alt="Camilo Sanz & Julián Castillo Portrait">
+                    <picture style="width: 100%; height: 100%; display: block;">
+                        <!-- SLIDE 2: IMAGEN PARA CELULAR (Móvil) - Cambiar srcset aquí -->
+                        <source media="(max-width: 768px)" srcset="https://alta57.com/wp-content/uploads/2026/02/PORTADA-WEB-NUEVA-2.webp">
+
+                        <!-- SLIDE 2: IMAGEN PARA ESCRITORIO (PC) - Cambiar src aquí -->
+                        <img src="https://alta57.com/wp-content/uploads/2026/02/PORTADA-WEB-NUEVA-2.webp"
+                             alt="Camilo Sanz & Julián Castillo - Slide 2"
+                             style="width: 100%; height: 100%; object-fit: cover;">
+                    </picture>
                 </div>
             </div>
+
+            <!-- Gradient Overlay (Optional, for text readability) -->
+            <div class="hero-overlay"></div>
         </section>
 
 

@@ -268,6 +268,18 @@ img { max-width: 100%; display: block; }
 
 /* .hero-bg { removed/replaced by carousel } */
 
+/* NEW: Hero Gradient Animation (Overlay with movement) */
+.hero-bg-anim {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    /* Gradient with transparency to see images behind */
+    background: linear-gradient(135deg, rgba(0,0,68,0.2), rgba(0,0,230,0.1), rgba(0,0,68,0.2));
+    background-size: 400% 400%;
+    animation: gradientMove 6s ease infinite; /* Fast & Seamless */
+    z-index: 2; /* On top of images */
+    pointer-events: none;
+}
+
 .hero-carousel {
     position: absolute;
     top: 0;
@@ -275,6 +287,7 @@ img { max-width: 100%; display: block; }
     width: 100%;
     height: 100%;
     overflow: hidden;
+    z-index: 1;
 }
 
 .hero-slide {
@@ -2793,6 +2806,7 @@ body.has-marquee .mobile-menu-overlay {
     height: 400px;
     margin: 0 auto;
     perspective: 1000px;
+    transform-style: preserve-3d; /* Enable true 3D stacking */
 }
 
 .social-wallet-card {
@@ -2811,9 +2825,32 @@ body.has-marquee .mobile-menu-overlay {
     box-shadow: 0 -5px 20px rgba(0,0,0,0.3); /* Top shadow for stack effect */
     transition: all 0.5s cubic-bezier(0.25, 1, 0.5, 1);
     cursor: pointer;
-    overflow: hidden;
+    overflow: visible; /* Changed from hidden to show glow outside */
     transform-origin: center top;
     left: 0;
+    transform-style: preserve-3d;
+}
+
+/* Interaction Glow (Behind) */
+.social-wallet-card::before {
+    content: '';
+    position: absolute;
+    top: -5px; left: -5px; right: -5px; bottom: -5px; /* Increased size */
+    background: linear-gradient(90deg, #0044ff 0%, #0000E6 100%);
+    background-size: 200% 200%;
+    border-radius: 25px;
+    z-index: -1;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    filter: blur(15px); /* Soft glow */
+    animation: gradientMove 3s linear infinite;
+    transform: translateZ(-10px); /* Push behind significantly */
+}
+
+.social-wallet-card:hover::before,
+.social-wallet-card:active::before,
+.social-wallet-card.active::before {
+    opacity: 0.8;
 }
 
 .social-wallet-card h3,
@@ -2885,12 +2922,12 @@ body.has-marquee .mobile-menu-overlay {
     transform: scale(1.05);
 }
 
-/* Stacking Logic */
-.social-wallet-card:nth-child(1) { top: 0px; z-index: 1; }
-.social-wallet-card:nth-child(2) { top: 50px; z-index: 2; }
-.social-wallet-card:nth-child(3) { top: 100px; z-index: 3; }
-.social-wallet-card:nth-child(4) { top: 150px; z-index: 4; }
-.social-wallet-card:nth-child(5) { top: 200px; z-index: 5; }
+/* Stacking Logic with 3D Depth */
+.social-wallet-card:nth-child(1) { top: 0px; z-index: 1; transform: translateZ(0px); }
+.social-wallet-card:nth-child(2) { top: 50px; z-index: 2; transform: translateZ(20px); }
+.social-wallet-card:nth-child(3) { top: 100px; z-index: 3; transform: translateZ(40px); }
+.social-wallet-card:nth-child(4) { top: 150px; z-index: 4; transform: translateZ(60px); }
+.social-wallet-card:nth-child(5) { top: 200px; z-index: 5; transform: translateZ(80px); }
 
 /* Active State */
 .social-wallet-card.active {
