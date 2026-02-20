@@ -66,39 +66,19 @@
     <main>
         <!-- Hero Section -->
         <section id="inicio" class="hero">
-            <!-- Background Gradient Animation (New) -->
-            <div class="hero-bg-anim"></div>
-
             <div class="hero-carousel">
-                <!-- SLIDE 1 -->
                 <div class="hero-slide active">
                     <picture style="width: 100%; height: 100%; display: block;">
-                        <!-- SLIDE 1: IMAGEN PARA CELULAR (Móvil) - Cambiar srcset aquí -->
+                        <!-- CONFIGURACION PORTADA: MOVIL -->
                         <source media="(max-width: 768px)" srcset="https://alta57.com/wp-content/uploads/2026/02/PORTADA-WEB-NUEVA.webp">
-
-                        <!-- SLIDE 1: IMAGEN PARA ESCRITORIO (PC) - Cambiar src aquí -->
-                        <img src="https://alta57.com/wp-content/uploads/2026/02/CANAL-YOUTUBE-ZONA-SEGURA-2560X1440-px-1.webp"
-                             alt="Camilo Sanz & Julián Castillo - Slide 1"
-                             style="width: 100%; height: 100%; object-fit: cover;">
+                        <!-- CONFIGURACION PORTADA: ESCRITORIO -->
+                        <img src="https://alta57.com/wp-content/uploads/2026/02/CANAL-YOUTUBE-ZONA-SEGURA-2560X1440-px-1.webp" alt="Camilo Sanz & Julián Castillo Main" style="width: 100%; height: 100%; object-fit: cover;">
                     </picture>
                 </div>
-
-                <!-- SLIDE 2 -->
                 <div class="hero-slide">
-                    <picture style="width: 100%; height: 100%; display: block;">
-                        <!-- SLIDE 2: IMAGEN PARA CELULAR (Móvil) - Cambiar srcset aquí -->
-                        <source media="(max-width: 768px)" srcset="https://alta57.com/wp-content/uploads/2026/02/PORTADA-WEB-NUEVA-2.webp">
-
-                        <!-- SLIDE 2: IMAGEN PARA ESCRITORIO (PC) - Cambiar src aquí -->
-                        <img src="https://alta57.com/wp-content/uploads/2026/02/PORTADA-WEB-NUEVA-2.webp"
-                             alt="Camilo Sanz & Julián Castillo - Slide 2"
-                             style="width: 100%; height: 100%; object-fit: cover;">
-                    </picture>
+                    <img src="https://alta57.com/wp-content/uploads/2026/02/PORTADA-WEB-NUEVA-2.webp" alt="Camilo Sanz & Julián Castillo Portrait">
                 </div>
             </div>
-
-            <!-- Gradient Overlay (Optional, for text readability) -->
-            <div class="hero-overlay"></div>
         </section>
 
 
@@ -364,74 +344,54 @@
             </div>
         </section>
 
-        <!-- Social Media Liquid Glass Stacked Section -->
-        <section id="redes-sociales" class="section-padding dark-bg" style="position: relative; padding-bottom: 120px;">
+                <!-- Social Media Section (Glass Card) -->
+        <section id="redes-sociales" class="section-padding dark-bg">
             <div class="container">
                 <h2 class="section-title fade-in">Síguenos</h2>
-                <div class="social-wallet-container fade-in">
-                    <!-- Facebook -->
-                    <div class="social-wallet-card wallet-fb">
-                        <div class="social-wallet-header">
-                            <i class="fab fa-facebook-f social-wallet-icon"></i>
-                            <span class="social-wallet-title">Facebook</span>
-                        </div>
-                        <div class="social-wallet-body">
-                            <h3>Camilo y Julian</h3>
-                            <p>Facebook Oficial</p>
-                            <a href="https://www.facebook.com/share/17sFSZ2hi9/?mibextid=wwXIfr" target="_blank" class="btn-wallet-action">Ver Perfil</a>
-                        </div>
-                    </div>
-
-                    <!-- Instagram Joint -->
-                    <div class="social-wallet-card wallet-ig-joint">
-                        <div class="social-wallet-header">
-                            <i class="fab fa-instagram social-wallet-icon"></i>
-                            <span class="social-wallet-title">Instagram</span>
-                        </div>
-                        <div class="social-wallet-body">
-                            <h3>@camiloyjulian</h3>
-                            <p>Instagram Oficial</p>
-                            <a href="https://www.instagram.com/camiloyjulian?igsh=MTdtcjFsaHN0MTQzYQ==" target="_blank" class="btn-wallet-action">Seguir</a>
-                        </div>
-                    </div>
-
-                    <!-- Instagram Julian -->
-                    <div class="social-wallet-card wallet-ig-julian">
-                        <div class="social-wallet-header">
-                            <i class="fab fa-instagram social-wallet-icon"></i>
-                            <span class="social-wallet-title">Instagram</span>
-                        </div>
-                        <div class="social-wallet-body">
-                            <h3>@juliancastillo___</h3>
-                            <p>Julián Castillo</p>
-                            <a href="https://www.instagram.com/juliancastillo___?igsh=YzlpdW11amZucmRj" target="_blank" class="btn-wallet-action">Seguir</a>
-                        </div>
-                    </div>
-
-                    <!-- YouTube -->
-                    <div class="social-wallet-card wallet-yt">
-                        <div class="social-wallet-header">
-                            <i class="fab fa-youtube social-wallet-icon"></i>
-                            <span class="social-wallet-title">YouTube</span>
-                        </div>
-                        <div class="social-wallet-body">
-                            <h3>Camilo Sanz TV</h3>
-                            <p>Canal Oficial</p>
-                            <a href="https://youtube.com/@camilosanztv?si=FqQMjctq4GEaAm10" target="_blank" class="btn-wallet-action">Suscríbete</a>
-                        </div>
-                    </div>
-
-                    <!-- Spotify -->
-                    <div class="social-wallet-card wallet-sp">
-                        <div class="social-wallet-header">
-                            <i class="fab fa-spotify social-wallet-icon"></i>
-                            <span class="social-wallet-title">Spotify</span>
-                        </div>
-                        <div class="social-wallet-body" style="padding: 0; width: 100%;">
-                            <div style="width: 100%; height: 100%; padding: 20px;">
-                                <iframe style="border-radius:12px; width: 100%; height: 100%;" src="https://open.spotify.com/embed/artist/4jSxOZYC5bgVCM32uTGmVv?utm_source=generator&theme=0" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-                            </div>
-                        </div>
+                <div class="fade-in" style="display: flex; justify-content: center; padding-top: 50px; padding-bottom: 50px;">
+                    <div class="card-social">
+                        <ul>
+                            <!-- Facebook -->
+                            <li class="iso-pro">
+                                <span></span><span></span><span></span>
+                                <a href="https://www.facebook.com/share/17sFSZ2hi9/?mibextid=wwXIfr" target="_blank">
+                                    <div class="svg-social"><i class="fab fa-facebook-f"></i></div>
+                                    <div class="text-tooltip">Facebook</div>
+                                </a>
+                            </li>
+                            <!-- Instagram Joint -->
+                            <li class="iso-pro">
+                                <span></span><span></span><span></span>
+                                <a href="https://www.instagram.com/camiloyjulian?igsh=MTdtcjFsaHN0MTQzYQ==" target="_blank">
+                                    <div class="svg-social"><i class="fab fa-instagram"></i></div>
+                                    <div class="text-tooltip">@camiloyjulian</div>
+                                </a>
+                            </li>
+                            <!-- Instagram Julian -->
+                            <li class="iso-pro">
+                                <span></span><span></span><span></span>
+                                <a href="https://www.instagram.com/juliancastillo___?igsh=YzlpdW11amZucmRj" target="_blank">
+                                    <div class="svg-social"><i class="fab fa-instagram"></i></div>
+                                    <div class="text-tooltip">@juliancastillo___</div>
+                                </a>
+                            </li>
+                            <!-- YouTube -->
+                            <li class="iso-pro">
+                                <span></span><span></span><span></span>
+                                <a href="https://youtube.com/@camilosanztv?si=FqQMjctq4GEaAm10" target="_blank">
+                                    <div class="svg-social"><i class="fab fa-youtube"></i></div>
+                                    <div class="text-tooltip">YouTube</div>
+                                </a>
+                            </li>
+                            <!-- Spotify -->
+                            <li class="iso-pro">
+                                <span></span><span></span><span></span>
+                                <a href="https://open.spotify.com/artist/4jSxOZYC5bgVCM32uTGmVv" target="_blank">
+                                    <div class="svg-social"><i class="fab fa-spotify"></i></div>
+                                    <div class="text-tooltip">Spotify</div>
+                                </a>
+                            </li>
+                        </ul>
                     </div>
                 </div>
             </div>
