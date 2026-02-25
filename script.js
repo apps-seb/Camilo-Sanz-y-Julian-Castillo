@@ -549,8 +549,8 @@ function toggleCart() {
     }
 }
 
-function addToCart(id, title, price, image) {
-    cart.push({ id, title, price, image });
+function addToCart(id, title, price, visuals) {
+    cart.push({ id, title, price, visuals });
     updateCartUI();
     toggleCart(); // Open cart to show item added
 }
@@ -579,8 +579,21 @@ function updateCartUI() {
 
             const itemElement = document.createElement('div');
             itemElement.classList.add('cart-item');
+
+            // Build Thumbnail HTML based on visuals type
+            let thumbnailHtml = '';
+            if (item.visuals.type === 'image') {
+                thumbnailHtml = `<img src="${item.visuals.src}" alt="${item.title}" class="cart-item-img">`;
+            } else {
+                thumbnailHtml = `
+                    <div class="cart-item-img" style="background: ${item.visuals.gradient}; display: flex; align-items: center; justify-content: center;">
+                        <i class="${item.visuals.iconClass}" style="color: ${item.visuals.iconColor}; font-size: 1.5rem;"></i>
+                    </div>
+                `;
+            }
+
             itemElement.innerHTML = `
-                <img src="${item.image}" alt="${item.title}" class="cart-item-img">
+                ${thumbnailHtml}
                 <div class="cart-item-details">
                     <h4>${item.title}</h4>
                     <p>$ ${parseInt(item.price).toLocaleString('es-CO')} COP</p>
@@ -606,30 +619,115 @@ document.addEventListener('DOMContentLoaded', () => {
     addButtons.forEach(btn => {
         btn.addEventListener('click', (e) => {
             e.preventDefault();
+            e.stopPropagation(); // Stop card click
             const card = btn.closest('.product-card');
             if (card) {
                 const id = card.getAttribute('data-id');
                 const title = card.getAttribute('data-title');
                 const price = card.getAttribute('data-price');
-                // Find image source (img tag inside .product-image)
-                const imgTag = card.querySelector('.product-image img');
-                // Or fallback if it's a placeholder div
-                let image = 'https://via.placeholder.com/150';
-                if (imgTag) {
-                    image = imgTag.src;
-                } else {
-                    // Check for placeholder div
-                    const placeholder = card.querySelector('.placeholder-img');
-                    // If placeholder, maybe use a generic icon image or keep placeholder logic?
-                    // For simplicity, we can just use a default image or try to capture the icon.
-                    // Let's use a generic image for placeholder items in cart.
-                    if (placeholder) {
-                        image = 'https://mercacol.com.co/wp-content/uploads/2026/02/IMG_5699-scaled.webp'; // Logo as fallback
-                    }
-                }
+                const visuals = getProductVisuals(card);
 
-                addToCart(id, title, price, image);
+                addToCart(id, title, price, visuals);
             }
         });
     });
+
+    // Attach click listeners to Product Cards (for Modal)
+    const productCards = document.querySelectorAll('.product-card');
+    productCards.forEach(card => {
+        card.addEventListener('click', () => {
+            openProductModal(card);
+        });
+    });
 });
+
+// --- 13. PRODUCT MODAL LOGIC ---
+const productModalOverlay = document.getElementById('product-modal-overlay');
+// const modalImg = document.getElementById('modal-product-img'); // We'll select parent container instead to inject
+const modalImageContainer = document.querySelector('.product-modal-image');
+const modalCat = document.getElementById('modal-product-cat');
+const modalTitle = document.getElementById('modal-product-title');
+const modalPrice = document.getElementById('modal-product-price');
+const modalDesc = document.getElementById('modal-product-desc');
+const modalAddBtn = document.getElementById('modal-add-btn');
+
+function getProductVisuals(card) {
+    const imgTag = card.querySelector('.product-image img');
+    if (imgTag) {
+        return { type: 'image', src: imgTag.src };
+    }
+
+    // Fallback for placeholders
+    const placeholder = card.querySelector('.placeholder-img');
+    if (placeholder) {
+        const icon = placeholder.querySelector('i');
+        return {
+            type: 'placeholder',
+            gradient: placeholder.style.background,
+            iconClass: icon ? icon.className : 'fas fa-box',
+            iconColor: icon ? icon.style.color : '#fff'
+        };
+    }
+    return { type: 'image', src: 'https://via.placeholder.com/150' };
+}
+
+function openProductModal(card) {
+    if (!productModalOverlay) return;
+
+    const id = card.getAttribute('data-id');
+    const title = card.getAttribute('data-title');
+    const price = card.getAttribute('data-price');
+    const category = card.getAttribute('data-category');
+    const desc = card.getAttribute('data-description') || 'Sin descripción disponible.';
+    const visuals = getProductVisuals(card);
+
+    // Populate Visuals
+    modalImageContainer.innerHTML = ''; // Clear previous
+    if (visuals.type === 'image') {
+        const img = document.createElement('img');
+        img.src = visuals.src;
+        img.id = 'modal-product-img';
+        img.alt = title;
+        modalImageContainer.appendChild(img);
+    } else {
+        const div = document.createElement('div');
+        div.style.width = '100%';
+        div.style.height = '100%';
+        div.style.background = visuals.gradient;
+        div.style.display = 'flex';
+        div.style.alignItems = 'center';
+        div.style.justifyContent = 'center';
+        div.style.borderRadius = '10px';
+        div.innerHTML = `<i class="${visuals.iconClass}" style="color: ${visuals.iconColor}; font-size: 8rem;"></i>`;
+        modalImageContainer.appendChild(div);
+    }
+
+    modalCat.innerText = category;
+    modalTitle.innerText = title;
+    modalPrice.innerText = `$ ${parseInt(price).toLocaleString('es-CO')} COP`;
+    modalDesc.innerText = desc;
+
+    // Setup Add Button
+    modalAddBtn.onclick = () => {
+        addToCart(id, title, price, visuals);
+    };
+
+    productModalOverlay.classList.add('active');
+    document.body.style.overflow = 'hidden';
+}
+
+window.closeProductModal = function() {
+    if (productModalOverlay) {
+        productModalOverlay.classList.remove('active');
+        document.body.style.overflow = 'auto';
+    }
+}
+
+// Close on outside click
+if (productModalOverlay) {
+    productModalOverlay.addEventListener('click', (e) => {
+        if (e.target === productModalOverlay) {
+            closeProductModal();
+        }
+    });
+}
