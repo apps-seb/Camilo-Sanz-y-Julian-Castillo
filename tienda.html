@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tienda Oficial | Camilo Sanz & Julián Castillo</title>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Main CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="has-marquee">
+
+    <!-- Marquee Top Bar -->
+    <div class="marquee-bar">
+        <div class="marquee-content">
+            <span class="highlight">PRÓXIMO CONCIERTO:</span> 15 MARZO - BOGOTÁ (MOVISTAR ARENA) <a href="agenda.html" class="marquee-link">VER AGENDA</a>
+            <span class="separator">•</span>
+            <span class="highlight">NUEVO LANZAMIENTO:</span> "MI PENSAMIENTO FAVORITO"
+            <a href="index.html#lanzamientos" class="marquee-link"><i class="fas fa-play"></i> ESCUCHAR</a>
+            <span class="separator">•</span>
+            <span class="highlight">PRÓXIMO CONCIERTO:</span> 15 MARZO - BOGOTÁ (MOVISTAR ARENA) <a href="agenda.html" class="marquee-link">VER AGENDA</a>
+            <span class="separator">•</span>
+            <span class="highlight">NUEVO LANZAMIENTO:</span> "MI PENSAMIENTO FAVORITO"
+            <a href="index.html#lanzamientos" class="marquee-link"><i class="fas fa-play"></i> ESCUCHAR</a>
+            <span class="separator">•</span>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar glass">
+        <div class="nav-container">
+            <a href="index.html" class="logo"><img src="https://mercacol.com.co/wp-content/uploads/2026/02/IMG_5699-scaled.webp" alt="CS & JC Logo"></a>
+            <div class="nav-links">
+                <a href="biografia.html">Biografía</a>
+                <a href="discografia.html">Discografía</a>
+                <a href="videos.html">Videos</a>
+                <a href="agenda.html">Agenda</a>
+                <a href="rider.html">Rider Técnico</a>
+                <a href="tienda.html" class="active">Tienda</a>
+            </div>
+            <div class="menu-toggle">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu Overlay -->
+    <div class="mobile-menu-overlay glass">
+        <div class="close-menu"><i class="fas fa-times"></i></div>
+        <div class="mobile-links">
+            <a href="index.html">Inicio</a>
+            <a href="biografia.html">Biografía</a>
+            <a href="discografia.html">Discografía</a>
+            <a href="videos.html">Videos</a>
+            <a href="agenda.html">Agenda</a>
+            <a href="rider.html">Rider Técnico</a>
+            <a href="tienda.html">Tienda</a>
+        </div>
+    </div>
+
+    <main>
+        <!-- Store Hero Section -->
+        <section class="store-hero">
+            <div class="store-hero-content fade-in">
+                <h1>Tienda Oficial</h1>
+                <p>Música, Merch y Experiencias Exclusivas</p>
+            </div>
+            <div class="store-hero-overlay"></div>
+        </section>
+
+        <!-- Filter & Grid Section -->
+        <section class="store-section section-padding">
+            <div class="container">
+
+                <!-- Filters -->
+                <div class="store-filters fade-in">
+                    <button class="filter-btn active" data-filter="all">Todos</button>
+                    <button class="filter-btn" data-filter="musica">Música</button>
+                    <button class="filter-btn" data-filter="merch">Merch</button>
+                    <button class="filter-btn" data-filter="partituras">Partituras</button>
+                    <button class="filter-btn" data-filter="experiencias">Experiencias</button>
+                </div>
+
+                <!-- Product Grid -->
+                <div class="store-grid fade-in-up">
+
+                    <!-- Product 1: Vinyl -->
+                    <div class="product-card" data-category="musica">
+                        <div class="product-image">
+                            <img src="https://alta57.com/wp-content/uploads/2026/02/TRACK-SPOTIFY-3000X3000-px-scaled.webp" alt="Vinilo Mi Pensamiento Favorito">
+                            <span class="badge-new">Nuevo</span>
+                        </div>
+                        <div class="product-info">
+                            <p class="product-cat">Música</p>
+                            <h3>Vinilo "Mi Pensamiento Favorito"</h3>
+                            <p class="price">$120.000 COP</p>
+                            <a href="#" class="btn btn-glass-loop btn-sm">
+                                Comprar
+                                <svg class="btn-border-svg"><rect x="0" y="0" width="100%" height="100%" rx="30" ry="30" pathLength="100" /></svg>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Product 2: CD -->
+                    <div class="product-card" data-category="musica">
+                        <div class="product-image">
+                            <img src="https://alta57.com/wp-content/uploads/2026/02/TomandoyTomando_CoverArt-scaled.webp" alt="CD Tomando & Tomando">
+                        </div>
+                        <div class="product-info">
+                            <p class="product-cat">Música</p>
+                            <h3>CD "Tomando & Tomando"</h3>
+                            <p class="price">$40.000 COP</p>
+                            <a href="#" class="btn btn-glass-loop btn-sm">
+                                Comprar
+                                <svg class="btn-border-svg"><rect x="0" y="0" width="100%" height="100%" rx="30" ry="30" pathLength="100" /></svg>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Product 3: T-Shirt -->
+                    <div class="product-card" data-category="merch">
+                        <div class="product-image">
+                            <!-- Placeholder for T-shirt -->
+                            <div class="placeholder-img" style="background: linear-gradient(135deg, #1c1c1e, #333); display: flex; align-items: center; justify-content: center; height: 100%;">
+                                <i class="fas fa-tshirt" style="font-size: 4rem; color: #555;"></i>
+                            </div>
+                        </div>
+                        <div class="product-info">
+                            <p class="product-cat">Merch</p>
+                            <h3>Camiseta Oficial Tour 2026</h3>
+                            <p class="price">$80.000 COP</p>
+                            <a href="#" class="btn btn-glass-loop btn-sm">
+                                Comprar
+                                <svg class="btn-border-svg"><rect x="0" y="0" width="100%" height="100%" rx="30" ry="30" pathLength="100" /></svg>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Product 4: Hoodie -->
+                    <div class="product-card" data-category="merch">
+                        <div class="product-image">
+                            <!-- Placeholder for Hoodie -->
+                            <div class="placeholder-img" style="background: linear-gradient(135deg, #1c1c1e, #333); display: flex; align-items: center; justify-content: center; height: 100%;">
+                                <i class="fas fa-user-astronaut" style="font-size: 4rem; color: #555;"></i>
+                            </div>
+                        </div>
+                        <div class="product-info">
+                            <p class="product-cat">Merch</p>
+                            <h3>Hoodie "Vallenato New Era"</h3>
+                            <p class="price">$150.000 COP</p>
+                            <a href="#" class="btn btn-glass-loop btn-sm">
+                                Comprar
+                                <svg class="btn-border-svg"><rect x="0" y="0" width="100%" height="100%" rx="30" ry="30" pathLength="100" /></svg>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Product 5: Digital Scores -->
+                    <div class="product-card" data-category="partituras">
+                        <div class="product-image">
+                            <div class="placeholder-img" style="background: linear-gradient(135deg, #000044, #0000aa); display: flex; align-items: center; justify-content: center; height: 100%;">
+                                <i class="fas fa-music" style="font-size: 4rem; color: #fff;"></i>
+                            </div>
+                            <span class="badge-digital">Digital</span>
+                        </div>
+                        <div class="product-info">
+                            <p class="product-cat">Partituras</p>
+                            <h3>Pack Acordeón (PDF + MIDI)</h3>
+                            <p class="price">$50.000 COP</p>
+                            <a href="#" class="btn btn-glass-loop btn-sm">
+                                Comprar
+                                <svg class="btn-border-svg"><rect x="0" y="0" width="100%" height="100%" rx="30" ry="30" pathLength="100" /></svg>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Product 6: Masterclass -->
+                    <div class="product-card" data-category="experiencias">
+                        <div class="product-image">
+                            <img src="https://alta57.com/wp-content/uploads/2026/02/BIOGRAFIA-JULIAN.webp" alt="Masterclass Julián Castillo">
+                             <span class="badge-exclusive">Exclusivo</span>
+                        </div>
+                        <div class="product-info">
+                            <p class="product-cat">Experiencias</p>
+                            <h3>Masterclass: Secretos del Acordeón</h3>
+                            <p class="price">$200.000 COP</p>
+                            <a href="#" class="btn btn-glass-loop btn-sm">
+                                Reservar
+                                <svg class="btn-border-svg"><rect x="0" y="0" width="100%" height="100%" rx="30" ry="30" pathLength="100" /></svg>
+                            </a>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer id="contacto">
+        <div class="container footer-content">
+            <div class="footer-brand">
+                <a href="index.html#inicio"><img src="https://alta57.com/wp-content/uploads/2026/02/LOGO-SILVER-2-scaled.png" alt="CS & JC Logo" class="footer-logo"></a>
+                <p>&copy; 2026 Camilo Sanz & Julián Castillo.</p>
+            </div>
+            <div class="footer-contact">
+                <h3>Contacto</h3>
+                <p>+57 300 123 4567</p>
+                <a href="mailto:manager@camiloyjulian.com">manager@camiloyjulian.com</a>
+                <p>Bogotá, Colombia</p>
+            </div>
+            <div class="footer-social">
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-tiktok"></i></a>
+                <a href="#"><i class="fab fa-youtube"></i></a>
+                <a href="#"><i class="fab fa-spotify"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bottom Navigation -->
+    <nav class="bottom-nav glass">
+        <a href="index.html" class="nav-item">
+            <i class="fas fa-home"></i>
+            <span>Inicio</span>
+        </a>
+        <a href="discografia.html" class="nav-item center-item">
+            <div class="vinyl-disc">
+                <i class="fas fa-compact-disc"></i>
+            </div>
+            <span>Álbumes</span>
+        </a>
+        <a href="tienda.html" class="nav-item nav-active">
+            <i class="fas fa-shopping-bag"></i>
+            <span>Tienda</span>
+        </a>
+    </nav>
+
+    <script src="script.js"></script>
+</body>
+</html>
