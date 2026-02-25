@@ -498,3 +498,35 @@ window.playMedia = function(containerId, type, contentId) {
 
     container.innerHTML = iframeHtml;
 };
+
+// --- 11. STORE FILTER LOGIC ---
+document.addEventListener('DOMContentLoaded', () => {
+    const filterBtns = document.querySelectorAll('.filter-btn');
+    const productCards = document.querySelectorAll('.product-card');
+
+    if (filterBtns.length > 0) {
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                // Remove active class from all
+                filterBtns.forEach(b => b.classList.remove('active'));
+                // Add active to clicked
+                btn.classList.add('active');
+
+                const filterValue = btn.getAttribute('data-filter');
+
+                productCards.forEach(card => {
+                    const category = card.getAttribute('data-category');
+
+                    if (filterValue === 'all' || filterValue === category) {
+                        card.style.display = 'flex'; // Restore flex display
+                        // Optional: Add animation class
+                        card.classList.add('fade-in-up');
+                    } else {
+                        card.style.display = 'none';
+                        card.classList.remove('fade-in-up');
+                    }
+                });
+            });
+        });
+    }
+});
