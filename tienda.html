@@ -38,6 +38,7 @@
     <nav class="navbar glass">
         <div class="nav-container">
             <a href="index.html" class="logo"><img src="https://mercacol.com.co/wp-content/uploads/2026/02/IMG_5699-scaled.webp" alt="CS & JC Logo"></a>
+
             <div class="nav-links">
                 <a href="biografia.html">Biografía</a>
                 <a href="discografia.html">Discografía</a>
@@ -45,9 +46,19 @@
                 <a href="agenda.html">Agenda</a>
                 <a href="rider.html">Rider Técnico</a>
                 <a href="tienda.html" class="active">Tienda</a>
+                <a href="contacto.html">Contacto</a>
             </div>
-            <div class="menu-toggle">
-                <i class="fas fa-bars"></i>
+
+            <div style="display: flex; align-items: center; gap: 15px;">
+                <!-- Cart Icon -->
+                <div class="cart-icon-wrapper" onclick="toggleCart()">
+                    <i class="fas fa-shopping-cart"></i>
+                    <div class="cart-count" id="cart-count">0</div>
+                </div>
+
+                <div class="menu-toggle">
+                    <i class="fas fa-bars"></i>
+                </div>
             </div>
         </div>
     </nav>
@@ -63,6 +74,7 @@
             <a href="agenda.html">Agenda</a>
             <a href="rider.html">Rider Técnico</a>
             <a href="tienda.html">Tienda</a>
+            <a href="contacto.html">Contacto</a>
         </div>
     </div>
 
@@ -80,20 +92,51 @@
         <section class="store-section section-padding">
             <div class="container">
 
-                <!-- Filters -->
-                <div class="store-filters fade-in">
-                    <button class="filter-btn active" data-filter="all">Todos</button>
-                    <button class="filter-btn" data-filter="musica">Música</button>
-                    <button class="filter-btn" data-filter="merch">Merch</button>
-                    <button class="filter-btn" data-filter="partituras">Partituras</button>
-                    <button class="filter-btn" data-filter="experiencias">Experiencias</button>
+                <!-- New Category Slider -->
+                <div class="category-slider fade-in">
+                    <!-- All -->
+                    <div class="category-card active" data-filter="all">
+                        <div class="category-bg bg-all"></div>
+                        <i class="fas fa-th-large"></i>
+                        <h3>Todos</h3>
+                    </div>
+                    <!-- Musica -->
+                    <div class="category-card" data-filter="musica">
+                        <div class="category-bg bg-musica"></div>
+                        <i class="fas fa-music"></i>
+                        <h3>Música</h3>
+                    </div>
+                    <!-- Merch -->
+                    <div class="category-card" data-filter="merch">
+                        <div class="category-bg bg-merch"></div>
+                        <i class="fas fa-tshirt"></i>
+                        <h3>Merch</h3>
+                    </div>
+                    <!-- Instrumentos (New) -->
+                    <div class="category-card" data-filter="instrumentos">
+                        <div class="category-bg bg-instrumentos"></div>
+                        <i class="fas fa-guitar"></i>
+                        <h3>Instrumentos</h3>
+                    </div>
+                    <!-- Partituras -->
+                    <div class="category-card" data-filter="partituras">
+                        <div class="category-bg bg-partituras"></div>
+                        <i class="fas fa-file-audio"></i>
+                        <h3>Partituras</h3>
+                    </div>
+                    <!-- Experiencias -->
+                    <div class="category-card" data-filter="experiencias">
+                        <div class="category-bg bg-experiencias"></div>
+                        <i class="fas fa-star"></i>
+                        <h3>Experiencias</h3>
+                    </div>
                 </div>
 
                 <!-- Product Grid -->
                 <div class="store-grid fade-in-up">
 
                     <!-- Product 1: Vinyl -->
-                    <div class="product-card" data-category="musica">
+                    <div class="product-card" data-category="musica" data-id="1" data-title="Vinilo 'Mi Pensamiento Favorito'" data-price="120000">
                         <div class="product-image">
                             <img src="https://alta57.com/wp-content/uploads/2026/02/TRACK-SPOTIFY-3000X3000-px-scaled.webp" alt="Vinilo Mi Pensamiento Favorito">
                             <span class="badge-new">Nuevo</span>
@@ -102,15 +145,15 @@
                             <p class="product-cat">Música</p>
                             <h3>Vinilo "Mi Pensamiento Favorito"</h3>
                             <p class="price">$120.000 COP</p>
-                            <a href="#" class="btn btn-glass-loop btn-sm">
+                            <button class="btn btn-glass-loop btn-sm btn-add-cart">
                                 Comprar
                                 <svg class="btn-border-svg"><rect x="0" y="0" width="100%" height="100%" rx="30" ry="30" pathLength="100" /></svg>
-                            </a>
+                            </button>
                         </div>
                     </div>
 
                     <!-- Product 2: CD -->
-                    <div class="product-card" data-category="musica">
+                    <div class="product-card" data-category="musica" data-id="2" data-title="CD 'Tomando & Tomando'" data-price="40000">
                         <div class="product-image">
                             <img src="https://alta57.com/wp-content/uploads/2026/02/TomandoyTomando_CoverArt-scaled.webp" alt="CD Tomando & Tomando">
                         </div>
@@ -118,17 +161,16 @@
                             <p class="product-cat">Música</p>
                             <h3>CD "Tomando & Tomando"</h3>
                             <p class="price">$40.000 COP</p>
-                            <a href="#" class="btn btn-glass-loop btn-sm">
+                            <button class="btn btn-glass-loop btn-sm btn-add-cart">
                                 Comprar
                                 <svg class="btn-border-svg"><rect x="0" y="0" width="100%" height="100%" rx="30" ry="30" pathLength="100" /></svg>
-                            </a>
+                            </button>
                         </div>
                     </div>
 
                     <!-- Product 3: T-Shirt -->
-                    <div class="product-card" data-category="merch">
+                    <div class="product-card" data-category="merch" data-id="3" data-title="Camiseta Oficial Tour 2026" data-price="80000">
                         <div class="product-image">
-                            <!-- Placeholder for T-shirt -->
                             <div class="placeholder-img" style="background: linear-gradient(135deg, #1c1c1e, #333); display: flex; align-items: center; justify-content: center; height: 100%;">
                                 <i class="fas fa-tshirt" style="font-size: 4rem; color: #555;"></i>
                             </div>
@@ -137,17 +179,16 @@
                             <p class="product-cat">Merch</p>
                             <h3>Camiseta Oficial Tour 2026</h3>
                             <p class="price">$80.000 COP</p>
-                            <a href="#" class="btn btn-glass-loop btn-sm">
+                            <button class="btn btn-glass-loop btn-sm btn-add-cart">
                                 Comprar
                                 <svg class="btn-border-svg"><rect x="0" y="0" width="100%" height="100%" rx="30" ry="30" pathLength="100" /></svg>
-                            </a>
+                            </button>
                         </div>
                     </div>
 
                     <!-- Product 4: Hoodie -->
-                    <div class="product-card" data-category="merch">
+                    <div class="product-card" data-category="merch" data-id="4" data-title="Hoodie 'Vallenato New Era'" data-price="150000">
                         <div class="product-image">
-                            <!-- Placeholder for Hoodie -->
                             <div class="placeholder-img" style="background: linear-gradient(135deg, #1c1c1e, #333); display: flex; align-items: center; justify-content: center; height: 100%;">
                                 <i class="fas fa-user-astronaut" style="font-size: 4rem; color: #555;"></i>
                             </div>
@@ -156,18 +197,76 @@
                             <p class="product-cat">Merch</p>
                             <h3>Hoodie "Vallenato New Era"</h3>
                             <p class="price">$150.000 COP</p>
-                            <a href="#" class="btn btn-glass-loop btn-sm">
+                            <button class="btn btn-glass-loop btn-sm btn-add-cart">
                                 Comprar
                                 <svg class="btn-border-svg"><rect x="0" y="0" width="100%" height="100%" rx="30" ry="30" pathLength="100" /></svg>
-                            </a>
+                            </button>
                         </div>
                     </div>
 
-                    <!-- Product 5: Digital Scores -->
-                    <div class="product-card" data-category="partituras">
+                    <!-- NEW PRODUCT: Gorras (Caps) -->
+                    <div class="product-card" data-category="merch" data-id="5" data-title="Gorra Snapback Logo" data-price="60000">
+                        <div class="product-image">
+                            <div class="placeholder-img" style="background: linear-gradient(135deg, #000, #111); display: flex; align-items: center; justify-content: center; height: 100%;">
+                                <i class="fas fa-hat-cowboy-side" style="font-size: 4rem; color: #fff;"></i>
+                            </div>
+                            <span class="badge-new">Nuevo</span>
+                        </div>
+                        <div class="product-info">
+                            <p class="product-cat">Merch</p>
+                            <h3>Gorra Snapback Logo</h3>
+                            <p class="price">$60.000 COP</p>
+                            <button class="btn btn-glass-loop btn-sm btn-add-cart">
+                                Comprar
+                                <svg class="btn-border-svg"><rect x="0" y="0" width="100%" height="100%" rx="30" ry="30" pathLength="100" /></svg>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- NEW PRODUCT: Acordeón Hohner (Instrumentos) -->
+                    <div class="product-card" data-category="instrumentos" data-id="6" data-title="Acordeón Hohner Rey Vallenato" data-price="2500000">
+                        <div class="product-image">
+                            <div class="placeholder-img" style="background: linear-gradient(135deg, #8B0000, #330000); display: flex; align-items: center; justify-content: center; height: 100%;">
+                                <i class="fas fa-music" style="font-size: 4rem; color: #FFD700;"></i>
+                            </div>
+                            <span class="badge-exclusive">Bajo Pedido</span>
+                        </div>
+                        <div class="product-info">
+                            <p class="product-cat">Instrumentos</p>
+                            <h3>Acordeón Hohner Rey Vallenato</h3>
+                            <p class="price">$2.500.000 COP</p>
+                            <button class="btn btn-glass-loop btn-sm btn-add-cart">
+                                Comprar
+                                <svg class="btn-border-svg"><rect x="0" y="0" width="100%" height="100%" rx="30" ry="30" pathLength="100" /></svg>
+                            </button>
+                        </div>
+                    </div>
+
+                     <!-- NEW PRODUCT: Acordeón Hohner Corona III (Instrumentos) -->
+                    <div class="product-card" data-category="instrumentos" data-id="7" data-title="Acordeón Hohner Corona III" data-price="4500000">
                         <div class="product-image">
                             <div class="placeholder-img" style="background: linear-gradient(135deg, #000044, #0000aa); display: flex; align-items: center; justify-content: center; height: 100%;">
-                                <i class="fas fa-music" style="font-size: 4rem; color: #fff;"></i>
+                                <i class="fas fa-music" style="font-size: 4rem; color: silver;"></i>
+                            </div>
+                             <span class="badge-exclusive">Bajo Pedido</span>
+                        </div>
+                        <div class="product-info">
+                            <p class="product-cat">Instrumentos</p>
+                            <h3>Acordeón Hohner Corona III</h3>
+                            <p class="price">$4.500.000 COP</p>
+                            <button class="btn btn-glass-loop btn-sm btn-add-cart">
+                                Comprar
+                                <svg class="btn-border-svg"><rect x="0" y="0" width="100%" height="100%" rx="30" ry="30" pathLength="100" /></svg>
+                            </button>
+                        </div>
+                    </div>
+
+
+                    <!-- Product 5: Digital Scores -->
+                    <div class="product-card" data-category="partituras" data-id="8" data-title="Pack Acordeón (PDF + MIDI)" data-price="50000">
+                        <div class="product-image">
+                            <div class="placeholder-img" style="background: linear-gradient(135deg, #000044, #0000aa); display: flex; align-items: center; justify-content: center; height: 100%;">
+                                <i class="fas fa-file-audio" style="font-size: 4rem; color: #fff;"></i>
                             </div>
                             <span class="badge-digital">Digital</span>
                         </div>
@@ -175,15 +274,15 @@
                             <p class="product-cat">Partituras</p>
                             <h3>Pack Acordeón (PDF + MIDI)</h3>
                             <p class="price">$50.000 COP</p>
-                            <a href="#" class="btn btn-glass-loop btn-sm">
+                            <button class="btn btn-glass-loop btn-sm btn-add-cart">
                                 Comprar
                                 <svg class="btn-border-svg"><rect x="0" y="0" width="100%" height="100%" rx="30" ry="30" pathLength="100" /></svg>
-                            </a>
+                            </button>
                         </div>
                     </div>
 
                     <!-- Product 6: Masterclass -->
-                    <div class="product-card" data-category="experiencias">
+                    <div class="product-card" data-category="experiencias" data-id="9" data-title="Masterclass: Secretos del Acordeón" data-price="200000">
                         <div class="product-image">
                             <img src="https://alta57.com/wp-content/uploads/2026/02/BIOGRAFIA-JULIAN.webp" alt="Masterclass Julián Castillo">
                              <span class="badge-exclusive">Exclusivo</span>
@@ -192,10 +291,10 @@
                             <p class="product-cat">Experiencias</p>
                             <h3>Masterclass: Secretos del Acordeón</h3>
                             <p class="price">$200.000 COP</p>
-                            <a href="#" class="btn btn-glass-loop btn-sm">
+                            <button class="btn btn-glass-loop btn-sm btn-add-cart">
                                 Reservar
                                 <svg class="btn-border-svg"><rect x="0" y="0" width="100%" height="100%" rx="30" ry="30" pathLength="100" /></svg>
-                            </a>
+                            </button>
                         </div>
                     </div>
 
@@ -244,6 +343,26 @@
             <span>Tienda</span>
         </a>
     </nav>
+
+    <!-- CART SIDEBAR -->
+    <div class="cart-overlay" onclick="toggleCart()"></div>
+    <div class="cart-sidebar glass" id="cart-sidebar">
+        <div class="cart-header">
+            <h2>Tu Carrito</h2>
+            <button class="close-cart" onclick="toggleCart()"><i class="fas fa-times"></i></button>
+        </div>
+        <div class="cart-items" id="cart-items">
+            <!-- Items will be injected here via JS -->
+            <p class="empty-cart-msg">Tu carrito está vacío.</p>
+        </div>
+        <div class="cart-footer">
+            <div class="cart-total">
+                <span>Total:</span>
+                <span id="cart-total-price">$0 COP</span>
+            </div>
+            <button class="btn-checkout" onclick="alert('Funcionalidad de pago en desarrollo. ¡Gracias por tu interés!')">Pagar Ahora</button>
+        </div>
+    </div>
 
     <script src="script.js"></script>
 </body>

@@ -1,213 +1,320 @@
 <!DOCTYPE html>
 <html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Biografía | Camilo Sanz & Julián Castillo</title>
-
-    <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-
-    <!-- Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
-    <!-- Main CSS -->
-    <link rel="stylesheet" href="style.css">
-    <style>
-        /* Extra padding for fixed header on this page since there is no Hero */
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>
+   Biografía | Camilo Sanz &amp; Julián Castillo
+  </title>
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com" rel="preconnect"/>
+  <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+  <!-- Icons -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+  <!-- Main CSS -->
+  <link href="style.css" rel="stylesheet"/>
+  <style>
+   /* Extra padding for fixed header on this page since there is no Hero */
         main {
             padding-top: 80px;
         }
-    </style>
-</head>
-<body>
-
-    <!-- Navigation -->
-    <nav class="navbar glass">
-        <div class="nav-container">
-            <a href="index.html" class="logo"><img src="https://mercacol.com.co/wp-content/uploads/2026/02/IMG_5699-scaled.webp" alt="CS & JC Logo"></a>
-            <div class="nav-links">
-                <a href="biografia.html" style="color: var(--royal-blue);">Biografía</a>
-                <a href="discografia.html">Discografía</a>
-                <a href="videos.html">Videos</a>
-                <a href="agenda.html">Agenda</a>
-                <a href="rider.html">Rider Técnico</a>
-                <a href="tienda.html">Tienda</a>
-            </div>
-            <div class="menu-toggle">
-                <i class="fas fa-bars"></i>
-            </div>
-        </div>
-    </nav>
-
-    <!-- Mobile Menu Overlay -->
-    <div class="mobile-menu-overlay glass">
-        <div class="close-menu"><i class="fas fa-times"></i></div>
-        <div class="mobile-links">
-            <a href="biografia.html" style="color: var(--royal-blue);">Biografía</a>
-            <a href="discografia.html">Discografía</a>
-            <a href="videos.html">Videos</a>
-            <a href="agenda.html">Agenda</a>
-            <a href="rider.html">Rider Técnico</a>
-            <a href="tienda.html">Tienda</a>
-        </div>
+  </style>
+ </head>
+ <body>
+  <!-- Navigation -->
+  <nav class="navbar glass">
+   <div class="nav-container">
+    <a class="logo" href="index.html">
+     <img alt="CS &amp; JC Logo" src="https://mercacol.com.co/wp-content/uploads/2026/02/IMG_5699-scaled.webp"/>
+    </a>
+    <div class="nav-links">
+     <a href="biografia.html" style="color: var(--royal-blue);">
+      Biografía
+     </a>
+     <a href="discografia.html">
+      Discografía
+     </a>
+     <a href="videos.html">
+      Videos
+     </a>
+     <a href="agenda.html">
+      Agenda
+     </a>
+     <a href="rider.html">
+      Rider Técnico
+     </a>
+     <a href="tienda.html">
+      Tienda
+     </a>
+     <a href="contacto.html">
+      Contacto
+     </a>
     </div>
-
-    <main>
-        <!-- Biography Section (Grid) -->
-        <section id="biografia" class="section-padding">
-            <div class="container">
-                <h2 class="section-title fade-in">Nuestra Historia</h2>
-                <div class="bio-tabs fade-in">
-                    <button class="tab-btn active" onclick="openBio('camilo')">Camilo Sanz</button>
-                    <button class="tab-btn" onclick="openBio('julian')">Julián Castillo</button>
-                </div>
-
-                <div id="camilo" class="bio-content active fade-in">
-                    <div class="bio-layout">
-                        <!-- Profile Card -->
-                        <div class="bio-card profile-card glass">
-                            <div class="profile-img-wrapper">
-                                <img src="https://alta57.com/wp-content/uploads/2026/02/BIOGRAFIA-CAMILO.webp" alt="Camilo Sanz">
-                            </div>
-                            <h3>Camilo Sanz</h3>
-                            <p class="role">Voz Principal & Composición</p>
-                        </div>
-
-                        <!-- Info Grid -->
-                        <div class="bio-info-grid">
-                            <div class="bio-card glass">
-                                <h4>Inicios Musicales</h4>
-                                <p>Camilo Sánchez empezó en la música a la edad de 12 años cuando su papá le compró una guitarra; tres años después el acordeón se convirtió en su gran pasión y con él se destacó durante más de 10 años tocando con varios cantantes de su región.</p>
-                            </div>
-                            <div class="bio-card glass">
-                                <h4>Nueva Etapa</h4>
-                                <p>En el 2020, después de haber participado en grandes e importantes eventos, tomó la decisión de iniciar su carrera como cantante, un cambio que sin lugar a duda ha sido un gran reto para su carrera artística, pero al mismo tiempo un gran acierto.</p>
-                            </div>
-                            <div class="bio-card glass">
-                                <h4>Trayectoria</h4>
-                                <p>Camilo ha compartido escenario junto a Ana del Castillo, Nelson Velásquez, Elder Dayan, Mono Zabaleta, Oscar Gamarra, entre otros; hoy por hoy, recorre todo el territorio nacional junto a Julián Castillo, aspirando a cruzar fronteras a ritmo de vallenato.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div id="julian" class="bio-content fade-in">
-                     <div class="bio-layout">
-                        <!-- Profile Card -->
-                        <div class="bio-card profile-card glass">
-                            <div class="profile-img-wrapper">
-                                <img src="https://alta57.com/wp-content/uploads/2026/02/BIOGRAFIA-JULIAN.webp" alt="Julián Castillo">
-                            </div>
-                            <h3>Julián Castillo</h3>
-                            <p class="role">Acordeón</p>
-                        </div>
-
-                        <!-- Info Grid -->
-                        <div class="bio-info-grid">
-                            <div class="bio-card glass">
-                                <h4>Orígenes</h4>
-                                <p>Julian Camilo Castillo Barbosa nació en Río de Oro, Cesar, y creció en Ocaña, Norte de Santander. Desde pequeño sintió un profundo amor por la música, especialmente el vallenato.</p>
-                            </div>
-                            <div class="bio-card glass">
-                                <h4>El Acordeón</h4>
-                                <p>A los ocho años recibió su primer acordeón, lo que marcó el inicio de su carrera musical; desde entonces ha participado en diversos festivales vallenatos en toda Colombia.</p>
-                            </div>
-                            <div class="bio-card glass">
-                                <h4>Colaboraciones</h4>
-                                <p>Ha colaborado con grandes del género como Silvestre Dangond, Martín Elias, Diego Daza, Jean Carlos Centeno, Mono Zabaleta, Ana del Castillo, entre otros, consolidándose como un referente en el instrumento.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Trayectoria Section (Gallery) -->
-        <section id="trayectoria" class="section-padding dark-bg">
-            <div class="container">
-                <h2 class="section-title fade-in">Nuestra Trayectoria</h2>
-
-                <div class="trayectoria-grid">
-                    <!-- Item 1: Text Left, Image Right -->
-                    <div class="trayectoria-item fade-in">
-                        <div class="trayectoria-content">
-                            <h3>Consolidación Internacional</h3>
-                            <p>Camilo Sanz y Julian Castillo se han ganado el cariño y respeto del público en cada una de sus presentaciones. Con enfoque y disciplina han trabajado durante dos años en los que pueden destacar algunos logros como su más reciente gira por Bolivia, donde se unieron con uno de sus grandes exponentes locales, Luis Vega.</p>
-                        </div>
-                        <div class="trayectoria-image">
-                            <img src="https://mercacol.com.co/wp-content/uploads/2026/02/IMG_5721-scaled.webp" alt="Gira Bolivia">
-                        </div>
-                    </div>
-
-                    <!-- Item 2: Image Left, Text Right -->
-                    <div class="trayectoria-item fade-in delay-100">
-                        <div class="trayectoria-image">
-                            <img src="https://alta57.com/wp-content/uploads/2026/02/COLABOR-ELD-1.webp" alt="Medios Nacionales">
-                        </div>
-                        <div class="trayectoria-content">
-                            <h3>Impacto Mediático</h3>
-                            <p>Por otro lado, su colaboración con Robison Damián y los Embajadores Vallenatos los llevó a visitar los medios más importantes a nivel nacional en Bogotá y Medellín, consolidando su presencia en la escena musical del país.</p>
-                        </div>
-                    </div>
-
-                    <!-- Item 3: Text Left, Image Right -->
-                    <div class="trayectoria-item fade-in delay-200">
-                        <div class="trayectoria-content">
-                            <h3>Grandes Escenarios</h3>
-                            <p>Así como también hicieron parte del homenaje realizado a Shakira en Barranquilla junto a importantes colegas como Elder Dayan, Daniel Calderón, Natalia Curvelo, entre otros. Actualmente, se preparan para convertirse en los exponentes más importantes del género vallenato.</p>
-                        </div>
-                        <div class="trayectoria-image">
-                            <img src="https://alta57.com/wp-content/uploads/2026/02/SHAKIRA.webp" alt="Homenaje Shakira">
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <!-- Footer -->
-    <footer id="contacto">
-        <div class="container footer-content">
-            <div class="footer-brand">
-                <a href="index.html"><img src="https://alta57.com/wp-content/uploads/2026/02/LOGO-SILVER-2-scaled.png" alt="CS & JC Logo" class="footer-logo"></a>
-                <p>&copy; 2026 Camilo Sanz & Julián Castillo.</p>
-            </div>
-            <div class="footer-contact">
-                <h3>Contacto</h3>
-                <p>+57 300 123 4567</p>
-                <a href="mailto:manager@camiloyjulian.com">manager@camiloyjulian.com</a>
-                <p>Bogotá, Colombia</p>
-            </div>
-            <div class="footer-social">
-                <a href="#"><i class="fab fa-instagram"></i></a>
-                <a href="#"><i class="fab fa-tiktok"></i></a>
-                <a href="#"><i class="fab fa-youtube"></i></a>
-                <a href="#"><i class="fab fa-spotify"></i></a>
-            </div>
+    <div class="menu-toggle">
+     <i class="fas fa-bars">
+     </i>
+    </div>
+   </div>
+  </nav>
+  <!-- Mobile Menu Overlay -->
+  <div class="mobile-menu-overlay glass">
+   <div class="close-menu">
+    <i class="fas fa-times">
+    </i>
+   </div>
+   <div class="mobile-links">
+    <a href="biografia.html" style="color: var(--royal-blue);">
+     Biografía
+    </a>
+    <a href="discografia.html">
+     Discografía
+    </a>
+    <a href="videos.html">
+     Videos
+    </a>
+    <a href="agenda.html">
+     Agenda
+    </a>
+    <a href="rider.html">
+     Rider Técnico
+    </a>
+    <a href="tienda.html">
+     Tienda
+    </a>
+    <a href="contacto.html">
+     Contacto
+    </a>
+   </div>
+  </div>
+  <main>
+   <!-- Biography Section (Grid) -->
+   <section class="section-padding" id="biografia">
+    <div class="container">
+     <h2 class="section-title fade-in">
+      Nuestra Historia
+     </h2>
+     <div class="bio-tabs fade-in">
+      <button class="tab-btn active" onclick="openBio('camilo')">
+       Camilo Sanz
+      </button>
+      <button class="tab-btn" onclick="openBio('julian')">
+       Julián Castillo
+      </button>
+     </div>
+     <div class="bio-content active fade-in" id="camilo">
+      <div class="bio-layout">
+       <!-- Profile Card -->
+       <div class="bio-card profile-card glass">
+        <div class="profile-img-wrapper">
+         <img alt="Camilo Sanz" src="https://alta57.com/wp-content/uploads/2026/02/BIOGRAFIA-CAMILO.webp"/>
         </div>
-    </footer>
-
-    <!-- Bottom Navigation -->
-    <nav class="bottom-nav glass">
-        <a href="index.html#inicio" class="nav-item">
-            <i class="fas fa-home"></i>
-            <span>Inicio</span>
-        </a>
-        <a href="discografia.html" class="nav-item center-item">
-            <div class="vinyl-disc">
-                <i class="fas fa-compact-disc"></i>
-            </div>
-            <span>Álbumes</span>
-        </a>
-        <a href="tienda.html" class="nav-item">
-            <i class="fas fa-shopping-bag"></i>
-            <span>Tienda</span>
-        </a>
-    </nav>
-
-    <script src="script.js"></script>
-</body>
+        <h3>
+         Camilo Sanz
+        </h3>
+        <p class="role">
+         Voz Principal &amp; Composición
+        </p>
+       </div>
+       <!-- Info Grid -->
+       <div class="bio-info-grid">
+        <div class="bio-card glass">
+         <h4>
+          Inicios Musicales
+         </h4>
+         <p>
+          Camilo Sánchez empezó en la música a la edad de 12 años cuando su papá le compró una guitarra; tres años después el acordeón se convirtió en su gran pasión y con él se destacó durante más de 10 años tocando con varios cantantes de su región.
+         </p>
+        </div>
+        <div class="bio-card glass">
+         <h4>
+          Nueva Etapa
+         </h4>
+         <p>
+          En el 2020, después de haber participado en grandes e importantes eventos, tomó la decisión de iniciar su carrera como cantante, un cambio que sin lugar a duda ha sido un gran reto para su carrera artística, pero al mismo tiempo un gran acierto.
+         </p>
+        </div>
+        <div class="bio-card glass">
+         <h4>
+          Trayectoria
+         </h4>
+         <p>
+          Camilo ha compartido escenario junto a Ana del Castillo, Nelson Velásquez, Elder Dayan, Mono Zabaleta, Oscar Gamarra, entre otros; hoy por hoy, recorre todo el territorio nacional junto a Julián Castillo, aspirando a cruzar fronteras a ritmo de vallenato.
+         </p>
+        </div>
+       </div>
+      </div>
+     </div>
+     <div class="bio-content fade-in" id="julian">
+      <div class="bio-layout">
+       <!-- Profile Card -->
+       <div class="bio-card profile-card glass">
+        <div class="profile-img-wrapper">
+         <img alt="Julián Castillo" src="https://alta57.com/wp-content/uploads/2026/02/BIOGRAFIA-JULIAN.webp"/>
+        </div>
+        <h3>
+         Julián Castillo
+        </h3>
+        <p class="role">
+         Acordeón
+        </p>
+       </div>
+       <!-- Info Grid -->
+       <div class="bio-info-grid">
+        <div class="bio-card glass">
+         <h4>
+          Orígenes
+         </h4>
+         <p>
+          Julian Camilo Castillo Barbosa nació en Río de Oro, Cesar, y creció en Ocaña, Norte de Santander. Desde pequeño sintió un profundo amor por la música, especialmente el vallenato.
+         </p>
+        </div>
+        <div class="bio-card glass">
+         <h4>
+          El Acordeón
+         </h4>
+         <p>
+          A los ocho años recibió su primer acordeón, lo que marcó el inicio de su carrera musical; desde entonces ha participado en diversos festivales vallenatos en toda Colombia.
+         </p>
+        </div>
+        <div class="bio-card glass">
+         <h4>
+          Colaboraciones
+         </h4>
+         <p>
+          Ha colaborado con grandes del género como Silvestre Dangond, Martín Elias, Diego Daza, Jean Carlos Centeno, Mono Zabaleta, Ana del Castillo, entre otros, consolidándose como un referente en el instrumento.
+         </p>
+        </div>
+       </div>
+      </div>
+     </div>
+    </div>
+   </section>
+   <!-- Trayectoria Section (Gallery) -->
+   <section class="section-padding dark-bg" id="trayectoria">
+    <div class="container">
+     <h2 class="section-title fade-in">
+      Nuestra Trayectoria
+     </h2>
+     <div class="trayectoria-grid">
+      <!-- Item 1: Text Left, Image Right -->
+      <div class="trayectoria-item fade-in">
+       <div class="trayectoria-content">
+        <h3>
+         Consolidación Internacional
+        </h3>
+        <p>
+         Camilo Sanz y Julian Castillo se han ganado el cariño y respeto del público en cada una de sus presentaciones. Con enfoque y disciplina han trabajado durante dos años en los que pueden destacar algunos logros como su más reciente gira por Bolivia, donde se unieron con uno de sus grandes exponentes locales, Luis Vega.
+        </p>
+       </div>
+       <div class="trayectoria-image">
+        <img alt="Gira Bolivia" src="https://mercacol.com.co/wp-content/uploads/2026/02/IMG_5721-scaled.webp"/>
+       </div>
+      </div>
+      <!-- Item 2: Image Left, Text Right -->
+      <div class="trayectoria-item fade-in delay-100">
+       <div class="trayectoria-image">
+        <img alt="Medios Nacionales" src="https://alta57.com/wp-content/uploads/2026/02/COLABOR-ELD-1.webp"/>
+       </div>
+       <div class="trayectoria-content">
+        <h3>
+         Impacto Mediático
+        </h3>
+        <p>
+         Por otro lado, su colaboración con Robison Damián y los Embajadores Vallenatos los llevó a visitar los medios más importantes a nivel nacional en Bogotá y Medellín, consolidando su presencia en la escena musical del país.
+        </p>
+       </div>
+      </div>
+      <!-- Item 3: Text Left, Image Right -->
+      <div class="trayectoria-item fade-in delay-200">
+       <div class="trayectoria-content">
+        <h3>
+         Grandes Escenarios
+        </h3>
+        <p>
+         Así como también hicieron parte del homenaje realizado a Shakira en Barranquilla junto a importantes colegas como Elder Dayan, Daniel Calderón, Natalia Curvelo, entre otros. Actualmente, se preparan para convertirse en los exponentes más importantes del género vallenato.
+        </p>
+       </div>
+       <div class="trayectoria-image">
+        <img alt="Homenaje Shakira" src="https://alta57.com/wp-content/uploads/2026/02/SHAKIRA.webp"/>
+       </div>
+      </div>
+     </div>
+    </div>
+   </section>
+  </main>
+  <!-- Footer -->
+  <footer id="contacto">
+   <div class="container footer-content">
+    <div class="footer-brand">
+     <a href="index.html">
+      <img alt="CS &amp; JC Logo" class="footer-logo" src="https://alta57.com/wp-content/uploads/2026/02/LOGO-SILVER-2-scaled.png"/>
+     </a>
+     <p>
+      © 2026 Camilo Sanz &amp; Julián Castillo.
+     </p>
+    </div>
+    <div class="footer-contact">
+     <h3>
+      Contacto
+     </h3>
+     <p>
+      +57 300 123 4567
+     </p>
+     <a href="mailto:manager@camiloyjulian.com">
+      manager@camiloyjulian.com
+     </a>
+     <p>
+      Bogotá, Colombia
+     </p>
+    </div>
+    <div class="footer-social">
+     <a href="#">
+      <i class="fab fa-instagram">
+      </i>
+     </a>
+     <a href="#">
+      <i class="fab fa-tiktok">
+      </i>
+     </a>
+     <a href="#">
+      <i class="fab fa-youtube">
+      </i>
+     </a>
+     <a href="#">
+      <i class="fab fa-spotify">
+      </i>
+     </a>
+    </div>
+   </div>
+  </footer>
+  <!-- Bottom Navigation -->
+  <nav class="bottom-nav glass">
+   <a class="nav-item" href="index.html#inicio">
+    <i class="fas fa-home">
+    </i>
+    <span>
+     Inicio
+    </span>
+   </a>
+   <a class="nav-item center-item" href="discografia.html">
+    <div class="vinyl-disc">
+     <i class="fas fa-compact-disc">
+     </i>
+    </div>
+    <span>
+     Álbumes
+    </span>
+   </a>
+   <a class="nav-item" href="tienda.html">
+    <i class="fas fa-shopping-bag">
+    </i>
+    <span>
+     Tienda
+    </span>
+   </a>
+  </nav>
+  <script src="script.js">
+  </script>
+ </body>
 </html>

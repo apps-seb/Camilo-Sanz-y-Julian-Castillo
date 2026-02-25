@@ -1,139 +1,211 @@
 <!DOCTYPE html>
 <html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Videos | Camilo Sanz & Julián Castillo</title>
-
-    <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-
-    <!-- Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
-    <!-- Main CSS -->
-    <link rel="stylesheet" href="style.css">
-    <style>
-        /* Specific styles for the page hero if needed,
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>
+   Videos | Camilo Sanz &amp; Julián Castillo
+  </title>
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com" rel="preconnect"/>
+  <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+  <!-- Icons -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+  <!-- Main CSS -->
+  <link href="style.css" rel="stylesheet"/>
+  <style>
+   /* Specific styles for the page hero if needed,
            or we can rely on style.css updates later.
            For now, we reuse .hero but maybe we'll adjust height in style.css */
         .page-hero {
             height: 60vh; /* Shorter than home hero */
             min-height: 400px;
         }
-    </style>
-</head>
-<body>
-
-    <!-- Navigation -->
-    <nav class="navbar glass">
-        <div class="nav-container">
-            <a href="index.html" class="logo"><img src="https://mercacol.com.co/wp-content/uploads/2026/02/IMG_5699-scaled.webp" alt="CS & JC Logo"></a>
-            <div class="nav-links">
-                <a href="biografia.html">Biografía</a>
-                <a href="discografia.html">Discografía</a>
-                <a href="videos.html" style="color: var(--royal-blue);">Videos</a>
-                <a href="agenda.html">Agenda</a>
-                <a href="rider.html">Rider Técnico</a>
-                <a href="tienda.html">Tienda</a>
-            </div>
-            <div class="menu-toggle">
-                <i class="fas fa-bars"></i>
-            </div>
-        </div>
-    </nav>
-
-    <!-- Mobile Menu Overlay -->
-    <div class="mobile-menu-overlay glass">
-        <div class="close-menu"><i class="fas fa-times"></i></div>
-        <div class="mobile-links">
-            <a href="biografia.html">Biografía</a>
-            <a href="discografia.html">Discografía</a>
-            <a href="videos.html" style="color: var(--royal-blue);">Videos</a>
-            <a href="agenda.html">Agenda</a>
-            <a href="rider.html">Rider Técnico</a>
-            <a href="tienda.html">Tienda</a>
-        </div>
+  </style>
+ </head>
+ <body>
+  <!-- Navigation -->
+  <nav class="navbar glass">
+   <div class="nav-container">
+    <a class="logo" href="index.html">
+     <img alt="CS &amp; JC Logo" src="https://mercacol.com.co/wp-content/uploads/2026/02/IMG_5699-scaled.webp"/>
+    </a>
+    <div class="nav-links">
+     <a href="biografia.html">
+      Biografía
+     </a>
+     <a href="discografia.html">
+      Discografía
+     </a>
+     <a href="videos.html" style="color: var(--royal-blue);">
+      Videos
+     </a>
+     <a href="agenda.html">
+      Agenda
+     </a>
+     <a href="rider.html">
+      Rider Técnico
+     </a>
+     <a href="tienda.html">
+      Tienda
+     </a>
+     <a href="contacto.html">
+      Contacto
+     </a>
     </div>
-
-    <main>
-        <!-- Page Hero Section -->
-        <section class="hero page-hero">
-            <div class="hero-bg" style="background-image: url('https://mercacol.com.co/wp-content/uploads/2026/02/IMG_5713-scaled.webp');"></div>
-            <div class="hero-overlay"></div>
-            <div class="hero-content">
-                <h1>Videos</h1>
-                <p class="subtitle">Nuestra videografía oficial y presentaciones en vivo</p>
-            </div>
-        </section>
-
-        <!-- Videos Section -->
-        <section id="videos" class="section-padding">
-            <div class="container">
-                <div class="videos-grid">
-                    <!-- Video 1 -->
-                    <div class="video-item fade-in">
-                        <iframe width="100%" height="315" src="https://www.youtube.com/embed/XE-uHuRCMRU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen style="border-radius: 12px;"></iframe>
-                    </div>
-                    <!-- Video 2 -->
-                    <div class="video-item fade-in delay-100">
-                        <iframe width="100%" height="315" src="https://www.youtube.com/embed/92XH3atub10" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen style="border-radius: 12px;"></iframe>
-                    </div>
-                    <!-- Video 3 -->
-                    <div class="video-item fade-in delay-200">
-                        <iframe width="100%" height="315" src="https://www.youtube.com/embed/TXTe2O0mFWU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen style="border-radius: 12px;"></iframe>
-                    </div>
-                    <!-- Video 4 -->
-                    <div class="video-item fade-in delay-300">
-                        <iframe width="100%" height="315" src="https://www.youtube.com/embed/XSqf3PWpkJ4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen style="border-radius: 12px;"></iframe>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <!-- Footer -->
-    <footer id="contacto">
-        <div class="container footer-content">
-            <div class="footer-brand">
-                <a href="index.html"><img src="https://alta57.com/wp-content/uploads/2026/02/LOGO-SILVER-2-scaled.png" alt="CS & JC Logo" class="footer-logo"></a>
-                <p>&copy; 2026 Camilo Sanz & Julián Castillo.</p>
-            </div>
-            <div class="footer-contact">
-                <h3>Contacto</h3>
-                <p>+57 300 123 4567</p>
-                <a href="mailto:manager@camiloyjulian.com">manager@camiloyjulian.com</a>
-                <p>Bogotá, Colombia</p>
-            </div>
-            <div class="footer-social">
-                <a href="#"><i class="fab fa-instagram"></i></a>
-                <a href="#"><i class="fab fa-tiktok"></i></a>
-                <a href="#"><i class="fab fa-youtube"></i></a>
-                <a href="#"><i class="fab fa-spotify"></i></a>
-            </div>
-        </div>
-    </footer>
-
-    <!-- Bottom Navigation -->
-    <nav class="bottom-nav glass">
-        <a href="index.html#inicio" class="nav-item">
-            <i class="fas fa-home"></i>
-            <span>Inicio</span>
-        </a>
-        <a href="discografia.html" class="nav-item center-item">
-            <div class="vinyl-disc">
-                <i class="fas fa-compact-disc"></i>
-            </div>
-            <span>Álbumes</span>
-        </a>
-        <a href="tienda.html" class="nav-item">
-            <i class="fas fa-shopping-bag"></i>
-            <span>Tienda</span>
-        </a>
-    </nav>
-
-    <script src="script.js"></script>
-</body>
+    <div class="menu-toggle">
+     <i class="fas fa-bars">
+     </i>
+    </div>
+   </div>
+  </nav>
+  <!-- Mobile Menu Overlay -->
+  <div class="mobile-menu-overlay glass">
+   <div class="close-menu">
+    <i class="fas fa-times">
+    </i>
+   </div>
+   <div class="mobile-links">
+    <a href="biografia.html">
+     Biografía
+    </a>
+    <a href="discografia.html">
+     Discografía
+    </a>
+    <a href="videos.html" style="color: var(--royal-blue);">
+     Videos
+    </a>
+    <a href="agenda.html">
+     Agenda
+    </a>
+    <a href="rider.html">
+     Rider Técnico
+    </a>
+    <a href="tienda.html">
+     Tienda
+    </a>
+    <a href="contacto.html">
+     Contacto
+    </a>
+   </div>
+  </div>
+  <main>
+   <!-- Page Hero Section -->
+   <section class="hero page-hero">
+    <div class="hero-bg" style="background-image: url('https://mercacol.com.co/wp-content/uploads/2026/02/IMG_5713-scaled.webp');">
+    </div>
+    <div class="hero-overlay">
+    </div>
+    <div class="hero-content">
+     <h1>
+      Videos
+     </h1>
+     <p class="subtitle">
+      Nuestra videografía oficial y presentaciones en vivo
+     </p>
+    </div>
+   </section>
+   <!-- Videos Section -->
+   <section class="section-padding" id="videos">
+    <div class="container">
+     <div class="videos-grid">
+      <!-- Video 1 -->
+      <div class="video-item fade-in">
+       <iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="" frameborder="0" height="315" src="https://www.youtube.com/embed/XE-uHuRCMRU" style="border-radius: 12px;" title="YouTube video player" width="100%">
+       </iframe>
+      </div>
+      <!-- Video 2 -->
+      <div class="video-item fade-in delay-100">
+       <iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="" frameborder="0" height="315" src="https://www.youtube.com/embed/92XH3atub10" style="border-radius: 12px;" title="YouTube video player" width="100%">
+       </iframe>
+      </div>
+      <!-- Video 3 -->
+      <div class="video-item fade-in delay-200">
+       <iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="" frameborder="0" height="315" src="https://www.youtube.com/embed/TXTe2O0mFWU" style="border-radius: 12px;" title="YouTube video player" width="100%">
+       </iframe>
+      </div>
+      <!-- Video 4 -->
+      <div class="video-item fade-in delay-300">
+       <iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="" frameborder="0" height="315" src="https://www.youtube.com/embed/XSqf3PWpkJ4" style="border-radius: 12px;" title="YouTube video player" width="100%">
+       </iframe>
+      </div>
+     </div>
+    </div>
+   </section>
+  </main>
+  <!-- Footer -->
+  <footer id="contacto">
+   <div class="container footer-content">
+    <div class="footer-brand">
+     <a href="index.html">
+      <img alt="CS &amp; JC Logo" class="footer-logo" src="https://alta57.com/wp-content/uploads/2026/02/LOGO-SILVER-2-scaled.png"/>
+     </a>
+     <p>
+      © 2026 Camilo Sanz &amp; Julián Castillo.
+     </p>
+    </div>
+    <div class="footer-contact">
+     <h3>
+      Contacto
+     </h3>
+     <p>
+      +57 300 123 4567
+     </p>
+     <a href="mailto:manager@camiloyjulian.com">
+      manager@camiloyjulian.com
+     </a>
+     <p>
+      Bogotá, Colombia
+     </p>
+    </div>
+    <div class="footer-social">
+     <a href="#">
+      <i class="fab fa-instagram">
+      </i>
+     </a>
+     <a href="#">
+      <i class="fab fa-tiktok">
+      </i>
+     </a>
+     <a href="#">
+      <i class="fab fa-youtube">
+      </i>
+     </a>
+     <a href="#">
+      <i class="fab fa-spotify">
+      </i>
+     </a>
+    </div>
+   </div>
+  </footer>
+  <!-- Bottom Navigation -->
+  <nav class="bottom-nav glass">
+   <a class="nav-item" href="index.html#inicio">
+    <i class="fas fa-home">
+    </i>
+    <span>
+     Inicio
+    </span>
+   </a>
+   <a class="nav-item center-item" href="discografia.html">
+    <div class="vinyl-disc">
+     <i class="fas fa-compact-disc">
+     </i>
+    </div>
+    <span>
+     Álbumes
+    </span>
+   </a>
+   <a class="nav-item" href="tienda.html">
+    <i class="fas fa-shopping-bag">
+    </i>
+    <span>
+     Tienda
+    </span>
+   </a>
+  </nav>
+  <script src="script.js">
+  </script>
+ </body>
 </html>

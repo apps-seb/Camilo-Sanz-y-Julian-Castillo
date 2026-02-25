@@ -501,7 +501,8 @@ window.playMedia = function(containerId, type, contentId) {
 
 // --- 11. STORE FILTER LOGIC ---
 document.addEventListener('DOMContentLoaded', () => {
-    const filterBtns = document.querySelectorAll('.filter-btn');
+    // Support both old .filter-btn and new .category-card
+    const filterBtns = document.querySelectorAll('.filter-btn, .category-card');
     const productCards = document.querySelectorAll('.product-card');
 
     if (filterBtns.length > 0) {
@@ -519,14 +520,116 @@ document.addEventListener('DOMContentLoaded', () => {
 
                     if (filterValue === 'all' || filterValue === category) {
                         card.style.display = 'flex'; // Restore flex display
-                        // Optional: Add animation class
+                        // Re-trigger animation
+                        card.classList.remove('fade-in-up');
+                        void card.offsetWidth; // Trigger reflow
                         card.classList.add('fade-in-up');
                     } else {
                         card.style.display = 'none';
-                        card.classList.remove('fade-in-up');
                     }
                 });
             });
         });
     }
+});
+
+// --- 12. SHOPPING CART LOGIC ---
+let cart = [];
+
+function toggleCart() {
+    const sidebar = document.getElementById('cart-sidebar');
+    const overlay = document.querySelector('.cart-overlay');
+    if (sidebar && overlay) {
+        sidebar.classList.toggle('active');
+        overlay.classList.toggle('active');
+        document.body.style.overflow = sidebar.classList.contains('active') ? 'hidden' : 'auto';
+    } else {
+        // Fallback if not on store page (redirect)
+        window.location.href = 'tienda.html';
+    }
+}
+
+function addToCart(id, title, price, image) {
+    cart.push({ id, title, price, image });
+    updateCartUI();
+    toggleCart(); // Open cart to show item added
+}
+
+function removeFromCart(index) {
+    cart.splice(index, 1);
+    updateCartUI();
+}
+
+function updateCartUI() {
+    const cartItemsContainer = document.getElementById('cart-items');
+    const cartTotalElement = document.getElementById('cart-total-price');
+    const cartCountElement = document.getElementById('cart-count');
+
+    if (!cartItemsContainer || !cartTotalElement || !cartCountElement) return;
+
+    cartItemsContainer.innerHTML = '';
+
+    let total = 0;
+
+    if (cart.length === 0) {
+        cartItemsContainer.innerHTML = '<p class="empty-cart-msg">Tu carrito está vacío.</p>';
+    } else {
+        cart.forEach((item, index) => {
+            total += parseInt(item.price);
+
+            const itemElement = document.createElement('div');
+            itemElement.classList.add('cart-item');
+            itemElement.innerHTML = `
+                <img src="${item.image}" alt="${item.title}" class="cart-item-img">
+                <div class="cart-item-details">
+                    <h4>${item.title}</h4>
+                    <p>$ ${parseInt(item.price).toLocaleString('es-CO')} COP</p>
+                </div>
+                <button class="remove-item" onclick="removeFromCart(${index})"><i class="fas fa-trash"></i></button>
+            `;
+            cartItemsContainer.appendChild(itemElement);
+        });
+    }
+
+    cartTotalElement.innerText = `$ ${total.toLocaleString('es-CO')} COP`;
+    cartCountElement.innerText = cart.length;
+
+    // Animate count badge
+    cartCountElement.style.transform = 'scale(1.2)';
+    setTimeout(() => cartCountElement.style.transform = 'scale(1)', 200);
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+    // Attach click listeners to all "Comprar" / "Add to Cart" buttons
+    const addButtons = document.querySelectorAll('.btn-add-cart');
+
+    addButtons.forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            e.preventDefault();
+            const card = btn.closest('.product-card');
+            if (card) {
+                const id = card.getAttribute('data-id');
+                const title = card.getAttribute('data-title');
+                const price = card.getAttribute('data-price');
+                // Find image source (img tag inside .product-image)
+                const imgTag = card.querySelector('.product-image img');
+                // Or fallback if it's a placeholder div
+                let image = 'https://via.placeholder.com/150';
+                if (imgTag) {
+                    image = imgTag.src;
+                } else {
+                    // Check for placeholder div
+                    const placeholder = card.querySelector('.placeholder-img');
+                    // If placeholder, maybe use a generic icon image or keep placeholder logic?
+                    // For simplicity, we can just use a default image or try to capture the icon.
+                    // Let's use a generic image for placeholder items in cart.
+                    if (placeholder) {
+                        image = 'https://mercacol.com.co/wp-content/uploads/2026/02/IMG_5699-scaled.webp'; // Logo as fallback
+                    }
+                }
+
+                addToCart(id, title, price, image);
+            }
+        });
+    });
 });

@@ -1,451 +1,716 @@
 <!DOCTYPE html>
 <html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Camilo Sanz & Julián Castillo | Official Website</title>
-    
-    <!-- Fonts: Using system fonts for Apple feel, plus a backup -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    
-    <!-- Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
-    <!-- Main CSS -->
-    <link rel="stylesheet" href="style.css">
-</head>
-<body class="has-marquee">
-
-    <!-- Marquee Top Bar -->
-    <div class="marquee-bar">
-        <div class="marquee-content">
-            <span class="highlight">PRÓXIMO CONCIERTO:</span> 15 MARZO - BOGOTÁ (MOVISTAR ARENA) <a href="agenda.html" class="marquee-link">VER AGENDA</a>
-            <span class="separator">•</span>
-            <span class="highlight">NUEVO LANZAMIENTO:</span> "MI PENSAMIENTO FAVORITO"
-            <a href="#lanzamientos" class="marquee-link"><i class="fas fa-play"></i> ESCUCHAR</a>
-            <span class="separator">•</span>
-            <span class="highlight">PRÓXIMO CONCIERTO:</span> 15 MARZO - BOGOTÁ (MOVISTAR ARENA) <a href="agenda.html" class="marquee-link">VER AGENDA</a>
-            <span class="separator">•</span>
-            <span class="highlight">NUEVO LANZAMIENTO:</span> "MI PENSAMIENTO FAVORITO"
-            <a href="#lanzamientos" class="marquee-link"><i class="fas fa-play"></i> ESCUCHAR</a>
-            <span class="separator">•</span>
-        </div>
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>
+   Camilo Sanz &amp; Julián Castillo | Official Website
+  </title>
+  <!-- Fonts: Using system fonts for Apple feel, plus a backup -->
+  <link href="https://fonts.googleapis.com" rel="preconnect"/>
+  <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+  <!-- Icons -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+  <!-- Main CSS -->
+  <link href="style.css" rel="stylesheet"/>
+ </head>
+ <body class="has-marquee">
+  <!-- Marquee Top Bar -->
+  <div class="marquee-bar">
+   <div class="marquee-content">
+    <span class="highlight">
+     PRÓXIMO CONCIERTO:
+    </span>
+    15 MARZO - BOGOTÁ (MOVISTAR ARENA)
+    <a class="marquee-link" href="agenda.html">
+     VER AGENDA
+    </a>
+    <span class="separator">
+     •
+    </span>
+    <span class="highlight">
+     NUEVO LANZAMIENTO:
+    </span>
+    "MI PENSAMIENTO FAVORITO"
+    <a class="marquee-link" href="#lanzamientos">
+     <i class="fas fa-play">
+     </i>
+     ESCUCHAR
+    </a>
+    <span class="separator">
+     •
+    </span>
+    <span class="highlight">
+     PRÓXIMO CONCIERTO:
+    </span>
+    15 MARZO - BOGOTÁ (MOVISTAR ARENA)
+    <a class="marquee-link" href="agenda.html">
+     VER AGENDA
+    </a>
+    <span class="separator">
+     •
+    </span>
+    <span class="highlight">
+     NUEVO LANZAMIENTO:
+    </span>
+    "MI PENSAMIENTO FAVORITO"
+    <a class="marquee-link" href="#lanzamientos">
+     <i class="fas fa-play">
+     </i>
+     ESCUCHAR
+    </a>
+    <span class="separator">
+     •
+    </span>
+   </div>
+  </div>
+  <!-- Navigation -->
+  <nav class="navbar glass">
+   <div class="nav-container">
+    <a class="logo" href="#">
+     <img alt="CS &amp; JC Logo" src="https://mercacol.com.co/wp-content/uploads/2026/02/IMG_5699-scaled.webp"/>
+    </a>
+    <div class="nav-links">
+     <a href="biografia.html">
+      Biografía
+     </a>
+     <a href="discografia.html">
+      Discografía
+     </a>
+     <a href="videos.html">
+      Videos
+     </a>
+     <a href="agenda.html">
+      Agenda
+     </a>
+     <a href="rider.html">
+      Rider Técnico
+     </a>
+     <a href="tienda.html">
+      Tienda
+     </a>
+     <a href="contacto.html">
+      Contacto
+     </a>
     </div>
-
-    <!-- Navigation -->
-    <nav class="navbar glass">
-        <div class="nav-container">
-            <a href="#" class="logo"><img src="https://mercacol.com.co/wp-content/uploads/2026/02/IMG_5699-scaled.webp" alt="CS & JC Logo"></a>
-            <div class="nav-links">
-                <a href="biografia.html">Biografía</a>
-                <a href="discografia.html">Discografía</a>
-                <a href="videos.html">Videos</a>
-                <a href="agenda.html">Agenda</a>
-                <a href="rider.html">Rider Técnico</a>
-                <a href="tienda.html">Tienda</a>
-            </div>
-            <div class="menu-toggle">
-                <i class="fas fa-bars"></i>
-            </div>
-        </div>
-    </nav>
-
-    <!-- Mobile Menu Overlay -->
-    <div class="mobile-menu-overlay glass">
-        <div class="close-menu"><i class="fas fa-times"></i></div>
-        <div class="mobile-links">
-            <a href="biografia.html">Biografía</a>
-            <a href="discografia.html">Discografía</a>
-            <a href="videos.html">Videos</a>
-            <a href="agenda.html">Agenda</a>
-            <a href="rider.html">Rider Técnico</a>
-            <a href="tienda.html">Tienda</a>
-        </div>
+    <div class="menu-toggle">
+     <i class="fas fa-bars">
+     </i>
     </div>
-
-    <main>
-        <!-- Hero Section -->
-        <section id="inicio" class="hero">
-            <div class="hero-carousel">
-                <div class="hero-slide active">
-                    <picture style="width: 100%; height: 100%; display: block;">
-                        <!-- CONFIGURACION PORTADA: MOVIL -->
-                        <source media="(max-width: 768px)" srcset="https://alta57.com/wp-content/uploads/2026/02/PORTADA-WEB-NUEVA.webp">
-                        <!-- CONFIGURACION PORTADA: ESCRITORIO -->
-                        <img src="https://alta57.com/wp-content/uploads/2026/02/CANAL-YOUTUBE-ZONA-SEGURA-2560X1440-px-1.webp" alt="Camilo Sanz & Julián Castillo Main" style="width: 100%; height: 100%; object-fit: cover;">
-                    </picture>
-                </div>
-                <div class="hero-slide">
-                    <img src="https://alta57.com/wp-content/uploads/2026/02/PORTADA-WEB-NUEVA-2.webp" alt="Camilo Sanz & Julián Castillo Portrait">
-                </div>
-            </div>
-        </section>
-
-
-        <!-- Spotify Clone Section -->
-        <section id="spotify-clone" class="spotify-section">
-            <div class="container" style="display: flex; justify-content: center;">
-                <iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/3IUn2UU2KTom6hc8nOX1lO?si=78f90f2f77954d5d&theme=0" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-            </div>
-        </section>
-
-        <!-- Biografía Section -->
-        <section id="biografia" class="section-padding">
-            <div class="container">
-                <h2 class="section-title fade-in">Biografía</h2>
-
-                <div class="bio-grid fade-in">
-                    <!-- Camilo Card -->
-                    <div class="card">
-                        <div class="card-image" style="background-image: url('https://alta57.com/wp-content/uploads/2026/02/BIOGRAFIA-CAMILO.webp');"></div>
-                        <div class="card-content">
-                            <h3>Camilo Sanz</h3>
-                            <p class="role">Voz Principal & Composición</p>
-                            <p class="description">Voz principal y compositor. Inició a los 12 años con guitarra y acordeón. En 2020 lanzó su carrera como cantante, destacándose por su versatilidad y pasión vallenata.</p>
-                        </div>
-                    </div>
-
-                    <!-- Julian Card -->
-                    <div class="card">
-                        <div class="card-image" style="background-image: url('https://alta57.com/wp-content/uploads/2026/02/BIOGRAFIA-JULIAN.webp');"></div>
-                        <div class="card-content">
-                            <h3>Julián Castillo</h3>
-                            <p class="role">Acordeón</p>
-                            <p class="description">Acordeonero. Nacido en Río de Oro. Su pasión por el vallenato inició a los ocho años. Ha compartido escenario con grandes del género.</p>
-                        </div>
-                    </div>
-                </div>
-
-
-                <div style="text-align: center; margin-top: 30px;" class="fade-in">
-                    <a href="biografia.html" class="btn btn-glass-loop">
-                        Ver Biografía Completa
-                        <svg class="btn-border-svg"><rect x="0" y="0" width="100%" height="100%" rx="30" ry="30" pathLength="100" /></svg>
-                    </a>
-                </div>
-            </div>
-        </section>
-
-        <!-- New: Latest Releases (3D Carousel) -->
-        <section id="lanzamientos" class="section-padding" style="overflow: hidden;">
-            <div class="container">
-                <h2 class="section-title fade-in">Lanzamientos Recientes</h2>
-
-                <div class="carousel-3d-wrapper fade-in">
-                    <div class="carousel-3d">
-                        <!-- Left Card -->
-                        <div class="carousel-card card-left" onclick="rotateCarousel('prev')">
-                            <div class="card-visual">
-                                <img src="https://alta57.com/wp-content/uploads/2026/02/Cover-art-De-haberlo-dicho-antes-1-scaled.webp" alt="Previous">
-                                <div class="card-overlay"></div>
-                            </div>
-                            <div class="card-content-mini">
-                                <h3>De Haberlo Dicho Antes</h3>
-                            </div>
-                        </div>
-
-                        <!-- Center Card (Active) -->
-                        <div class="carousel-card card-center">
-                            <div class="card-visual">
-                                <img src="https://alta57.com/wp-content/uploads/2026/02/TRACK-SPOTIFY-3000X3000-px-scaled.webp" alt="Main Release">
-                                <div class="card-overlay"></div>
-                            </div>
-                            <div class="card-content-main">
-                                <p class="meta">Nuevo Sencillo • 2026</p>
-                                <a href="#" class="btn btn-primary">Escuchar Ahora</a>
-                            </div>
-                        </div>
-
-                        <!-- Right Card -->
-                        <div class="carousel-card card-right" onclick="rotateCarousel('next')">
-                            <div class="card-visual">
-                                <img src="https://alta57.com/wp-content/uploads/2026/02/TomandoyTomando_CoverArt-scaled.webp" alt="Next">
-                                <div class="card-overlay"></div>
-                            </div>
-                            <div class="card-content-mini">
-                                <h3>Tomando&Tomando</h3>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="carousel-controls">
-                        <button class="control-btn-arrow prev"><i class="fas fa-chevron-left"></i></button>
-                        <button class="control-btn-arrow next"><i class="fas fa-chevron-right"></i></button>
-                    </div>
-                </div>
-
-            </div>
-        </section>
-
-        <!-- Video Destacado Section -->
-        <section id="video-destacado" class="section-padding">
-            <div class="container">
-                <h2 class="section-title fade-in">Video Destacado</h2>
-                <div class="video-responsive-container fade-in" style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; border-radius: 20px; border: 1px solid rgba(255,255,255,0.1);">
-                     <iframe src="https://www.youtube.com/embed/XE-uHuRCMRU?si=8aV7TkZjkigx90QT" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe>
-                </div>
-                <div style="text-align: center; margin-top: 30px;" class="fade-in">
-                    <a href="videos.html" class="btn btn-secondary">Ver más</a>
-                </div>
-            </div>
-        </section>
-
-
-        <div class="interactive-blue-wrapper">
-            <!-- Musical Proposal (Bento Grid) -->
-            <section id="propuesta" class="section-padding">
-                <div class="container">
-                    <h2 class="section-title fade-in">Propuesta Musical</h2>
-                    <div class="bento-grid">
-                        <div class="bento-item large fade-in" style="background-image: url('https://alta57.com/wp-content/uploads/2026/02/VALLENATO-MODERNO-WEB-1.webp');">
-                            <div class="bento-content">
-                                <h3>Vallenato Moderno</h3>
-                                <p>Respetando la tradición, innovando el sonido.</p>
-                            </div>
-                        </div>
-                        <div class="bento-item small fade-in delay-100" style="background-image: linear-gradient(135deg, #1c1c1e, #2c2c2e);">
-                            <div class="bento-content">
-                                <i class="fas fa-guitar icon-large"></i>
-                                <h3>Vallenato New Era</h3>
-                                <p>Camilo & Julián: El Nuevo Legado.</p>
-                            </div>
-                        </div>
-                        <div class="bento-item small fade-in delay-200" style="background-image: linear-gradient(135deg, #0044ff, #002a99);">
-                            <div class="bento-content">
-                                <i class="fas fa-heart icon-large"></i>
-                                <h3>Sentimiento</h3>
-                                <p>Letras que conectan.</p>
-                            </div>
-                        </div>
-                        <div class="bento-item medium fade-in delay-300" style="background-image: url('https://alta57.com/wp-content/uploads/2026/02/SHOW-EN-VIVO-WEB.webp');">
-                            <div class="bento-content">
-                                <h3>Show En Vivo</h3>
-                                <p>Una experiencia visual y sonora inolvidable.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- Music Section (List Style) -->
-            <section id="musica" class="section-padding">
-                <div class="container">
-                    <h2 class="section-title fade-in">Música</h2>
-                    <div class="spotify-container fade-in" style="display: flex; justify-content: center;">
-                        <iframe style="border-radius:12px" src="https://open.spotify.com/embed/artist/4jSxOZYC5bgVCM32uTGmVv?utm_source=generator&theme=0" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-                    </div>
-                </div>
-            </section>
+   </div>
+  </nav>
+  <!-- Mobile Menu Overlay -->
+  <div class="mobile-menu-overlay glass">
+   <div class="close-menu">
+    <i class="fas fa-times">
+    </i>
+   </div>
+   <div class="mobile-links">
+    <a href="biografia.html">
+     Biografía
+    </a>
+    <a href="discografia.html">
+     Discografía
+    </a>
+    <a href="videos.html">
+     Videos
+    </a>
+    <a href="agenda.html">
+     Agenda
+    </a>
+    <a href="rider.html">
+     Rider Técnico
+    </a>
+    <a href="tienda.html">
+     Tienda
+    </a>
+    <a href="contacto.html">
+     Contacto
+    </a>
+   </div>
+  </div>
+  <main>
+   <!-- Hero Section -->
+   <section class="hero" id="inicio">
+    <div class="hero-carousel">
+     <div class="hero-slide active">
+      <picture style="width: 100%; height: 100%; display: block;">
+       <!-- CONFIGURACION PORTADA: MOVIL -->
+       <source media="(max-width: 768px)" srcset="https://alta57.com/wp-content/uploads/2026/02/PORTADA-WEB-NUEVA.webp"/>
+       <!-- CONFIGURACION PORTADA: ESCRITORIO -->
+       <img alt="Camilo Sanz &amp; Julián Castillo Main" src="https://alta57.com/wp-content/uploads/2026/02/CANAL-YOUTUBE-ZONA-SEGURA-2560X1440-px-1.webp" style="width: 100%; height: 100%; object-fit: cover;"/>
+      </picture>
+     </div>
+     <div class="hero-slide">
+      <img alt="Camilo Sanz &amp; Julián Castillo Portrait" src="https://alta57.com/wp-content/uploads/2026/02/PORTADA-WEB-NUEVA-2.webp"/>
+     </div>
+    </div>
+   </section>
+   <!-- Spotify Clone Section -->
+   <section class="spotify-section" id="spotify-clone">
+    <div class="container" style="display: flex; justify-content: center;">
+     <iframe allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" allowfullscreen="" frameborder="0" height="152" loading="lazy" src="https://open.spotify.com/embed/track/3IUn2UU2KTom6hc8nOX1lO?si=78f90f2f77954d5d&amp;theme=0" style="border-radius:12px" width="100%">
+     </iframe>
+    </div>
+   </section>
+   <!-- Biografía Section -->
+   <section class="section-padding" id="biografia">
+    <div class="container">
+     <h2 class="section-title fade-in">
+      Biografía
+     </h2>
+     <div class="bio-grid fade-in">
+      <!-- Camilo Card -->
+      <div class="card">
+       <div class="card-image" style="background-image: url('https://alta57.com/wp-content/uploads/2026/02/BIOGRAFIA-CAMILO.webp');">
+       </div>
+       <div class="card-content">
+        <h3>
+         Camilo Sanz
+        </h3>
+        <p class="role">
+         Voz Principal &amp; Composición
+        </p>
+        <p class="description">
+         Voz principal y compositor. Inició a los 12 años con guitarra y acordeón. En 2020 lanzó su carrera como cantante, destacándose por su versatilidad y pasión vallenata.
+        </p>
+       </div>
+      </div>
+      <!-- Julian Card -->
+      <div class="card">
+       <div class="card-image" style="background-image: url('https://alta57.com/wp-content/uploads/2026/02/BIOGRAFIA-JULIAN.webp');">
+       </div>
+       <div class="card-content">
+        <h3>
+         Julián Castillo
+        </h3>
+        <p class="role">
+         Acordeón
+        </p>
+        <p class="description">
+         Acordeonero. Nacido en Río de Oro. Su pasión por el vallenato inició a los ocho años. Ha compartido escenario con grandes del género.
+        </p>
+       </div>
+      </div>
+     </div>
+     <div class="fade-in" style="text-align: center; margin-top: 30px;">
+      <a class="btn btn-glass-loop" href="biografia.html">
+       Ver Biografía Completa
+       <svg class="btn-border-svg">
+        <rect height="100%" pathlength="100" rx="30" ry="30" width="100%" x="0" y="0">
+        </rect>
+       </svg>
+      </a>
+     </div>
+    </div>
+   </section>
+   <!-- New: Latest Releases (3D Carousel) -->
+   <section class="section-padding" id="lanzamientos" style="overflow: hidden;">
+    <div class="container">
+     <h2 class="section-title fade-in">
+      Lanzamientos Recientes
+     </h2>
+     <div class="carousel-3d-wrapper fade-in">
+      <div class="carousel-3d">
+       <!-- Left Card -->
+       <div class="carousel-card card-left" onclick="rotateCarousel('prev')">
+        <div class="card-visual">
+         <img alt="Previous" src="https://alta57.com/wp-content/uploads/2026/02/Cover-art-De-haberlo-dicho-antes-1-scaled.webp"/>
+         <div class="card-overlay">
+         </div>
         </div>
-
-        <!-- Albums Section (New) -->
-        <section id="albumes" class="section-padding dark-bg">
-            <div class="container">
-                <h2 class="section-title fade-in">Discografía</h2>
-                <div class="albums-grid">
-                    <!-- Album 1: Mi pensamiento favorito -->
-                    <div class="album-card fade-in">
-                        <div class="album-cover" id="media-1">
-                            <!-- Custom cover image to be provided later -->
-                            <img src="https://alta57.com/wp-content/uploads/2026/02/TRACK-SPOTIFY-3000X3000-px-scaled.webp" alt="Mi pensamiento favorito">
-                            <div class="vinyl-overlay"><i class="fas fa-compact-disc"></i></div>
-                        </div>
-                        <div class="album-info">
-                            <h3>Mi pensamiento favorito</h3>
-                            <div class="album-actions">
-                                <button class="btn-spotify" onclick="playMedia('media-1', 'spotify_album', '2l6PoC9lBQyVK3Vi3eVSUB')"><i class="fab fa-spotify"></i> Spotify</button>
-                                <button class="btn-youtube" onclick="playMedia('media-1', 'youtube', 'XE-uHuRCMRU')"><i class="fab fa-youtube"></i> YouTube</button>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Album 2: Tomando & tomando -->
-                    <div class="album-card fade-in delay-100">
-                        <div class="album-cover" id="media-2">
-                            <!-- Custom cover image to be provided later -->
-                            <img src="https://alta57.com/wp-content/uploads/2026/02/TomandoyTomando_CoverArt-scaled.webp" alt="Tomando y tomando">
-                            <div class="vinyl-overlay"><i class="fas fa-compact-disc"></i></div>
-                        </div>
-                        <div class="album-info">
-                            <h3>Tomando & tomando</h3>
-                            <div class="album-actions">
-                                <button class="btn-spotify" onclick="playMedia('media-2', 'spotify_track', '3X0lcs4v5EWKWw6VRDJ4Ue')"><i class="fab fa-spotify"></i> Spotify</button>
-                                <button class="btn-youtube" onclick="playMedia('media-2', 'youtube', '92XH3atub10')"><i class="fab fa-youtube"></i> YouTube</button>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Album 3: De haberlo dicho antes -->
-                    <div class="album-card fade-in delay-200">
-                        <div class="album-cover" id="media-3">
-                            <!-- Custom cover image to be provided later -->
-                            <img src="https://alta57.com/wp-content/uploads/2026/02/DE-HABERLO-DICHO-ANTES-WEB-1.webp" alt="De haberlo dicho antes">
-                            <div class="vinyl-overlay"><i class="fas fa-compact-disc"></i></div>
-                        </div>
-                        <div class="album-info">
-                            <h3>De haberlo dicho antes</h3>
-                            <div class="album-actions">
-                                <button class="btn-spotify" onclick="playMedia('media-3', 'spotify_album', '0XvliKNOGiQIxLM3uAWBsh')"><i class="fab fa-spotify"></i> Spotify</button>
-                                <button class="btn-youtube" onclick="playMedia('media-3', 'youtube', 'XSqf3PWpkJ4')"><i class="fab fa-youtube"></i> YouTube</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-
-        <!-- Tour Dates Section (New) -->
-        <section id="fechas" class="section-padding dark-bg">
-            <div class="container">
-                <h2 class="section-title fade-in">Próximas Fechas</h2>
-                <div class="tour-dates">
-                    <div class="tour-item fade-in">
-                        <div class="tour-date">
-                            <span class="day">15</span>
-                            <span class="month">MAR</span>
-                        </div>
-                        <div class="tour-info">
-                            <h3>Bogotá</h3>
-                            <p>Movistar Arena</p>
-                        </div>
-                        <a href="#" class="btn btn-secondary">Tickets</a>
-                    </div>
-                    <div class="tour-item fade-in delay-100">
-                        <div class="tour-date">
-                            <span class="day">22</span>
-                            <span class="month">MAR</span>
-                        </div>
-                        <div class="tour-info">
-                            <h3>Medellín</h3>
-                            <p>La Macarena</p>
-                        </div>
-                        <a href="#" class="btn btn-secondary">Tickets</a>
-                    </div>
-                    <div class="tour-item fade-in delay-200">
-                        <div class="tour-date">
-                            <span class="day">05</span>
-                            <span class="month">ABR</span>
-                        </div>
-                        <div class="tour-info">
-                            <h3>Cali</h3>
-                            <p>Arena Cañaveralejo</p>
-                        </div>
-                        <a href="#" class="btn btn-secondary">Tickets</a>
-                    </div>
-                </div>
-
-                <div style="text-align: center; margin-top: 30px;" class="fade-in">
-                    <a href="agenda.html" class="btn btn-glass-loop">
-                        Ver todas las fechas
-                        <svg class="btn-border-svg"><rect x="0" y="0" width="100%" height="100%" rx="30" ry="30" pathLength="100" /></svg>
-                    </a>
-                </div>
-            </div>
-        </section>
-
-                <!-- Social Media Section (Glass Card) -->
-        <section id="redes-sociales" class="section-padding dark-bg">
-            <div class="container">
-                <h2 class="section-title fade-in">Síguenos</h2>
-        <div class="fade-in" style="display: flex; flex-direction: column; align-items: center; padding-top: 50px; padding-bottom: 50px;">
-                    <div class="card-social">
-                        <ul>
-                            <!-- Facebook -->
-                    <li class="iso-pro" data-network="Facebook" data-info="Camilo & Julián" data-action="Seguir" data-url="https://www.facebook.com/share/17sFSZ2hi9/?mibextid=wwXIfr" data-icon="fab fa-facebook-f">
-                                <span></span><span></span><span></span>
-                        <a href="#" onclick="return false;">
-                                    <div class="svg-social"><i class="fab fa-facebook-f"></i></div>
-                                    <div class="text-tooltip">Facebook</div>
-                                </a>
-                            </li>
-                            <!-- Instagram Joint -->
-                    <li class="iso-pro" data-network="Instagram" data-info="@camiloyjulian" data-action="Seguir" data-url="https://www.instagram.com/camiloyjulian?igsh=MTdtcjFsaHN0MTQzYQ==" data-icon="fab fa-instagram">
-                                <span></span><span></span><span></span>
-                        <a href="#" onclick="return false;">
-                                    <div class="svg-social"><i class="fab fa-instagram"></i></div>
-                                    <div class="text-tooltip">@camiloyjulian</div>
-                                </a>
-                            </li>
-                            <!-- Instagram Julian -->
-                    <li class="iso-pro" data-network="Instagram" data-info="@juliancastillo___" data-action="Seguir" data-url="https://www.instagram.com/juliancastillo___?igsh=YzlpdW11amZucmRj" data-icon="fab fa-instagram">
-                                <span></span><span></span><span></span>
-                        <a href="#" onclick="return false;">
-                                    <div class="svg-social"><i class="fab fa-instagram"></i></div>
-                                    <div class="text-tooltip">@juliancastillo___</div>
-                                </a>
-                            </li>
-                            <!-- YouTube -->
-                    <li class="iso-pro" data-network="YouTube" data-info="CamiloSanzTv" data-action="Suscribirse" data-url="https://youtube.com/@camilosanztv?si=FqQMjctq4GEaAm10" data-icon="fab fa-youtube">
-                                <span></span><span></span><span></span>
-                        <a href="#" onclick="return false;">
-                                    <div class="svg-social"><i class="fab fa-youtube"></i></div>
-                                    <div class="text-tooltip">YouTube</div>
-                                </a>
-                            </li>
-                            <!-- Spotify -->
-                    <li class="iso-pro" data-network="Spotify" data-info="Camilo Sanz & Julián Castillo" data-action="Escuchar" data-url="https://open.spotify.com/artist/4jSxOZYC5bgVCM32uTGmVv" data-icon="fab fa-spotify">
-                                <span></span><span></span><span></span>
-                        <a href="#" onclick="return false;">
-                                    <div class="svg-social"><i class="fab fa-spotify"></i></div>
-                                    <div class="text-tooltip">Spotify</div>
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-
-            <!-- Dynamic Preview Container -->
-            <div id="social-preview-container" class="social-preview-hidden">
-                <!-- Content injected via JS -->
-            </div>
-                </div>
-            </div>
-        </section>
-
-    </main>
-
-    <!-- Footer -->
-    <footer id="contacto">
-        <div class="container footer-content">
-            <div class="footer-brand">
-                <a href="#inicio"><img src="https://alta57.com/wp-content/uploads/2026/02/LOGO-SILVER-2-scaled.png" alt="CS & JC Logo" class="footer-logo"></a>
-                <p>&copy; 2026 Camilo Sanz & Julián Castillo.</p>
-            </div>
-            <div class="footer-contact">
-                <h3>Contacto</h3>
-                <p>+57 300 123 4567</p>
-                <a href="mailto:manager@camiloyjulian.com">manager@camiloyjulian.com</a>
-                <p>Bogotá, Colombia</p>
-            </div>
-            <div class="footer-social">
-                <a href="#"><i class="fab fa-instagram"></i></a>
-                <a href="#"><i class="fab fa-tiktok"></i></a>
-                <a href="#"><i class="fab fa-youtube"></i></a>
-                <a href="#"><i class="fab fa-spotify"></i></a>
-            </div>
+        <div class="card-content-mini">
+         <h3>
+          De Haberlo Dicho Antes
+         </h3>
         </div>
-    </footer>
-
-    <!-- Bottom Navigation -->
-    <nav class="bottom-nav glass">
-        <a href="#inicio" class="nav-item">
-            <i class="fas fa-home"></i>
-            <span>Inicio</span>
-        </a>
-        <a href="discografia.html" class="nav-item center-item">
-            <div class="vinyl-disc">
-                <i class="fas fa-compact-disc"></i>
-            </div>
-            <span>Álbumes</span>
-        </a>
-        <a href="tienda.html" class="nav-item">
-            <i class="fas fa-shopping-bag"></i>
-            <span>Tienda</span>
-        </a>
-    </nav>
-
-    <script src="script.js"></script>
-</body>
+       </div>
+       <!-- Center Card (Active) -->
+       <div class="carousel-card card-center">
+        <div class="card-visual">
+         <img alt="Main Release" src="https://alta57.com/wp-content/uploads/2026/02/TRACK-SPOTIFY-3000X3000-px-scaled.webp"/>
+         <div class="card-overlay">
+         </div>
+        </div>
+        <div class="card-content-main">
+         <p class="meta">
+          Nuevo Sencillo • 2026
+         </p>
+         <a class="btn btn-primary" href="#">
+          Escuchar Ahora
+         </a>
+        </div>
+       </div>
+       <!-- Right Card -->
+       <div class="carousel-card card-right" onclick="rotateCarousel('next')">
+        <div class="card-visual">
+         <img alt="Next" src="https://alta57.com/wp-content/uploads/2026/02/TomandoyTomando_CoverArt-scaled.webp"/>
+         <div class="card-overlay">
+         </div>
+        </div>
+        <div class="card-content-mini">
+         <h3>
+          Tomando&amp;Tomando
+         </h3>
+        </div>
+       </div>
+      </div>
+      <div class="carousel-controls">
+       <button class="control-btn-arrow prev">
+        <i class="fas fa-chevron-left">
+        </i>
+       </button>
+       <button class="control-btn-arrow next">
+        <i class="fas fa-chevron-right">
+        </i>
+       </button>
+      </div>
+     </div>
+    </div>
+   </section>
+   <!-- Video Destacado Section -->
+   <section class="section-padding" id="video-destacado">
+    <div class="container">
+     <h2 class="section-title fade-in">
+      Video Destacado
+     </h2>
+     <div class="video-responsive-container fade-in" style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; border-radius: 20px; border: 1px solid rgba(255,255,255,0.1);">
+      <iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="" frameborder="0" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/XE-uHuRCMRU?si=8aV7TkZjkigx90QT" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" title="YouTube video player">
+      </iframe>
+     </div>
+     <div class="fade-in" style="text-align: center; margin-top: 30px;">
+      <a class="btn btn-secondary" href="videos.html">
+       Ver más
+      </a>
+     </div>
+    </div>
+   </section>
+   <div class="interactive-blue-wrapper">
+    <!-- Musical Proposal (Bento Grid) -->
+    <section class="section-padding" id="propuesta">
+     <div class="container">
+      <h2 class="section-title fade-in">
+       Propuesta Musical
+      </h2>
+      <div class="bento-grid">
+       <div class="bento-item large fade-in" style="background-image: url('https://alta57.com/wp-content/uploads/2026/02/VALLENATO-MODERNO-WEB-1.webp');">
+        <div class="bento-content">
+         <h3>
+          Vallenato Moderno
+         </h3>
+         <p>
+          Respetando la tradición, innovando el sonido.
+         </p>
+        </div>
+       </div>
+       <div class="bento-item small fade-in delay-100" style="background-image: linear-gradient(135deg, #1c1c1e, #2c2c2e);">
+        <div class="bento-content">
+         <i class="fas fa-guitar icon-large">
+         </i>
+         <h3>
+          Vallenato New Era
+         </h3>
+         <p>
+          Camilo &amp; Julián: El Nuevo Legado.
+         </p>
+        </div>
+       </div>
+       <div class="bento-item small fade-in delay-200" style="background-image: linear-gradient(135deg, #0044ff, #002a99);">
+        <div class="bento-content">
+         <i class="fas fa-heart icon-large">
+         </i>
+         <h3>
+          Sentimiento
+         </h3>
+         <p>
+          Letras que conectan.
+         </p>
+        </div>
+       </div>
+       <div class="bento-item medium fade-in delay-300" style="background-image: url('https://alta57.com/wp-content/uploads/2026/02/SHOW-EN-VIVO-WEB.webp');">
+        <div class="bento-content">
+         <h3>
+          Show En Vivo
+         </h3>
+         <p>
+          Una experiencia visual y sonora inolvidable.
+         </p>
+        </div>
+       </div>
+      </div>
+     </div>
+    </section>
+    <!-- Music Section (List Style) -->
+    <section class="section-padding" id="musica">
+     <div class="container">
+      <h2 class="section-title fade-in">
+       Música
+      </h2>
+      <div class="spotify-container fade-in" style="display: flex; justify-content: center;">
+       <iframe allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" allowfullscreen="" frameborder="0" height="352" loading="lazy" src="https://open.spotify.com/embed/artist/4jSxOZYC5bgVCM32uTGmVv?utm_source=generator&amp;theme=0" style="border-radius:12px" width="100%">
+       </iframe>
+      </div>
+     </div>
+    </section>
+   </div>
+   <!-- Albums Section (New) -->
+   <section class="section-padding dark-bg" id="albumes">
+    <div class="container">
+     <h2 class="section-title fade-in">
+      Discografía
+     </h2>
+     <div class="albums-grid">
+      <!-- Album 1: Mi pensamiento favorito -->
+      <div class="album-card fade-in">
+       <div class="album-cover" id="media-1">
+        <!-- Custom cover image to be provided later -->
+        <img alt="Mi pensamiento favorito" src="https://alta57.com/wp-content/uploads/2026/02/TRACK-SPOTIFY-3000X3000-px-scaled.webp"/>
+        <div class="vinyl-overlay">
+         <i class="fas fa-compact-disc">
+         </i>
+        </div>
+       </div>
+       <div class="album-info">
+        <h3>
+         Mi pensamiento favorito
+        </h3>
+        <div class="album-actions">
+         <button class="btn-spotify" onclick="playMedia('media-1', 'spotify_album', '2l6PoC9lBQyVK3Vi3eVSUB')">
+          <i class="fab fa-spotify">
+          </i>
+          Spotify
+         </button>
+         <button class="btn-youtube" onclick="playMedia('media-1', 'youtube', 'XE-uHuRCMRU')">
+          <i class="fab fa-youtube">
+          </i>
+          YouTube
+         </button>
+        </div>
+       </div>
+      </div>
+      <!-- Album 2: Tomando & tomando -->
+      <div class="album-card fade-in delay-100">
+       <div class="album-cover" id="media-2">
+        <!-- Custom cover image to be provided later -->
+        <img alt="Tomando y tomando" src="https://alta57.com/wp-content/uploads/2026/02/TomandoyTomando_CoverArt-scaled.webp"/>
+        <div class="vinyl-overlay">
+         <i class="fas fa-compact-disc">
+         </i>
+        </div>
+       </div>
+       <div class="album-info">
+        <h3>
+         Tomando &amp; tomando
+        </h3>
+        <div class="album-actions">
+         <button class="btn-spotify" onclick="playMedia('media-2', 'spotify_track', '3X0lcs4v5EWKWw6VRDJ4Ue')">
+          <i class="fab fa-spotify">
+          </i>
+          Spotify
+         </button>
+         <button class="btn-youtube" onclick="playMedia('media-2', 'youtube', '92XH3atub10')">
+          <i class="fab fa-youtube">
+          </i>
+          YouTube
+         </button>
+        </div>
+       </div>
+      </div>
+      <!-- Album 3: De haberlo dicho antes -->
+      <div class="album-card fade-in delay-200">
+       <div class="album-cover" id="media-3">
+        <!-- Custom cover image to be provided later -->
+        <img alt="De haberlo dicho antes" src="https://alta57.com/wp-content/uploads/2026/02/DE-HABERLO-DICHO-ANTES-WEB-1.webp"/>
+        <div class="vinyl-overlay">
+         <i class="fas fa-compact-disc">
+         </i>
+        </div>
+       </div>
+       <div class="album-info">
+        <h3>
+         De haberlo dicho antes
+        </h3>
+        <div class="album-actions">
+         <button class="btn-spotify" onclick="playMedia('media-3', 'spotify_album', '0XvliKNOGiQIxLM3uAWBsh')">
+          <i class="fab fa-spotify">
+          </i>
+          Spotify
+         </button>
+         <button class="btn-youtube" onclick="playMedia('media-3', 'youtube', 'XSqf3PWpkJ4')">
+          <i class="fab fa-youtube">
+          </i>
+          YouTube
+         </button>
+        </div>
+       </div>
+      </div>
+     </div>
+    </div>
+   </section>
+   <!-- Tour Dates Section (New) -->
+   <section class="section-padding dark-bg" id="fechas">
+    <div class="container">
+     <h2 class="section-title fade-in">
+      Próximas Fechas
+     </h2>
+     <div class="tour-dates">
+      <div class="tour-item fade-in">
+       <div class="tour-date">
+        <span class="day">
+         15
+        </span>
+        <span class="month">
+         MAR
+        </span>
+       </div>
+       <div class="tour-info">
+        <h3>
+         Bogotá
+        </h3>
+        <p>
+         Movistar Arena
+        </p>
+       </div>
+       <a class="btn btn-secondary" href="#">
+        Tickets
+       </a>
+      </div>
+      <div class="tour-item fade-in delay-100">
+       <div class="tour-date">
+        <span class="day">
+         22
+        </span>
+        <span class="month">
+         MAR
+        </span>
+       </div>
+       <div class="tour-info">
+        <h3>
+         Medellín
+        </h3>
+        <p>
+         La Macarena
+        </p>
+       </div>
+       <a class="btn btn-secondary" href="#">
+        Tickets
+       </a>
+      </div>
+      <div class="tour-item fade-in delay-200">
+       <div class="tour-date">
+        <span class="day">
+         05
+        </span>
+        <span class="month">
+         ABR
+        </span>
+       </div>
+       <div class="tour-info">
+        <h3>
+         Cali
+        </h3>
+        <p>
+         Arena Cañaveralejo
+        </p>
+       </div>
+       <a class="btn btn-secondary" href="#">
+        Tickets
+       </a>
+      </div>
+     </div>
+     <div class="fade-in" style="text-align: center; margin-top: 30px;">
+      <a class="btn btn-glass-loop" href="agenda.html">
+       Ver todas las fechas
+       <svg class="btn-border-svg">
+        <rect height="100%" pathlength="100" rx="30" ry="30" width="100%" x="0" y="0">
+        </rect>
+       </svg>
+      </a>
+     </div>
+    </div>
+   </section>
+   <!-- Social Media Section (Glass Card) -->
+   <section class="section-padding dark-bg" id="redes-sociales">
+    <div class="container">
+     <h2 class="section-title fade-in">
+      Síguenos
+     </h2>
+     <div class="fade-in" style="display: flex; flex-direction: column; align-items: center; padding-top: 50px; padding-bottom: 50px;">
+      <div class="card-social">
+       <ul>
+        <!-- Facebook -->
+        <li class="iso-pro" data-action="Seguir" data-icon="fab fa-facebook-f" data-info="Camilo &amp; Julián" data-network="Facebook" data-url="https://www.facebook.com/share/17sFSZ2hi9/?mibextid=wwXIfr">
+         <span>
+         </span>
+         <span>
+         </span>
+         <span>
+         </span>
+         <a href="#" onclick="return false;">
+          <div class="svg-social">
+           <i class="fab fa-facebook-f">
+           </i>
+          </div>
+          <div class="text-tooltip">
+           Facebook
+          </div>
+         </a>
+        </li>
+        <!-- Instagram Joint -->
+        <li class="iso-pro" data-action="Seguir" data-icon="fab fa-instagram" data-info="@camiloyjulian" data-network="Instagram" data-url="https://www.instagram.com/camiloyjulian?igsh=MTdtcjFsaHN0MTQzYQ==">
+         <span>
+         </span>
+         <span>
+         </span>
+         <span>
+         </span>
+         <a href="#" onclick="return false;">
+          <div class="svg-social">
+           <i class="fab fa-instagram">
+           </i>
+          </div>
+          <div class="text-tooltip">
+           @camiloyjulian
+          </div>
+         </a>
+        </li>
+        <!-- Instagram Julian -->
+        <li class="iso-pro" data-action="Seguir" data-icon="fab fa-instagram" data-info="@juliancastillo___" data-network="Instagram" data-url="https://www.instagram.com/juliancastillo___?igsh=YzlpdW11amZucmRj">
+         <span>
+         </span>
+         <span>
+         </span>
+         <span>
+         </span>
+         <a href="#" onclick="return false;">
+          <div class="svg-social">
+           <i class="fab fa-instagram">
+           </i>
+          </div>
+          <div class="text-tooltip">
+           @juliancastillo___
+          </div>
+         </a>
+        </li>
+        <!-- YouTube -->
+        <li class="iso-pro" data-action="Suscribirse" data-icon="fab fa-youtube" data-info="CamiloSanzTv" data-network="YouTube" data-url="https://youtube.com/@camilosanztv?si=FqQMjctq4GEaAm10">
+         <span>
+         </span>
+         <span>
+         </span>
+         <span>
+         </span>
+         <a href="#" onclick="return false;">
+          <div class="svg-social">
+           <i class="fab fa-youtube">
+           </i>
+          </div>
+          <div class="text-tooltip">
+           YouTube
+          </div>
+         </a>
+        </li>
+        <!-- Spotify -->
+        <li class="iso-pro" data-action="Escuchar" data-icon="fab fa-spotify" data-info="Camilo Sanz &amp; Julián Castillo" data-network="Spotify" data-url="https://open.spotify.com/artist/4jSxOZYC5bgVCM32uTGmVv">
+         <span>
+         </span>
+         <span>
+         </span>
+         <span>
+         </span>
+         <a href="#" onclick="return false;">
+          <div class="svg-social">
+           <i class="fab fa-spotify">
+           </i>
+          </div>
+          <div class="text-tooltip">
+           Spotify
+          </div>
+         </a>
+        </li>
+       </ul>
+      </div>
+      <!-- Dynamic Preview Container -->
+      <div class="social-preview-hidden" id="social-preview-container">
+       <!-- Content injected via JS -->
+      </div>
+     </div>
+    </div>
+   </section>
+  </main>
+  <!-- Footer -->
+  <footer id="contacto">
+   <div class="container footer-content">
+    <div class="footer-brand">
+     <a href="#inicio">
+      <img alt="CS &amp; JC Logo" class="footer-logo" src="https://alta57.com/wp-content/uploads/2026/02/LOGO-SILVER-2-scaled.png"/>
+     </a>
+     <p>
+      © 2026 Camilo Sanz &amp; Julián Castillo.
+     </p>
+    </div>
+    <div class="footer-contact">
+     <h3>
+      Contacto
+     </h3>
+     <p>
+      +57 300 123 4567
+     </p>
+     <a href="mailto:manager@camiloyjulian.com">
+      manager@camiloyjulian.com
+     </a>
+     <p>
+      Bogotá, Colombia
+     </p>
+    </div>
+    <div class="footer-social">
+     <a href="#">
+      <i class="fab fa-instagram">
+      </i>
+     </a>
+     <a href="#">
+      <i class="fab fa-tiktok">
+      </i>
+     </a>
+     <a href="#">
+      <i class="fab fa-youtube">
+      </i>
+     </a>
+     <a href="#">
+      <i class="fab fa-spotify">
+      </i>
+     </a>
+    </div>
+   </div>
+  </footer>
+  <!-- Bottom Navigation -->
+  <nav class="bottom-nav glass">
+   <a class="nav-item" href="#inicio">
+    <i class="fas fa-home">
+    </i>
+    <span>
+     Inicio
+    </span>
+   </a>
+   <a class="nav-item center-item" href="discografia.html">
+    <div class="vinyl-disc">
+     <i class="fas fa-compact-disc">
+     </i>
+    </div>
+    <span>
+     Álbumes
+    </span>
+   </a>
+   <a class="nav-item" href="tienda.html">
+    <i class="fas fa-shopping-bag">
+    </i>
+    <span>
+     Tienda
+    </span>
+   </a>
+  </nav>
+  <script src="script.js">
+  </script>
+ </body>
 </html>
