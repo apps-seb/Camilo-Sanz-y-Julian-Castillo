@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>Camilo Sanz &amp; Julián Castillo | Acceso Exclusivo</title>
+  <link href="https://fonts.googleapis.com" rel="preconnect"/>
+  <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+  <link href="style.css" rel="stylesheet"/>
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      background: radial-gradient(circle at center, #000044 0%, #000 100%);
+      overflow: hidden;
+      position: relative;
+    }
+
+    /* Animated Background */
+    body::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle, rgba(65, 105, 225, 0.1) 0%, transparent 60%);
+      animation: rotateBg 20s linear infinite;
+      z-index: 0;
+    }
+
+    .login-container {
+      position: relative;
+      z-index: 10;
+      background: rgba(28, 28, 30, 0.6);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 20px;
+      padding: 50px 40px;
+      width: 100%;
+      max-width: 400px;
+      text-align: center;
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+      animation: fadeIn 1s ease-out;
+    }
+
+    .login-logo {
+      max-width: 180px;
+      margin: 0 auto 30px;
+      display: block;
+    }
+
+    .login-title {
+      font-size: 1.5rem;
+      margin-bottom: 30px;
+      color: var(--text-primary);
+      font-weight: 600;
+    }
+
+    .input-group {
+      margin-bottom: 20px;
+      text-align: left;
+    }
+
+    .input-group label {
+      display: block;
+      margin-bottom: 8px;
+      color: var(--text-secondary);
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      font-weight: 500;
+    }
+
+    .glass-input {
+      width: 100%;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 12px;
+      padding: 15px 20px;
+      color: #fff;
+      font-family: inherit;
+      font-size: 1rem;
+      transition: all 0.3s ease;
+      box-sizing: border-box;
+    }
+
+    .glass-input:focus {
+      outline: none;
+      border-color: var(--royal-blue);
+      background: rgba(255, 255, 255, 0.08);
+      box-shadow: 0 0 0 4px rgba(65, 105, 225, 0.15);
+    }
+
+    .btn-login {
+      width: 100%;
+      padding: 15px;
+      background: var(--royal-blue);
+      color: #fff;
+      border: none;
+      border-radius: 12px;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: var(--transition);
+      margin-top: 10px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .btn-login:hover {
+      background: #0044ff;
+      transform: translateY(-2px);
+      box-shadow: 0 5px 20px rgba(0, 68, 255, 0.4);
+    }
+
+    .error-msg {
+      color: #ff4444;
+      font-size: 0.9rem;
+      margin-top: 15px;
+      display: none;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="login-container">
+    <img src="https://alta57.com/wp-content/uploads/2026/02/LOGO-SILVER-2-scaled.png" alt="CS &amp; JC Logo" class="login-logo">
+    <h2 class="login-title">Acceso Exclusivo</h2>
+
+    <form id="loginForm">
+      <div class="input-group">
+        <label for="username">Usuario</label>
+        <input type="text" id="username" class="glass-input" required autocomplete="off">
+      </div>
+      <div class="input-group">
+        <label for="password">Contraseña</label>
+        <input type="password" id="password" class="glass-input" required autocomplete="off">
+      </div>
+      <button type="submit" class="btn-login">Entrar</button>
+      <div id="errorMsg" class="error-msg">Usuario o contraseña incorrectos.</div>
+    </form>
+  </div>
+
+  <script>
+    async function digestMessage(message) {
+      const msgUint8 = new TextEncoder().encode(message);
+      const hashBuffer = await crypto.subtle.digest('SHA-256', msgUint8);
+      const hashArray = Array.from(new Uint8Array(hashBuffer));
+      const hashHex = hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
+      return hashHex;
+    }
+
+    document.getElementById('loginForm').addEventListener('submit', async function(e) {
+      e.preventDefault();
+      const user = document.getElementById('username').value;
+      const pass = document.getElementById('password').value;
+      const errorMsg = document.getElementById('errorMsg');
+
+      const userHash = await digestMessage(user);
+      const passHash = await digestMessage(pass);
+
+      // Hashes for the required credentials
+      const expectedUserHash = '31a8b08bd053c86698db5360f45fa452cc335ecdd90e6c5350263361d7e533d0';
+      const expectedPassHash = 'ee55b57ab9a7df52f3ffe0dec9361161185ce657de2344ebc04a5e69cc637151';
+
+      if (userHash === expectedUserHash && passHash === expectedPassHash) {
+        // Simple client-side auth state
+        sessionStorage.setItem('isLoggedIn', 'true');
+        window.location.href = 'index.html';
+      } else {
+        errorMsg.style.display = 'block';
+        // Add a small shake animation on error
+        const container = document.querySelector('.login-container');
+        container.style.animation = 'none';
+        setTimeout(() => {
+          container.style.transform = 'translateX(-10px)';
+          setTimeout(() => container.style.transform = 'translateX(10px)', 100);
+          setTimeout(() => container.style.transform = 'translateX(-10px)', 200);
+          setTimeout(() => container.style.transform = 'translateX(0)', 300);
+        }, 10);
+      }
+    });
+
+    // Check if already logged in
+    if (sessionStorage.getItem('isLoggedIn') === 'true') {
+      window.location.href = 'index.html';
+    }
+  </script>
+</body>
+</html>
