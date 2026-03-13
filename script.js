@@ -1,14 +1,3 @@
-// --- AUTHENTICATION CHECK ---
-(function() {
-    // Check if the user is authenticated. We use sessionStorage so the login persists during the session.
-    // Allow access to login.html.
-    if (window.location.pathname.indexOf('login.html') === -1) {
-        if (sessionStorage.getItem('isLoggedIn') !== 'true') {
-            window.location.href = 'login.html';
-        }
-    }
-})();
-
 document.addEventListener('DOMContentLoaded', () => {
 
     // --- 0. HERO CAROUSEL ---
